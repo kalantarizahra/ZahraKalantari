@@ -213,53 +213,6 @@ nav a {
 }
 
 
-/* YAZD-INSPIRED GEOMETRY */
-
-.geometry polygon,
-.geometry line {
-  fill: none;
-  stroke: rgba(23, 63, 96, 0.32);
-  stroke-width: 1.2;
-}
-
-
-/* SYSTEM CONNECTIONS */
-
-.connections line {
-  stroke: rgba(20, 127, 159, 0.32);
-  stroke-width: 1.2;
-}
-
-
-/* FEEDBACK LOOPS */
-
-.feedback-loop {
-  fill: none;
-  stroke: rgba(20, 127, 159, 0.38);
-  stroke-width: 1.4;
-  stroke-dasharray: 0.015 0.018;
-}
-
-.second-loop {
-  stroke: rgba(23, 63, 96, 0.25);
-}
-
-
-/* SYSTEM NODES */
-
-.nodes circle {
-  fill: var(--blue);
-  opacity: 0.72;
-}
-
-.nodes circle:nth-child(even) {
-  fill: var(--sand);
-}
-
-.nodes .central-node {
-  fill: var(--deep-blue);
-  opacity: 0.85;
-}
 
 /* RESEARCH AREAS */
 
@@ -320,7 +273,40 @@ nav a {
   color: var(--deep-blue);
   line-height: 1.7;
 }
+/* FEATURED RESEARCH STRIP */
 
+.featured-strip {
+  min-height: 78px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1.5rem;
+
+  background: var(--deep-blue);
+
+  color: var(--ivory);
+}
+
+.featured-strip p {
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+
+  color: var(--ivory);
+}
+
+.featured-strip span {
+  width: 80px;
+  height: 1px;
+
+  background: rgba(247, 243, 234, 0.65);
+}
 
 /* MOBILE */
 
