@@ -3,15 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Zahra Kalantari-Banadaki | System Dynamics Researcher</title>
 
     <meta
         name="description"
-        content="Academic website of Zahra Kalantari-Banadaki, System Dynamics researcher working on demographic change, ageing, socio-economic systems, sustainability and complexity."
+        content="Academic website of Zahra Kalantari-Banadaki, System Dynamics researcher working on demographic change, ageing, systems thinking, complexity, socio-economic systems and sustainability."
     >
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -26,30 +28,93 @@
 
 <body>
 
-    <!-- HEADER -->
 
-    <header>
+    <!-- =========================================
+         HEADER
+    ========================================== -->
 
-        <a href="#" class="brand">
-            Zahra Kalantari-Banadaki
-        </a>
+    <header class="site-header">
 
-        <nav>
-            <a href="#">Home</a>
+        <div class="header-left">
+
+            <!-- Small geometric identity mark -->
+            <a href="#" class="site-mark" aria-label="Home">
+
+                <svg viewBox="0 0 60 60" aria-hidden="true">
+
+                    <g fill="none" stroke="currentColor" stroke-width="2">
+
+                        <polygon
+                            points="30,5 37,16 50,15 45,27 55,35 43,41 43,54 30,49 17,54 17,41 5,35 15,27 10,15 23,16"
+                        />
+
+                        <polygon
+                            points="30,15 37,23 45,30 37,37 30,45 23,37 15,30 23,23"
+                        />
+
+                        <circle cx="30" cy="30" r="5"/>
+
+                    </g>
+
+                </svg>
+
+            </a>
+
+
+            <a href="#" class="brand-name">
+                Zahra Kalantari
+            </a>
+
+        </div>
+
+
+        <nav class="main-nav" aria-label="Main navigation">
+
+            <a href="#" class="active">Home</a>
+
             <a href="#research">Research</a>
+
             <a href="#projects">Projects</a>
+
             <a href="#publications">Publications</a>
+
             <a href="#teaching">Teaching</a>
+
             <a href="#about">About</a>
+
             <a href="#contact">Contact</a>
+
         </nav>
+
+
+        <div class="social-links">
+
+            <!-- Replace # later with real LinkedIn URL -->
+            <a href="#"
+               class="social-icon linkedin"
+               aria-label="LinkedIn">
+                in
+            </a>
+
+            <!-- Replace # later with real ORCID URL -->
+            <a href="#"
+               class="social-icon orcid"
+               aria-label="ORCID">
+                iD
+            </a>
+
+        </div>
 
     </header>
 
 
+
     <main>
 
-        <!-- HERO -->
+
+        <!-- =========================================
+             HERO
+        ========================================== -->
 
         <section class="hero">
 
@@ -59,180 +124,262 @@
                     System Dynamics Researcher
                 </p>
 
+
                 <h1>
-                    ZAHRA<br>
+                    ZAHRA
+                    <br>
                     KALANTARI
                 </h1>
 
+
+                <div class="hero-divider"></div>
+
+
                 <p class="hero-description">
-                    Understanding complex demographic and
-                    socio-economic systems through systems thinking,
-                    dynamic modelling and policy analysis.
+                    Understanding complex demographic
+                    and socio-economic systems for a more
+                    sustainable future.
                 </p>
 
-                <a href="#research">
-                    Explore my research →
+
+                <a href="#research" class="hero-link">
+                    Explore my research
+                    <span aria-hidden="true">→</span>
                 </a>
 
             </div>
 
 
-            <!-- SYSTEMS / COMPLEXITY VISUAL -->
 
-            <div class="system-visual" aria-hidden="true">
+            <!-- =========================================
+                 SYSTEMS + COMPLEXITY + IRANIAN GEOMETRY
+            ========================================== -->
+
+            <div class="hero-visual" aria-hidden="true">
 
                 <svg
-                    class="system-svg"
-                    viewBox="0 0 700 520"
+                    class="complexity-visual"
+                    viewBox="0 0 850 540"
                     xmlns="http://www.w3.org/2000/svg"
                 >
 
-                    <!-- feedback loops -->
 
-                    <path
-                        d="M145 260 C155 105 535 90 565 250"
-                        fill="none"
-                        stroke="#147f9f"
-                        stroke-width="1.4"
-                        stroke-dasharray="5 7"
-                        opacity="0.45"
-                    />
+                    <!-- Large feedback trajectories -->
 
-                    <path
-                        d="M555 300 C520 440 205 450 155 315"
-                        fill="none"
-                        stroke="#173f60"
-                        stroke-width="1.2"
-                        stroke-dasharray="5 7"
-                        opacity="0.30"
-                    />
+                    <g class="feedback-paths">
 
+                        <path
+                            d="M110 270
+                               C120 90, 335 50, 470 125
+                               C565 177, 605 240, 705 225"
+                        />
 
-                    <!-- outer circles -->
+                        <path
+                            d="M125 330
+                               C190 480, 450 485, 570 395
+                               C645 338, 655 270, 745 290"
+                        />
 
-                    <circle
-                        cx="350"
-                        cy="260"
-                        r="185"
-                        fill="none"
-                        stroke="#147f9f"
-                        stroke-width="1"
-                        opacity="0.22"
-                    />
+                        <path
+                            d="M205 145
+                               C320 40, 595 80, 670 195"
+                        />
 
-                    <circle
-                        cx="350"
-                        cy="260"
-                        r="135"
-                        fill="none"
-                        stroke="#147f9f"
-                        stroke-width="1"
-                        opacity="0.18"
-                    />
+                        <path
+                            d="M180 410
+                               C280 500, 580 470, 675 330"
+                        />
+
+                    </g>
 
 
-                    <!-- geometric structure -->
 
-                    <polygon
-                        points="350,130 430,165 480,260 430,355 350,390 270,355 220,260 270,165"
-                        fill="none"
-                        stroke="#173f60"
-                        stroke-width="1.3"
-                        opacity="0.42"
-                    />
+                    <!-- Large system arcs -->
 
-                    <polygon
-                        points="350,175 405,200 440,260 405,320 350,345 295,320 260,260 295,200"
-                        fill="none"
-                        stroke="#147f9f"
-                        stroke-width="1.2"
-                        opacity="0.45"
-                    />
+                    <g class="system-arcs">
 
+                        <circle cx="430" cy="270" r="205"/>
 
-                    <!-- inner connections -->
+                        <ellipse
+                            cx="430"
+                            cy="270"
+                            rx="285"
+                            ry="125"
+                        />
 
-                    <line
-                        x1="350" y1="130"
-                        x2="350" y2="390"
-                        stroke="#147f9f"
-                        stroke-width="1"
-                        opacity="0.28"
-                    />
+                        <ellipse
+                            cx="430"
+                            cy="270"
+                            rx="155"
+                            ry="235"
+                        />
 
-                    <line
-                        x1="220" y1="260"
-                        x2="480" y2="260"
-                        stroke="#147f9f"
-                        stroke-width="1"
-                        opacity="0.28"
-                    />
+                        <ellipse
+                            cx="430"
+                            cy="270"
+                            rx="255"
+                            ry="190"
+                            transform="rotate(35 430 270)"
+                        />
 
-                    <line
-                        x1="270" y1="165"
-                        x2="430" y2="355"
-                        stroke="#147f9f"
-                        stroke-width="1"
-                        opacity="0.25"
-                    />
+                        <ellipse
+                            cx="430"
+                            cy="270"
+                            rx="255"
+                            ry="190"
+                            transform="rotate(-35 430 270)"
+                        />
 
-                    <line
-                        x1="430" y1="165"
-                        x2="270" y2="355"
-                        stroke="#147f9f"
-                        stroke-width="1"
-                        opacity="0.25"
-                    />
+                    </g>
 
 
-                    <!-- network connections -->
 
-                    <line
-                        x1="130" y1="180"
-                        x2="270" y2="165"
-                        stroke="#147f9f"
-                        stroke-width="1"
-                        opacity="0.28"
-                    />
+                    <!-- Central Yazd-inspired geometry -->
 
-                    <line
-                        x1="155" y1="350"
-                        x2="270" y2="355"
-                        stroke="#147f9f"
-                        stroke-width="1"
-                        opacity="0.28"
-                    />
+                    <g class="geometric-core">
 
-                    <line
-                        x1="550" y1="170"
-                        x2="430" y2="165"
-                        stroke="#147f9f"
-                        stroke-width="1"
-                        opacity="0.28"
-                    />
+                        <polygon
+                            points="
+                            430,105
+                            470,145
+                            525,145
+                            525,200
+                            565,240
+                            525,280
+                            525,335
+                            470,335
+                            430,375
+                            390,335
+                            335,335
+                            335,280
+                            295,240
+                            335,200
+                            335,145
+                            390,145"
+                        />
 
-                    <line
-                        x1="575" y1="345"
-                        x2="430" y2="355"
-                        stroke="#147f9f"
-                        stroke-width="1"
-                        opacity="0.28"
-                    />
+                        <polygon
+                            points="
+                            430,145
+                            470,185
+                            510,185
+                            510,225
+                            550,265
+                            510,305
+                            510,345
+                            470,345
+                            430,385
+                            390,345
+                            350,345
+                            350,305
+                            310,265
+                            350,225
+                            350,185
+                            390,185"
+                        />
+
+                        <polygon
+                            points="
+                            430,180
+                            465,215
+                            500,215
+                            500,250
+                            535,285
+                            500,320
+                            465,320
+                            430,355
+                            395,320
+                            360,320
+                            360,285
+                            325,250
+                            360,215
+                            395,215"
+                        />
+
+                    </g>
 
 
-                    <!-- nodes -->
 
-                    <circle cx="130" cy="180" r="7" fill="#147f9f" opacity="0.75"/>
-                    <circle cx="155" cy="350" r="8" fill="#cfc1aa"/>
-                    <circle cx="550" cy="170" r="7" fill="#147f9f" opacity="0.70"/>
-                    <circle cx="575" cy="345" r="6" fill="#cfc1aa"/>
+                    <!-- Radial system connections -->
 
-                    <circle cx="350" cy="130" r="5" fill="#147f9f"/>
-                    <circle cx="480" cy="260" r="5" fill="#147f9f"/>
-                    <circle cx="350" cy="390" r="5" fill="#147f9f"/>
-                    <circle cx="220" cy="260" r="5" fill="#147f9f"/>
+                    <g class="radial-lines">
 
-                    <circle cx="350" cy="260" r="11" fill="#173f60"/>
+                        <line x1="430" y1="270" x2="430" y2="105"/>
+                        <line x1="430" y1="270" x2="565" y2="240"/>
+                        <line x1="430" y1="270" x2="525" y2="335"/>
+                        <line x1="430" y1="270" x2="335" y2="335"/>
+                        <line x1="430" y1="270" x2="295" y2="240"/>
+                        <line x1="430" y1="270" x2="335" y2="145"/>
+                        <line x1="430" y1="270" x2="525" y2="145"/>
+
+                    </g>
+
+
+
+                    <!-- Outer network connections -->
+
+                    <g class="network-links">
+
+                        <line x1="145" y1="180" x2="335" y2="200"/>
+
+                        <line x1="175" y1="370" x2="335" y2="335"/>
+
+                        <line x1="710" y1="155" x2="525" y2="200"/>
+
+                        <line x1="730" y1="375" x2="525" y2="335"/>
+
+                        <line x1="260" y1="90" x2="390" y2="145"/>
+
+                        <line x1="610" y1="105" x2="470" y2="145"/>
+
+                    </g>
+
+
+
+                    <!-- System nodes -->
+
+                    <g class="system-nodes">
+
+                        <circle cx="145" cy="180" r="8"/>
+
+                        <circle cx="175" cy="370" r="11"/>
+
+                        <circle cx="710" cy="155" r="9"/>
+
+                        <circle cx="730" cy="375" r="7"/>
+
+                        <circle cx="260" cy="90" r="6"/>
+
+                        <circle cx="610" cy="105" r="7"/>
+
+                        <circle cx="430" cy="105" r="8"/>
+
+                        <circle cx="565" cy="240" r="8"/>
+
+                        <circle cx="525" cy="335" r="7"/>
+
+                        <circle cx="335" cy="335" r="7"/>
+
+                        <circle cx="295" cy="240" r="7"/>
+
+                        <circle cx="335" cy="145" r="6"/>
+
+                        <circle cx="525" cy="145" r="6"/>
+
+                    </g>
+
+
+
+                    <!-- Central node -->
+
+                    <g class="central-system-node">
+
+                        <circle cx="430" cy="270" r="20"/>
+
+                        <circle cx="430" cy="270" r="8"/>
+
+                    </g>
+
 
                 </svg>
 
@@ -241,21 +388,106 @@
         </section>
 
 
-        <!-- RESEARCH AREAS -->
 
-        <section class="research-areas" id="research">
+        <!-- =========================================
+             RESEARCH AREAS
+        ========================================== -->
 
-            <div class="section-title">
-                <h2>Research Areas</h2>
+        <section
+            class="research-areas"
+            id="research"
+        >
+
+
+            <!-- Decorative heading -->
+
+            <div class="research-heading">
+
+                <span class="heading-line"></span>
+
+
+                <div class="heading-mark">
+
+                    <svg
+                        viewBox="0 0 50 50"
+                        aria-hidden="true"
+                    >
+
+                        <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.6"
+                        >
+
+                            <polygon
+                                points="25,4 31,14 42,13 38,23 46,30 36,35 36,46 25,42 14,46 14,35 4,30 12,23 8,13 19,14"
+                            />
+
+                            <circle cx="25" cy="25" r="5"/>
+
+                        </g>
+
+                    </svg>
+
+                </div>
+
+
+                <span class="heading-line"></span>
+
             </div>
 
-            <div class="research-grid">
+
+            <h2>
+                Research Areas
+            </h2>
+
+
+
+            <div class="research-layout">
+
+
+                <!-- AREA 1 -->
 
                 <article class="research-card">
 
-                    <div class="research-icon">◎</div>
+                    <div class="research-icon">
 
-                    <h3>Demographic Dynamics</h3>
+                        <svg
+                            viewBox="0 0 64 64"
+                            aria-hidden="true"
+                        >
+
+                            <g
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <circle cx="32" cy="18" r="7"/>
+
+                                <circle cx="15" cy="24" r="5"/>
+
+                                <circle cx="49" cy="24" r="5"/>
+
+                                <path d="M20 50V39c0-8 5-12 12-12s12 4 12 12v11"/>
+
+                                <path d="M5 49V39c0-6 4-9 10-9 3 0 5 1 7 2"/>
+
+                                <path d="M59 49V39c0-6-4-9-10-9-3 0-5 1-7 2"/>
+
+                            </g>
+
+                        </svg>
+
+                    </div>
+
+
+                    <h3>
+                        Demographic Dynamics
+                    </h3>
+
 
                     <p>
                         Population · Fertility · Migration · Ageing
@@ -264,11 +496,67 @@
                 </article>
 
 
+
+                <!-- AREA 2 -->
+
                 <article class="research-card">
 
-                    <div class="research-icon">↻</div>
+                    <div class="research-icon systems-icon">
 
-                    <h3>Systems Thinking & Complexity</h3>
+                        <svg
+                            viewBox="0 0 64 64"
+                            aria-hidden="true"
+                        >
+
+                            <g
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <circle cx="32" cy="32" r="5"/>
+
+                                <circle cx="15" cy="19" r="4"/>
+
+                                <circle cx="50" cy="17" r="4"/>
+
+                                <circle cx="49" cy="47" r="4"/>
+
+                                <circle cx="16" cy="48" r="4"/>
+
+                                <path d="M19 21L28 29"/>
+
+                                <path d="M46 20L36 29"/>
+
+                                <path d="M46 44L36 35"/>
+
+                                <path d="M20 45L28 35"/>
+
+                                <path d="M18 14C30 5 48 9 55 22"/>
+
+                                <path d="M55 22L51 19"/>
+
+                                <path d="M55 22L54 17"/>
+
+                                <path d="M47 53C34 60 19 56 11 43"/>
+
+                                <path d="M11 43L15 46"/>
+
+                                <path d="M11 43L12 48"/>
+
+                            </g>
+
+                        </svg>
+
+                    </div>
+
+
+                    <h3>
+                        Systems Thinking &amp; Complexity
+                    </h3>
+
 
                     <p>
                         Feedback · Dynamics · Nonlinearity · Policy Resistance
@@ -277,11 +565,51 @@
                 </article>
 
 
+
+                <!-- AREA 3 -->
+
                 <article class="research-card">
 
-                    <div class="research-icon">↗</div>
+                    <div class="research-icon">
 
-                    <h3>Socio-economic & Sustainability Systems</h3>
+                        <svg
+                            viewBox="0 0 64 64"
+                            aria-hidden="true"
+                        >
+
+                            <g
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <path d="M12 48V35"/>
+
+                                <path d="M25 48V26"/>
+
+                                <path d="M38 48V18"/>
+
+                                <path d="M51 48V10"/>
+
+                                <path d="M8 52H55"/>
+
+                                <path d="M12 29L24 22L36 15L50 8"/>
+
+                                <path d="M43 8H50V15"/>
+
+                            </g>
+
+                        </svg>
+
+                    </div>
+
+
+                    <h3>
+                        Socio-economic &amp; Sustainability Systems
+                    </h3>
+
 
                     <p>
                         Labour · Welfare · Public Policy · Resilience · Sustainability
@@ -289,22 +617,79 @@
 
                 </article>
 
+
+
+                <!-- RIGHT-SIDE STATEMENT -->
+
+                <aside class="research-statement">
+
+                    <div class="statement-decoration">
+
+                        <span></span>
+
+
+                        <svg
+                            viewBox="0 0 48 48"
+                            aria-hidden="true"
+                        >
+
+                            <g
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.3"
+                            >
+
+                                <polygon
+                                    points="24,3 30,13 41,12 37,22 45,29 35,34 35,45 24,41 13,45 13,34 3,29 11,22 7,12 18,13"
+                                />
+
+                            </g>
+
+                        </svg>
+
+
+                        <span></span>
+
+                    </div>
+
+
+                    <p>
+                        Better models.<br>
+                        Richer perspectives.<br>
+                        More resilient societies.
+                    </p>
+
+
+                    <div class="statement-line"></div>
+
+                </aside>
+
+
             </div>
 
         </section>
 
 
-        <!-- FEATURED RESEARCH -->
 
-        <section class="featured-strip" id="projects">
+        <!-- =========================================
+             FEATURED RESEARCH STRIP
+        ========================================== -->
 
-            <span></span>
+        <section
+            class="featured-strip"
+            id="projects"
+        >
 
-            <p>Featured Research</p>
+            <div class="featured-line"></div>
 
-            <span></span>
+            <p>
+                Featured Research
+            </p>
+
+            <div class="featured-line"></div>
 
         </section>
+
 
     </main>
 
