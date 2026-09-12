@@ -2,17 +2,29 @@
 <html lang="en">
 
 <head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Zahra Kalantari-Banadaki | System Dynamics Researcher</title>
 
-<link rel="stylesheet" href="style.css">
+    <meta
+        name="description"
+        content="Academic website of Zahra Kalantari-Banadaki, System Dynamics researcher working on demographic change, ageing, socio-economic systems, sustainability and complexity."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 
 <body>
-
 
     <!-- HEADER -->
 
@@ -23,30 +35,21 @@
         </a>
 
         <nav>
-
             <a href="#">Home</a>
-
             <a href="#research">Research</a>
-
             <a href="#projects">Projects</a>
-
             <a href="#publications">Publications</a>
-
             <a href="#teaching">Teaching</a>
-
             <a href="#about">About</a>
-
             <a href="#contact">Contact</a>
-
         </nav>
 
     </header>
 
 
-
-    <!-- HERO -->
-
     <main>
+
+        <!-- HERO -->
 
         <section class="hero">
 
@@ -56,19 +59,16 @@
                     System Dynamics Researcher
                 </p>
 
-
                 <h1>
                     ZAHRA<br>
                     KALANTARI
                 </h1>
-
 
                 <p class="hero-description">
                     Understanding complex demographic and
                     socio-economic systems through systems thinking,
                     dynamic modelling and policy analysis.
                 </p>
-
 
                 <a href="#research">
                     Explore my research →
@@ -77,114 +77,236 @@
             </div>
 
 
+            <!-- SYSTEMS / COMPLEXITY VISUAL -->
 
-            <!--
-            This is our visual area inspired by:
-            Iranian geometry + complexity + feedback systems.
-            We will improve it later.
-            -->
+            <div class="system-visual" aria-hidden="true">
 
-               <div class="system-visual" aria-hidden="true">
+                <svg
+                    class="system-svg"
+                    viewBox="0 0 700 520"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
 
-    <svg class="system-svg" viewBox="0 0 700 520">
+                    <!-- feedback loops -->
 
-        <!-- feedback loops -->
-        <path class="feedback-loop"
-              d="M155 265 C165 95 535 80 565 260"
-              pathLength="1"/>
+                    <path
+                        d="M145 260 C155 105 535 90 565 250"
+                        fill="none"
+                        stroke="#147f9f"
+                        stroke-width="1.4"
+                        stroke-dasharray="5 7"
+                        opacity="0.45"
+                    />
 
-        <path class="feedback-loop second-loop"
-              d="M545 305 C500 455 215 450 165 310"
-              pathLength="1"/>
+                    <path
+                        d="M555 300 C520 440 205 450 155 315"
+                        fill="none"
+                        stroke="#173f60"
+                        stroke-width="1.2"
+                        stroke-dasharray="5 7"
+                        opacity="0.30"
+                    />
 
-        <!-- geometric network -->
-        <g class="geometry">
 
-            <polygon points="350,120 445,160 485,255 445,350 350,390 255,350 215,255 255,160"/>
+                    <!-- outer circles -->
 
-            <polygon points="350,165 415,190 440,255 415,320 350,345 285,320 260,255 285,190"/>
+                    <circle
+                        cx="350"
+                        cy="260"
+                        r="185"
+                        fill="none"
+                        stroke="#147f9f"
+                        stroke-width="1"
+                        opacity="0.22"
+                    />
 
-            <line x1="350" y1="120" x2="350" y2="390"/>
-            <line x1="215" y1="255" x2="485" y2="255"/>
+                    <circle
+                        cx="350"
+                        cy="260"
+                        r="135"
+                        fill="none"
+                        stroke="#147f9f"
+                        stroke-width="1"
+                        opacity="0.18"
+                    />
 
-            <line x1="255" y1="160" x2="445" y2="350"/>
-            <line x1="445" y1="160" x2="255" y2="350"/>
 
-        </g>
+                    <!-- geometric structure -->
 
-        <!-- network connections -->
-        <g class="connections">
-            <line x1="130" y1="170" x2="255" y2="160"/>
-            <line x1="160" y1="350" x2="255" y2="350"/>
-            <line x1="540" y1="145" x2="445" y2="160"/>
-            <line x1="575" y1="340" x2="445" y2="350"/>
-        </g>
+                    <polygon
+                        points="350,130 430,165 480,260 430,355 350,390 270,355 220,260 270,165"
+                        fill="none"
+                        stroke="#173f60"
+                        stroke-width="1.3"
+                        opacity="0.42"
+                    />
 
-        <!-- nodes -->
-        <g class="nodes">
-            <circle cx="130" cy="170" r="7"/>
-            <circle cx="160" cy="350" r="9"/>
-            <circle cx="540" cy="145" r="8"/>
-            <circle cx="575" cy="340" r="6"/>
+                    <polygon
+                        points="350,175 405,200 440,260 405,320 350,345 295,320 260,260 295,200"
+                        fill="none"
+                        stroke="#147f9f"
+                        stroke-width="1.2"
+                        opacity="0.45"
+                    />
 
-            <circle cx="350" cy="120" r="6"/>
-            <circle cx="485" cy="255" r="6"/>
-            <circle cx="350" cy="390" r="6"/>
-            <circle cx="215" cy="255" r="6"/>
 
-            <circle class="central-node" cx="350" cy="255" r="13"/>
-        </g>
+                    <!-- inner connections -->
 
-    </svg>
+                    <line
+                        x1="350" y1="130"
+                        x2="350" y2="390"
+                        stroke="#147f9f"
+                        stroke-width="1"
+                        opacity="0.28"
+                    />
 
-</div>
-     
+                    <line
+                        x1="220" y1="260"
+                        x2="480" y2="260"
+                        stroke="#147f9f"
+                        stroke-width="1"
+                        opacity="0.28"
+                    />
+
+                    <line
+                        x1="270" y1="165"
+                        x2="430" y2="355"
+                        stroke="#147f9f"
+                        stroke-width="1"
+                        opacity="0.25"
+                    />
+
+                    <line
+                        x1="430" y1="165"
+                        x2="270" y2="355"
+                        stroke="#147f9f"
+                        stroke-width="1"
+                        opacity="0.25"
+                    />
+
+
+                    <!-- network connections -->
+
+                    <line
+                        x1="130" y1="180"
+                        x2="270" y2="165"
+                        stroke="#147f9f"
+                        stroke-width="1"
+                        opacity="0.28"
+                    />
+
+                    <line
+                        x1="155" y1="350"
+                        x2="270" y2="355"
+                        stroke="#147f9f"
+                        stroke-width="1"
+                        opacity="0.28"
+                    />
+
+                    <line
+                        x1="550" y1="170"
+                        x2="430" y2="165"
+                        stroke="#147f9f"
+                        stroke-width="1"
+                        opacity="0.28"
+                    />
+
+                    <line
+                        x1="575" y1="345"
+                        x2="430" y2="355"
+                        stroke="#147f9f"
+                        stroke-width="1"
+                        opacity="0.28"
+                    />
+
+
+                    <!-- nodes -->
+
+                    <circle cx="130" cy="180" r="7" fill="#147f9f" opacity="0.75"/>
+                    <circle cx="155" cy="350" r="8" fill="#cfc1aa"/>
+                    <circle cx="550" cy="170" r="7" fill="#147f9f" opacity="0.70"/>
+                    <circle cx="575" cy="345" r="6" fill="#cfc1aa"/>
+
+                    <circle cx="350" cy="130" r="5" fill="#147f9f"/>
+                    <circle cx="480" cy="260" r="5" fill="#147f9f"/>
+                    <circle cx="350" cy="390" r="5" fill="#147f9f"/>
+                    <circle cx="220" cy="260" r="5" fill="#147f9f"/>
+
+                    <circle cx="350" cy="260" r="11" fill="#173f60"/>
+
+                </svg>
+
+            </div>
 
         </section>
 
 
-
         <!-- RESEARCH AREAS -->
 
-<section class="research-areas" id="research">
+        <section class="research-areas" id="research">
 
-    <div class="section-title">
-        <h2>Research Areas</h2>
-    </div>
+            <div class="section-title">
+                <h2>Research Areas</h2>
+            </div>
 
-    <div class="research-grid">
+            <div class="research-grid">
 
-        <article class="research-card">
-            <div class="research-icon">◎</div>
-            <h3>Demographic Dynamics</h3>
-            <p>
-                Population · Fertility · Migration · Ageing
-            </p>
-        </article>
+                <article class="research-card">
 
-        <article class="research-card">
-            <div class="research-icon">↻</div>
-            <h3>Systems Thinking & Complexity</h3>
-            <p>
-                Feedback · Dynamics · Nonlinearity · Policy Resistance
-            </p>
-        </article>
+                    <div class="research-icon">◎</div>
 
-        <article class="research-card">
-            <div class="research-icon">↗</div>
-            <h3>Socio-economic & Sustainability Systems</h3>
-            <p>
-                Labour · Welfare · Public Policy · Resilience · Sustainability
-            </p>
-        </article>
+                    <h3>Demographic Dynamics</h3>
 
-    </div>
+                    <p>
+                        Population · Fertility · Migration · Ageing
+                    </p>
 
-</section>
+                </article>
 
+
+                <article class="research-card">
+
+                    <div class="research-icon">↻</div>
+
+                    <h3>Systems Thinking & Complexity</h3>
+
+                    <p>
+                        Feedback · Dynamics · Nonlinearity · Policy Resistance
+                    </p>
+
+                </article>
+
+
+                <article class="research-card">
+
+                    <div class="research-icon">↗</div>
+
+                    <h3>Socio-economic & Sustainability Systems</h3>
+
+                    <p>
+                        Labour · Welfare · Public Policy · Resilience · Sustainability
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURED RESEARCH -->
+
+        <section class="featured-strip" id="projects">
+
+            <span></span>
+
+            <p>Featured Research</p>
+
+            <span></span>
+
+        </section>
 
     </main>
-
 
 </body>
 
