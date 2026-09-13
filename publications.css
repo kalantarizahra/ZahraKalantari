@@ -144,7 +144,12 @@
   font-weight: 600;
   color: var(--deep-blue);
 }
-
+.stat-number {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
 .stat span {
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 9.5px;
