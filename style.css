@@ -355,46 +355,36 @@ img {
 .hero {
   grid-row: 2;
 
-  min-height: 0;
-
   display: grid;
+  grid-template-columns: 43% 57%;
+  align-items: stretch;
 
-  grid-template-columns:
-    43%
-    57%;
+  min-height: 0;
+  height: 100%;
 
-  padding-left:
-    calc(
-      var(--rail-width) + 8.8vw
-    );
+  margin-left: var(--rail-width);
+  width: calc(100% - var(--rail-width));
 
-  border-bottom:
-    1px solid var(--line);
+  border-bottom: 1px solid rgba(36, 55, 70, 0.10);
 
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
-
 
 /* =========================================================
    HERO COPY
    ========================================================= */
 
 .hero-copy {
-  min-width: 0;
-
   display: flex;
-
   flex-direction: column;
-
   justify-content: center;
 
-  align-items: flex-start;
+  padding: 56px 44px 56px 92px;
 
-  padding:
-    0.4vh
-    2.4vw
-    0.4vh
-    0;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-label {
@@ -546,28 +536,23 @@ img {
    ========================================================= */
 
 .hero-visual {
+ min-height: 0;
+height: 100%;
+
+  background-image: url("assets/hero-graphic.png");
+  background-repeat: no-repeat;
+
+  /* مهم: کات نشود */
+  background-size: auto 96%;
+
+  /* مهم: کمی به سمت مرکز بیاید */
+  background-position: 30% center;
+
+  background-color: transparent;
+
   position: relative;
-
-  min-width: 0;
-
-  height: 100%;
-
+  z-index: 1;
   overflow: hidden;
-
-  background-color:
-    var(--page);
-
-  background-image:
-    url("assets/hero-graphic.png");
-
-  background-repeat:
-    no-repeat;
-
-  background-size:
-    cover;
-
-  background-position:
-    68% center;
 }
 
 
@@ -663,18 +648,16 @@ img {
 .research-areas {
   grid-row: 3;
 
-  min-height: 0;
+  position: relative;
+  z-index: 3;
 
-  padding:
-    0.9vh
-    4.8vw
-    1vh
-    calc(
-      var(--rail-width) + 8.8vw
-    );
+  margin-left: var(--rail-width);
+  width: calc(100% - var(--rail-width));
 
-  background:
-    rgba(249,245,237,0.80);
+  padding: 34px 64px 28px;
+  background: var(--page);
+
+  border-bottom: 1px solid rgba(36, 55, 70, 0.06);
 }
 
 
@@ -1016,37 +999,34 @@ img {
   margin-left:
     var(--rail-width);
 
-  overflow: hidden;
+  overflow:
+    hidden;
 
   background-color:
     #174e79;
 
   background-image:
-    url("assets/featured-banner.png"),
-  
+    url("assets/featured-banner.png");
+
   background-repeat:
-    no-repeat,
     no-repeat;
 
   background-position:
-    center,
     center;
 
   background-size:
-    cover,
     cover;
 }
 
+.featured-strip > img {
+  display: none;
+}
 
 /*
   If an old Featured <img> remains,
   hide it so we never get duplicate text
   or a broken-image symbol.
 */
-
-.featured-strip > img {
-  display: none;
-}
 
 
 /* =========================================================
