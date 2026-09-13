@@ -21,13 +21,23 @@
   top: 0;
   bottom: var(--featured-height);
   height: auto;
+
+  /* Keep the motif at the same visual scale as the homepage. */
+  background-repeat: repeat-y;
+  background-size: auto calc(100svh - var(--featured-height));
+  background-position: center top;
+
+  z-index: 40;
 }
 
 .publications-header {
   position: sticky;
   top: 0;
   min-height: var(--header-height);
-  z-index: 80;
+
+  /* The rail stays visible across the header, as on the homepage. */
+  z-index: 20;
+
   backdrop-filter: blur(10px);
 }
 
@@ -368,6 +378,10 @@
     top: 0;
     bottom: var(--featured-height);
     height: auto;
+
+    background-repeat: repeat-y;
+    background-size: auto calc(100svh - var(--featured-height));
+    background-position: center top;
   }
 
   .publications-header {
