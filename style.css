@@ -103,7 +103,7 @@ img {
   grid-template-columns: minmax(270px, 1fr) auto minmax(96px, 0.4fr);
   align-items: center;
   padding: 0 4.2vw 0 calc(var(--rail-width) + 2.3vw);
-  border-bottom: 1px solid var(--line);
+  border-bottom: none;
   background: rgba(249, 245, 237, 0.94);
 }
 
@@ -221,7 +221,7 @@ img {
   margin-left: var(--rail-width);
   width: calc(100% - var(--rail-width));
   overflow: hidden;
-  border-bottom: 1px solid rgba(36, 55, 70, 0.10);
+  border-bottom: none;
 }
 
 .hero-copy {
@@ -287,16 +287,16 @@ img {
 .hero-visual {
   position: absolute;
   z-index: 1;
-  top: -18px;
-  right: -34px;
-  bottom: -18px;
-  width: 63%;
+  top: -8px;
+  right: -10px;
+  bottom: -8px;
+  width: 65%;
   overflow: hidden;
   background-color: var(--page);
   background-image: url("assets/hero-graphic.png");
   background-repeat: no-repeat;
-  background-size: 114% auto;
-  background-position: 43% center;
+  background-size: 116% auto;
+  background-position: 36% center;
 }
 
 .hero-visual::before {
@@ -383,7 +383,7 @@ img {
   justify-content: flex-start;
   padding: 0 1.25vw;
   text-align: center;
-  border-right: 1px solid rgba(23, 63, 96, 0.10);
+  border-right: none;
 }
 
 .research-icon-box {
