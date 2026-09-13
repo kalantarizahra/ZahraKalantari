@@ -165,70 +165,8 @@
   color: rgba(23,63,96,0.54);
 }
 
-.featured-publication-grid,
-.output-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
 
-.featured-paper,
-.output-card {
-  position: relative;
-  padding: 28px 27px 26px;
-  background: rgba(255,255,255,0.28);
-  border: 1px solid rgba(23,63,96,0.08);
-}
 
-.featured-paper {
-  min-height: 445px;
-  display: flex;
-  flex-direction: column;
-}
-
-.featured-paper::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 48px;
-  height: 2px;
-  background: var(--blue);
-}
-
-.paper-year,
-.publication-year {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-weight: 600;
-  color: var(--blue);
-}
-
-.paper-year {
-  margin-bottom: 18px;
-  font-size: 28px;
-  line-height: 1;
-  color: var(--deep-blue);
-}
-
-.paper-type,
-.output-label {
-  margin-bottom: 15px;
-  line-height: 1.5;
-}
-
-.featured-paper h3,
-.output-card h3,
-.publication-body h3 {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-weight: 600;
-  color: var(--deep-blue);
-}
-
-.featured-paper h3 {
-  margin-bottom: 19px;
-  font-size: clamp(21px, 1.85vw, 27px);
-  line-height: 1.18;
-}
 
 .output-card h3 {
   margin-bottom: 18px;
