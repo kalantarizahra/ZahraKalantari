@@ -13,13 +13,15 @@
 
   --line: rgba(23, 63, 96, 0.11);
 
-  --rail-width: 72px;
+  /* keep featured bar as it is */
+  --featured-height: clamp(44px, 5.6vh, 58px);
+
+  /* left rail should visually match that thickness */
+  --rail-width: 52px;
 
   --header-height: clamp(62px, 7.4vh, 76px);
   --research-height: clamp(188px, 27vh, 245px);
-  --featured-height: clamp(44px, 5.6vh, 58px);
 }
-
 
 /* =========================================================
    RESET
