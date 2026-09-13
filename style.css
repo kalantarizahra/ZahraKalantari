@@ -1,11 +1,20 @@
 /* =========================================================
-   ZAHRA KALANTARI — CLEAN HOMEPAGE CSS
+   ZAHRA KALANTARI — FINAL HOMEPAGE CSS
+   Replace the entire current style.css with this file.
+   Expected assets:
+   assets/brand-mark.png
+   assets/hero-graphic.png
+   assets/left-border.png
+   assets/feature-banner.png
+   assets/slogan-icon.png
+   assets/icon-demographic.png
+   assets/icon-socioeconomic.png
+   assets/icon-sustainability.png
    ========================================================= */
 
 :root {
   --page: #f7f2e9;
   --page-light: #faf6ef;
-
   --sand: #D4C8B6;
 
   --blue: #1385a8;
@@ -13,15 +22,24 @@
 
   --line: rgba(23, 63, 96, 0.11);
 
-  /* keep featured bar as it is */
+  /*
+    IMPORTANT:
+    The left rail width is EXACTLY the same as the
+    Featured bar height. This keeps the frame balanced
+    without making the blue bar thicker.
+  */
   --featured-height: clamp(44px, 5.6vh, 58px);
-
-  /* left rail should visually match that thickness */
-  --rail-width: 52px;
+  --rail-width: var(--featured-height);
 
   --header-height: clamp(62px, 7.4vh, 76px);
-  --research-height: clamp(188px, 27vh, 245px);
+
+  /*
+    Slightly more room for Research Areas, so text
+    never falls onto the blue bar.
+  */
+  --research-height: clamp(210px, 31vh, 250px);
 }
+
 
 /* =========================================================
    RESET
@@ -56,7 +74,7 @@ body {
   background:
     radial-gradient(
       circle at 82% 6%,
-      rgba(255,255,255,0.42),
+      rgba(255, 255, 255, 0.42),
       transparent 29%
     ),
     linear-gradient(
@@ -77,7 +95,7 @@ img {
 
 
 /* =========================================================
-   ONE-SCREEN DESKTOP LAYOUT
+   PAGE — ONE SCREEN ON DESKTOP
    ========================================================= */
 
 .page-shell {
@@ -85,7 +103,6 @@ img {
 
   width: 100%;
   height: 100svh;
-
   min-height: 620px;
 
   display: grid;
@@ -108,15 +125,20 @@ img {
 
 
 /* =========================================================
-   LEFT DECORATIVE BORDER
+   LEFT DECORATIVE RAIL
    ========================================================= */
 
 .left-rail {
   position: absolute;
-
   z-index: 40;
 
-  inset: 0 auto 0 0;
+  top: 0;
+  left: 0;
+
+  /*
+    Stops EXACTLY at the top edge of the blue Featured bar.
+  */
+  bottom: var(--featured-height);
 
   width: var(--rail-width);
 
@@ -131,19 +153,18 @@ img {
     repeat-y;
 
   /*
-    Deliberately enlarges the source image so
-    the decorative geometry fills the rail and
-    the blank area on its right side is cropped.
+    ZOOMED OUT:
+    100% means the full geometric design fits inside
+    the rail width instead of being cropped horizontally.
   */
-
   background-size:
-    180px auto;
+    100% auto;
 
   background-position:
-    left top;
+    center top;
 
   border-right:
-    1px solid rgba(212, 200, 182, 0.28);
+    1px solid rgba(212, 200, 182, 0.25);
 
   pointer-events: none;
 }
@@ -155,7 +176,6 @@ img {
 
 .site-header {
   position: relative;
-
   z-index: 20;
 
   grid-row: 1;
@@ -179,7 +199,7 @@ img {
     1px solid var(--line);
 
   background:
-    rgba(249,245,237,0.94);
+    rgba(249, 245, 237, 0.94);
 }
 
 
@@ -191,7 +211,6 @@ img {
   width: max-content;
 
   display: inline-flex;
-
   align-items: center;
 
   gap: 13px;
@@ -208,7 +227,6 @@ img {
 
 .brand span {
   font-size: 17px;
-
   font-weight: 500;
 
   letter-spacing: 0.19em;
@@ -227,7 +245,6 @@ img {
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   gap:
@@ -242,7 +259,6 @@ img {
   position: relative;
 
   font-size: 15px;
-
   font-weight: 500;
 
   color: var(--deep-blue);
@@ -261,7 +277,6 @@ img {
   position: absolute;
 
   left: 50%;
-
   bottom: -18px;
 
   width: 0;
@@ -291,7 +306,6 @@ img {
   display: flex;
 
   align-items: center;
-
   justify-content: flex-end;
 
   gap: 12px;
@@ -314,18 +328,12 @@ img {
     translateY(-1px);
 }
 
-
-/* LinkedIn */
-
 .linkedin svg {
   width: 22px;
   height: 22px;
 
   fill: #0A66C2;
 }
-
-
-/* ORCID */
 
 .orcid svg {
   width: 23px;
@@ -345,7 +353,6 @@ img {
     sans-serif;
 
   font-size: 8px;
-
   font-weight: 700;
 }
 
@@ -357,36 +364,51 @@ img {
 .hero {
   grid-row: 2;
 
-  display: grid;
-  grid-template-columns: 43% 57%;
-  align-items: stretch;
+  position: relative;
+  z-index: 1;
 
   min-height: 0;
   height: 100%;
 
   margin-left: var(--rail-width);
-  width: calc(100% - var(--rail-width));
 
-  border-bottom: 1px solid rgba(36, 55, 70, 0.10);
+  width:
+    calc(
+      100% - var(--rail-width)
+    );
 
   overflow: hidden;
-  position: relative;
-  z-index: 1;
+
+  border-bottom:
+    1px solid rgba(36, 55, 70, 0.10);
 }
+
 
 /* =========================================================
    HERO COPY
    ========================================================= */
 
 .hero-copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  padding: 56px 44px 56px 92px;
-
   position: relative;
-  z-index: 2;
+  z-index: 3;
+
+  width: 43%;
+  height: 100%;
+
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: flex-start;
+
+  padding:
+    0.4vh
+    2.4vw
+    0.4vh
+    6.8vw;
 }
 
 .hero-label {
@@ -416,11 +438,6 @@ img {
   color: var(--blue);
 }
 
-
-/* =========================================================
-   NAME
-   ========================================================= */
-
 .hero h1 {
   font-size:
     clamp(
@@ -438,16 +455,10 @@ img {
   color: var(--deep-blue);
 }
 
-
-/* =========================================================
-   HERO RULE
-   ========================================================= */
-
 .hero-rule {
   display: block;
 
   width: 36px;
-
   height: 2px;
 
   margin:
@@ -461,11 +472,6 @@ img {
   background:
     var(--blue);
 }
-
-
-/* =========================================================
-   HERO DESCRIPTION
-   ========================================================= */
 
 .hero-description {
   max-width: 390px;
@@ -488,11 +494,6 @@ img {
 
   color: var(--deep-blue);
 }
-
-
-/* =========================================================
-   HERO LINK
-   ========================================================= */
 
 .hero-link {
   margin-top:
@@ -529,114 +530,83 @@ img {
 
 
 /* =========================================================
-   HERO VISUAL
-
-   HTML should be:
-
-   <div class="hero-visual" aria-hidden="true"></div>
-
+   HERO ARTWORK
    ========================================================= */
 
 .hero-visual {
-  min-height: 0;
-  height: 100%;
-
-  background-image: url("assets/hero-graphic.png");
-  background-repeat: no-repeat;
-
-  /* مهم: کات نشود */
-  background-size: auto 96%;
-
-  /* مهم: کمی به سمت مرکز بیاید */
-  background-position: 30% center;
-
-  background-color: transparent;
-
-  position: relative;
+  position: absolute;
   z-index: 1;
+
+  /*
+    The artwork intentionally BLEEDS beyond the visible hero
+    on the top/right/bottom. This hides the rectangular
+    image edges and removes the cut-line effect.
+  */
+
+  top: -12px;
+  right: -20px;
+  bottom: -12px;
+
+  width: 61%;
+
   overflow: hidden;
+
+  background-color:
+    var(--page);
+
+  background-image:
+    url("assets/hero-graphic.png");
+
+  background-repeat:
+    no-repeat;
+
+  /*
+    Slight enlargement removes visible top/right/bottom edges.
+  */
+
+  background-size:
+    106% auto;
+
+  /*
+    Keeps the shamsa a little closer to page center.
+    Adjust ONLY this number later if desired:
+    48% = slightly left
+    52% = slightly right
+  */
+
+  background-position:
+    49% center;
 }
 
 
 /*
-  Soft transition between text background and artwork.
-  Removes the ugly straight image-cut line.
+  Soft left blend so the artwork never looks like
+  a rectangular image pasted next to the text.
 */
 
 .hero-visual::before {
   content: "";
 
   position: absolute;
+  z-index: 2;
 
-  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
 
-  inset:
-    0
-    auto
-    0
-    0;
-
-  width:
-    25%;
+  width: 18%;
 
   background:
     linear-gradient(
       to right,
-
-      var(--page)
-      0%,
-
-      rgba(247,242,233,0.97)
-      18%,
-
-      rgba(247,242,233,0.76)
-      47%,
-
-      rgba(247,242,233,0.28)
-      76%,
-
-      rgba(247,242,233,0)
-      100%
+      var(--page) 0%,
+      rgba(247, 242, 233, 0.92) 20%,
+      rgba(247, 242, 233, 0.50) 55%,
+      rgba(247, 242, 233, 0) 100%
     );
 
-  pointer-events:
-    none;
-}
-
-
-/* subtle top/bottom blending */
-
-.hero-visual::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
   pointer-events: none;
-
-  box-shadow:
-
-    inset
-    0
-    16px
-    25px
-    -30px
-    rgba(23,63,96,0.12),
-
-    inset
-    0
-    -16px
-    25px
-    -30px
-    rgba(23,63,96,0.12);
 }
-
-
-/*
-  If an old <img> accidentally remains in the HTML,
-  hide it so it does not interfere.
-*/
 
 .hero-visual > img {
   display: none;
@@ -653,59 +623,69 @@ img {
   position: relative;
   z-index: 3;
 
+  min-height: 0;
+
   margin-left: var(--rail-width);
-  width: calc(100% - var(--rail-width));
 
-  padding: 34px 64px 28px;
-  background: var(--page);
+  width:
+    calc(
+      100% - var(--rail-width)
+    );
 
-  border-bottom: 1px solid rgba(36, 55, 70, 0.06);
+  /*
+    More compact at the top; generous bottom safety
+    so no research text can touch the blue bar.
+  */
+
+  padding:
+    11px
+    4.2vw
+    20px;
+
+  overflow: hidden;
+
+  background:
+    var(--page);
 }
 
 
 /* =========================================================
-   RESEARCH HEADING ORNAMENT
+   RESEARCH HEADING
    ========================================================= */
 
 .research-heading {
-  height: 26px;
+  height: 24px;
 
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   gap: 15px;
+
+  margin-bottom: 2px;
 }
 
 .heading-line {
   width: 82px;
-
   height: 1px;
 
   background:
-    rgba(137,117,84,0.42);
+    rgba(137, 117, 84, 0.42);
 }
 
 .heading-mark {
   width: 25px;
-
   height: 25px;
 
   object-fit: contain;
 }
 
-
-/* =========================================================
-   RESEARCH TITLE
-   ========================================================= */
-
 .research-areas > h2 {
-  margin-top: 1px;
-
-  margin-bottom:
-    0.85vh;
+  margin:
+    0
+    0
+    8px;
 
   text-align: center;
 
@@ -731,7 +711,7 @@ img {
 .research-grid {
   height:
     calc(
-      100% - 53px
+      100% - 48px
     );
 
   display: grid;
@@ -742,7 +722,9 @@ img {
     1fr
     0.92fr;
 
-  align-items: center;
+  align-items: start;
+
+  gap: 0;
 }
 
 
@@ -751,8 +733,6 @@ img {
    ========================================================= */
 
 .research-card {
-  height: 82%;
-
   min-width: 0;
 
   display: flex;
@@ -765,33 +745,30 @@ img {
 
   padding:
     0
-    1.45vw;
+    1.25vw;
 
   text-align: center;
 
   border-right:
     1px solid
-    rgba(23,63,96,0.10);
+    rgba(23, 63, 96, 0.10);
 }
 
 
 /* =========================================================
-   RESEARCH ICONS
+   RESEARCH ICONS — 10–15% LARGER
    ========================================================= */
 
 .research-icon-box {
-  width: 68px;
-
-  height: 68px;
+  width: 72px;
+  height: 72px;
 
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
-  margin-bottom:
-    0.45vh;
+  margin-bottom: 3px;
 
   overflow: visible;
 }
@@ -802,50 +779,43 @@ img {
   object-fit: contain;
 }
 
-
-/* demographic */
-
 .icon-demographic {
-  width: 62px;
+  width: 68px;
+  height: 68px;
 
-  height: 62px;
+  transform:
+    scale(1.05);
+}
+
+.icon-socioeconomic {
+  width: 66px;
+  height: 66px;
+
+  transform:
+    scale(1.03);
+}
+
+.icon-sustainability {
+  width: 64px;
+  height: 64px;
+
+  /*
+    Leaf artwork has more internal empty space,
+    so it gets a slightly larger visual scale.
+  */
 
   transform:
     scale(1.12);
 }
 
 
-/* socioeconomic */
-
-.icon-socioeconomic {
-  width: 61px;
-
-  height: 61px;
-
-  transform:
-    scale(1.02);
-}
-
-
-/* sustainability leaf */
-
-.icon-sustainability {
-  width: 64px;
-
-  height: 64px;
-
-  transform:
-    scale(1.18);
-}
-
-
 /* =========================================================
-   RESEARCH TITLES
+   RESEARCH TEXT
    ========================================================= */
 
 .research-card h3 {
   margin-bottom:
-    0.55vh;
+    4px;
 
   font-family:
     "Montserrat",
@@ -859,7 +829,7 @@ img {
       11.3px
     );
 
-  line-height: 1.42;
+  line-height: 1.35;
 
   font-weight: 500;
 
@@ -867,11 +837,6 @@ img {
 
   color: var(--deep-blue);
 }
-
-
-/* =========================================================
-   RESEARCH TOPICS
-   ========================================================= */
 
 .research-card p {
   font-family:
@@ -882,11 +847,11 @@ img {
   font-size:
     clamp(
       11px,
-      0.91vw,
-      14px
+      0.89vw,
+      13.5px
     );
 
-  line-height: 1.36;
+  line-height: 1.30;
 
   color: var(--deep-blue);
 }
@@ -897,10 +862,13 @@ img {
    ========================================================= */
 
 .research-slogan {
-  align-self: center;
+  align-self: start;
 
-  padding-left:
-    2.1vw;
+  padding:
+    0
+    0
+    0
+    2vw;
 }
 
 .slogan-decoration {
@@ -911,7 +879,7 @@ img {
   gap: 11px;
 
   margin-bottom:
-    0.65vh;
+    5px;
 }
 
 .slogan-decoration span {
@@ -922,11 +890,8 @@ img {
   height: 1px;
 
   background:
-    rgba(137,117,84,0.42);
+    rgba(137, 117, 84, 0.42);
 }
-
-
-/* larger slogan shamsa */
 
 .slogan-decoration img {
   width:
@@ -959,7 +924,7 @@ img {
       15px
     );
 
-  line-height: 1.46;
+  line-height: 1.42;
 
   font-style: italic;
 
@@ -968,11 +933,10 @@ img {
 
 .slogan-bottom-line {
   width: 29px;
-
   height: 1px;
 
   margin-top:
-    0.9vh;
+    7px;
 
   background:
     var(--blue);
@@ -980,35 +944,29 @@ img {
 
 
 /* =========================================================
-   FEATURED RESEARCH
-
-   Works with either filename:
-   featured-banner.png
-   featured_banner.png
+   FEATURED BAR — SIMPLE, NO EXTRA HTML TEXT
    ========================================================= */
 
 .featured-strip {
   grid-row: 4;
 
-  width:
-    calc(
-      100% - var(--rail-width)
-    );
+  width: 100%;
+  height: var(--featured-height);
 
-  height:
-    var(--featured-height);
+  margin: 0;
 
-  margin-left:
-    var(--rail-width);
-
-  overflow:
-    hidden;
+  overflow: hidden;
 
   background-color:
     #174e79;
 
+  /*
+    IMPORTANT:
+    Use the new SIMPLE blue banner image without text.
+  */
+
   background-image:
-    url("assets/featured-banner.png");
+    url("assets/feature-banner.png");
 
   background-repeat:
     no-repeat;
@@ -1018,17 +976,20 @@ img {
 
   background-size:
     cover;
+
+  position: relative;
+  z-index: 50;
 }
+
+
+/*
+  If an old <img> still exists inside the Featured section,
+  hide it so there is never duplicate text or a broken image.
+*/
 
 .featured-strip > img {
   display: none;
 }
-
-/*
-  If an old Featured <img> remains,
-  hide it so we never get duplicate text
-  or a broken-image symbol.
-*/
 
 
 /* =========================================================
@@ -1045,24 +1006,28 @@ and
       61px;
 
     --research-height:
-      188px;
+      205px;
 
     --featured-height:
       45px;
-  }
 
+    --rail-width:
+      var(--featured-height);
+  }
 
   .brand-mark {
     width: 35px;
-
     height: 35px;
   }
-
 
   .brand span {
     font-size: 15px;
   }
 
+  .hero-copy {
+    padding-left:
+      6.4vw;
+  }
 
   .hero h1 {
     font-size:
@@ -1073,7 +1038,6 @@ and
       );
   }
 
-
   .hero-description {
     font-size:
       clamp(
@@ -1083,38 +1047,46 @@ and
       );
   }
 
+  .hero-visual {
+    width: 61%;
+    top: -10px;
+    right: -16px;
+    bottom: -10px;
+
+    background-size:
+      106% auto;
+  }
+
+  .research-areas {
+    padding-top:
+      8px;
+
+    padding-bottom:
+      15px;
+  }
 
   .research-icon-box {
-    width: 58px;
+    width: 63px;
+    height: 63px;
+  }
 
+  .icon-demographic {
+    width: 59px;
+    height: 59px;
+  }
+
+  .icon-socioeconomic {
+    width: 58px;
     height: 58px;
   }
 
-
-  .icon-demographic {
-    width: 54px;
-
-    height: 54px;
-  }
-
-
-  .icon-socioeconomic {
-    width: 53px;
-
-    height: 53px;
-  }
-
-
   .icon-sustainability {
-    width: 55px;
-
-    height: 55px;
+    width: 56px;
+    height: 56px;
   }
-
 
   .slogan-decoration img {
     width: 38px;
-
     height: 38px;
   }
 }
@@ -1131,33 +1103,35 @@ and
     overflow-y: auto;
   }
 
-
   :root {
-    --rail-width: 34px;
-  }
+    --featured-height:
+      52px;
 
+    --rail-width:
+      var(--featured-height);
+  }
 
   .page-shell {
     height: auto;
 
-    min-height: 0;
+    min-height: 100svh;
 
     display: block;
 
     overflow: visible;
   }
 
-
   .left-rail {
     position: fixed;
+
+    bottom: 0;
 
     width:
       var(--rail-width);
 
     background-size:
-      88px auto;
+      100% auto;
   }
-
 
   .site-header {
     height: 68px;
@@ -1173,13 +1147,10 @@ and
       );
   }
 
-
   .brand-mark {
     width: 34px;
-
     height: 34px;
   }
-
 
   .brand span {
     font-size: 14px;
@@ -1188,39 +1159,46 @@ and
       0.12em;
   }
 
-
   .main-nav {
     display: none;
   }
-
 
   .social-links {
     margin-left: auto;
   }
 
-
   .hero {
-    display: block;
+    position: relative;
 
-    padding:
-      40px
-      18px
-      24px
+    width:
       calc(
-        var(--rail-width) + 22px
+        100% - var(--rail-width)
       );
 
-    min-height: auto;
-  }
+    height: auto;
 
+    min-height: 0;
+
+    margin-left:
+      var(--rail-width);
+
+    padding:
+      38px
+      18px
+      0;
+
+    overflow: hidden;
+  }
 
   .hero-copy {
+    width: 100%;
+    height: auto;
+
     padding:
       0
-      0
-      28px;
+      8px
+      26px;
   }
-
 
   .hero h1 {
     font-size:
@@ -1231,44 +1209,54 @@ and
       );
   }
 
-
   .hero-visual {
-    height: 340px;
+    position: relative;
 
-    margin-left:
+    top: auto;
+    right: auto;
+    bottom: auto;
+
+    width:
       calc(
-        -1 *
-        (
-          var(--rail-width) + 22px
-        )
+        100% + 36px
       );
 
-    margin-right:
+    height:
+      330px;
+
+    margin-left:
       -18px;
 
     background-size:
       cover;
 
     background-position:
-      68% center;
+      52% center;
   }
-
 
   .hero-visual::before {
-    width: 20%;
+    width:
+      16%;
   }
-
 
   .research-areas {
-    padding:
-      28px
-      22px
-      30px
+    width:
       calc(
-        var(--rail-width) + 22px
+        100% - var(--rail-width)
       );
-  }
 
+    height: auto;
+
+    margin-left:
+      var(--rail-width);
+
+    padding:
+      24px
+      22px
+      28px;
+
+    overflow: visible;
+  }
 
   .research-grid {
     height: auto;
@@ -1276,59 +1264,46 @@ and
     display: block;
   }
 
-
   .research-card {
     height: auto;
 
     padding:
-      20px 0;
+      18px 0;
 
     border-right: 0;
 
     border-bottom:
       1px solid
-      rgba(23,63,96,0.10);
+      rgba(23, 63, 96, 0.10);
   }
-
 
   .research-icon-box {
-    width: 72px;
-
-    height: 72px;
+    width: 76px;
+    height: 76px;
   }
-
 
   .research-slogan {
     padding:
-      28px
+      26px
       0
       5px;
 
     text-align: center;
   }
 
-
   .slogan-decoration {
     justify-content: center;
   }
 
-
   .slogan-bottom-line {
     margin-left: auto;
-
     margin-right: auto;
   }
 
-
   .featured-strip {
-    width:
-      calc(
-        100% - var(--rail-width)
-      );
+    width: 100%;
+    height: var(--featured-height);
 
-    height: 70px;
-
-    margin-left:
-      var(--rail-width);
+    margin: 0;
   }
 }
