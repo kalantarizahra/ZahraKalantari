@@ -1,28 +1,40 @@
 :root {
-  --bg: #f6f2ea;
-  --bg-soft: #f9f6f0;
-  --ivory: #f8f4ec;
-  --sand: #d7ccbb;
-  --sand-line: rgba(203, 190, 170, 0.55);
+  --page: #f6f1e8;
+  --page-soft: #f8f4ec;
 
-  --blue: #1481a2;
-  --blue-soft: #3b93b0;
-  --deep-blue: #183f60;
-  --navy: #1f496d;
+  --sand: #D4C8B6;
 
-  --text: #274154;
-  --muted: #6b7c89;
-  --line: rgba(24, 63, 96, 0.12);
+  --blue: #1486aa;
+  --deep-blue: #173f60;
 
-  --rail-width: 64px;
-  --max-width: 1440px;
+  --line: rgba(23, 63, 96, 0.12);
+
+  /* wider left ornament */
+  --rail: 78px;
+
+  --header-h: 68px;
+  --featured-h: 58px;
+
+  /* gives Research Areas enough space so Featured Research
+     can never overlap it */
+  --research-h: 34vh;
 }
 
-/* RESET */
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
 html {
@@ -30,518 +42,1193 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(circle at top left, rgba(255,255,255,0.65), transparent 28%),
-    linear-gradient(180deg, #f7f3eb 0%, #f4f0e8 100%);
-  color: var(--text);
-  font-family: "Cormorant Garamond", Georgia, serif;
-  min-height: 100vh;
   overflow-x: hidden;
-}
 
-img {
-  max-width: 100%;
-  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+
+  color: var(--deep-blue);
+
+  background:
+    radial-gradient(
+      circle at 75% 5%,
+      rgba(255,255,255,0.40),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #f8f4ec 0%,
+      #f5f0e7 100%
+    );
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
-/* LEFT BORDER */
+img {
+  display: block;
+}
+
+
+/* =========================================================
+   FIRST SCREEN
+   Everything fits inside one monitor
+   ========================================================= */
+
+.landing-shell {
+  position: relative;
+
+  width: 100%;
+  height: 100svh;
+
+  display: grid;
+
+  grid-template-rows:
+    var(--header-h)
+    minmax(0, 1fr)
+    var(--research-h)
+    var(--featured-h);
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f8f4ec 0%,
+      #f5f0e7 100%
+    );
+}
+
+
+/* =========================================================
+   LEFT CREAM ORNAMENT
+   ========================================================= */
+
 .left-rail {
-  position: fixed;
+  position: absolute;
+
+  z-index: 30;
+
   top: 0;
   bottom: 0;
   left: 0;
-  width: var(--rail-width);
-  height: 100vh;
+
+  width: var(--rail);
+
+  overflow: hidden;
+
+  /*
+    IMPORTANT:
+    Original border image contains unused blank area.
+    We enlarge the image so only the geometric portion
+    occupies the visible rail.
+  */
+
   background-image: url("assets/left-border.png");
+
   background-repeat: repeat-y;
-  background-size: 64px auto;
-  background-position: top left;
-  border-right: 1px solid rgba(212, 200, 182, 0.35);
-  z-index: 50;
+
+  background-size: 345px auto;
+
+  background-position:
+    left top;
+
+  border-right:
+    1px solid rgba(212, 200, 182, 0.28);
+
   pointer-events: none;
 }
 
-/* HEADER */
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
 .site-header {
   position: relative;
+
   z-index: 10;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  height: 84px;
-  display: flex;
+
+  grid-row: 1;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(280px, 1fr)
+    auto
+    minmax(110px, 0.45fr);
+
   align-items: center;
-  justify-content: space-between;
-  padding: 0 2.8rem 0 calc(var(--rail-width) + 2.2rem);
-  border-bottom: 1px solid var(--line);
-  background: transparent;
+
+  padding:
+    0
+    4vw
+    0
+    calc(var(--rail) + 2.4vw);
+
+  border-bottom:
+    1px solid var(--line);
+
+  background:
+    rgba(248, 244, 236, 0.93);
 }
+
+
+/* BRAND */
 
 .brand {
-  display: flex;
+  width: max-content;
+
+  display: inline-flex;
+
   align-items: center;
-  gap: 1rem;
+
+  gap: 14px;
 }
 
-.brand-icon {
-  width: 48px;
-  height: 48px;
+.brand-mark {
+  width: 42px;
+  height: 42px;
+
   object-fit: contain;
-  flex: 0 0 auto;
 }
 
-.brand-name {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 1.18rem;
-  letter-spacing: 0.18em;
-  color: var(--deep-blue);
+.brand span {
+  font-size: 17px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.19em;
+
   white-space: nowrap;
 }
 
+
+/* NAV */
+
 .main-nav {
+  height: 100%;
+
   display: flex;
+
   align-items: center;
-  gap: 2.1rem;
-  margin-left: auto;
-  margin-right: 2.8rem;
+
+  justify-content: center;
+
+  gap: clamp(
+    20px,
+    2.4vw,
+    40px
+  );
 }
 
 .main-nav a {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 1rem;
-  color: var(--deep-blue);
-  transition: color 0.2s ease;
-}
-
-.main-nav a:hover {
-  color: var(--blue);
-}
-
-.header-socials {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.social-circle {
-  width: 30px;
-  height: 30px;
-  border: 1px solid rgba(24, 63, 96, 0.22);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 0.9rem;
-  color: var(--deep-blue);
-}
-
-/* HERO */
-.hero {
   position: relative;
-  z-index: 1;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 1.8rem 2.8rem 2.6rem calc(var(--rail-width) + 3rem);
-  display: grid;
-  grid-template-columns: 0.94fr 1.06fr;
-  gap: 1.8rem;
-  align-items: start;
-  min-height: 540px;
-}
 
-.hero-copy {
-  padding-top: 3.8rem;
-}
+  font-size: 15px;
 
-.hero-label {
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--blue);
-  margin-bottom: 1.7rem;
-}
-
-.hero h1 {
-  color: var(--deep-blue);
-  font-size: clamp(3.4rem, 5.3vw, 5rem);
-  line-height: 0.92;
-  letter-spacing: 0.03em;
   font-weight: 500;
 }
 
-.hero-rule {
-  width: 38px;
+.main-nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -18px;
+
+  width: 0;
   height: 2px;
-  background: var(--blue);
-  margin: 1.7rem 0 1.7rem;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    var(--blue);
+
+  transition:
+    width 0.20s ease;
 }
+
+.main-nav a.active::after,
+.main-nav a:hover::after {
+  width: 38px;
+}
+
+
+/* =========================================================
+   LINKEDIN + ORCID
+   ========================================================= */
+
+.socials {
+  display: flex;
+
+  justify-content: flex-end;
+
+  align-items: center;
+
+  gap: 11px;
+}
+
+.social-link {
+  width: 26px;
+  height: 26px;
+
+  display: grid;
+
+  place-items: center;
+
+  transition:
+    transform 0.20s ease;
+}
+
+.social-link:hover {
+  transform:
+    translateY(-1px);
+}
+
+
+/* LinkedIn standard blue square */
+
+.linkedin-mark {
+  width: 22px;
+  height: 22px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 2px;
+
+  background:
+    #0A66C2;
+
+  color:
+    white;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1;
+
+  font-weight: 700;
+}
+
+
+/* ORCID standard green circle */
+
+.orcid-mark {
+  width: 23px;
+  height: 23px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    #A6CE39;
+
+  color:
+    white;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: -0.05em;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  grid-row: 2;
+
+  min-height: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    45%
+    55%;
+
+  padding-left:
+    calc(var(--rail) + 9vw);
+
+  border-bottom:
+    1px solid var(--line);
+}
+
+
+/* HERO COPY */
+
+.hero-copy {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  padding-right: 3vw;
+}
+
+
+/* label */
+
+.hero-label {
+  margin-bottom:
+    clamp(10px, 1.6vh, 18px);
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size:
+    clamp(10px, 0.78vw, 12px);
+
+  font-weight: 600;
+
+  letter-spacing:
+    0.28em;
+
+  color:
+    var(--blue);
+}
+
+
+/* NAME — intentionally smaller */
+
+.hero h1 {
+  font-size:
+    clamp(
+      46px,
+      4.65vw,
+      70px
+    );
+
+  line-height:
+    0.90;
+
+  letter-spacing:
+    0.045em;
+
+  font-weight:
+    500;
+
+  color:
+    var(--deep-blue);
+}
+
+
+/* blue rule */
+
+.hero-rule {
+  width: 36px;
+  height: 2px;
+
+  margin:
+    clamp(11px, 1.7vh, 18px)
+    0;
+
+  background:
+    var(--blue);
+}
+
+
+/* description */
 
 .hero-description {
-  max-width: 430px;
-  font-size: 1.16rem;
-  line-height: 1.45;
-  font-style: italic;
-  color: var(--deep-blue);
-  margin-bottom: 2rem;
+  max-width: 390px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      14px,
+      1.23vw,
+      18px
+    );
+
+  line-height:
+    1.48;
+
+  font-style:
+    italic;
+
+  color:
+    var(--deep-blue);
 }
+
+
+/* link */
 
 .hero-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.85rem;
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--blue);
+  margin-top:
+    clamp(
+      12px,
+      1.9vh,
+      20px
+    );
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    13px;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size:
+    clamp(
+      9px,
+      0.72vw,
+      11px
+    );
+
+  font-weight:
+    600;
+
+  letter-spacing:
+    0.23em;
+
+  color:
+    var(--blue);
 }
 
-.hero-link span {
-  font-size: 1rem;
-  line-height: 1;
-}
+
+/* =========================================================
+   HERO IMAGE
+   smaller + breathing room
+   ========================================================= */
 
 .hero-visual {
+  min-width: 0;
+
+  height: 100%;
+
   display: flex;
-  align-items: flex-start;
+
+  align-items: center;
+
   justify-content: center;
-  min-height: 460px;
-  margin-top: -1.8rem;
+
+  overflow: hidden;
+
+  padding:
+    8px
+    14px
+    8px
+    0;
 }
 
 .hero-visual img {
-  width: 118%;
-  max-width: 900px;
-  height: auto;
+  width: 94%;
+  height: 94%;
+
+  max-width: none;
+
   object-fit: contain;
+
+  object-position:
+    center;
 }
 
-/* RESEARCH SECTION */
+
+/* =========================================================
+   RESEARCH AREAS
+   ========================================================= */
+
 .research-areas {
-  position: relative;
-  z-index: 1;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 2.4rem 2.8rem 2.8rem calc(var(--rail-width) + 3rem);
-  border-top: 1px solid var(--line);
+  grid-row: 3;
+
+  min-height: 0;
+
+  padding:
+    1vh
+    4.8vw
+    1.2vh
+    calc(var(--rail) + 9vw);
+
+  background:
+    rgba(
+      248,
+      244,
+      236,
+      0.78
+    );
 }
 
-.section-heading {
-  text-align: center;
-  margin-bottom: 2.7rem;
-}
 
-.section-ornament {
+/* title ornament */
+
+.research-heading {
+  height: 27px;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
-  gap: 0.9rem;
-  margin-bottom: 0.6rem;
+
+  gap: 15px;
 }
 
-.section-ornament .line {
-  width: 118px;
+.heading-line {
+  width: 82px;
   height: 1px;
-  background: rgba(182, 166, 140, 0.55);
+
+  background:
+    rgba(
+      137,
+      117,
+      84,
+      0.42
+    );
 }
 
-.heading-ornament {
-  width: 28px;
-  height: 28px;
+.heading-mark {
+  width: 25px;
+  height: 25px;
+
   object-fit: contain;
 }
 
-.section-heading h2 {
-  font-size: 2rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  color: var(--deep-blue);
+
+/* Research Areas */
+
+.research-areas > h2 {
+  margin-top:
+    1px;
+
+  margin-bottom:
+    1vh;
+
+  text-align:
+    center;
+
+  font-size:
+    clamp(
+      18px,
+      1.65vw,
+      25px
+    );
+
+  font-weight:
+    500;
+
+  letter-spacing:
+    0.19em;
 }
+
+
+/* grid */
 
 .research-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 0.9fr;
-  align-items: start;
+  height:
+    calc(
+      100% - 55px
+    );
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr
+    1fr
+    1fr
+    0.92fr;
+
+  align-items:
+    center;
 }
+
+
+/* cards */
 
 .research-card {
-  text-align: center;
-  padding: 0 1.8rem;
-  min-height: 170px;
-  border-right: 1px solid rgba(24, 63, 96, 0.10);
+  height:
+    82%;
+
+  min-width:
+    0;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  justify-content:
+    flex-start;
+
+  text-align:
+    center;
+
+  padding:
+    0
+    1.5vw;
+
+  border-right:
+    1px solid
+    rgba(
+      23,
+      63,
+      96,
+      0.10
+    );
 }
 
-.research-card:last-of-type {
-  border-right: 1px solid rgba(24, 63, 96, 0.10);
-}
+
+/*
+  IMPORTANT:
+  equal visual size, not equal file size.
+*/
 
 .research-icon {
-  width: 82px;
-  height: 82px;
-  object-fit: contain;
-  margin: 0 auto 1.15rem;
+  width: 62px;
+  height: 62px;
+
+  object-fit:
+    contain;
+
+  margin-bottom:
+    0.6vh;
 }
+
+
+/* Demography has more internal whitespace */
+
+.research-card:nth-child(1)
+.research-icon {
+  transform:
+    scale(1.22);
+}
+
+
+/* socioeconomic */
+
+.research-card:nth-child(2)
+.research-icon {
+  transform:
+    scale(1.04);
+}
+
+
+/* leaf looks naturally larger */
+
+.research-card:nth-child(3)
+.research-icon {
+  transform:
+    scale(0.83);
+}
+
+
+/* research headings */
 
 .research-card h3 {
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--deep-blue);
-  line-height: 1.45;
-  margin-bottom: 0.9rem;
+  margin-bottom:
+    0.65vh;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size:
+    clamp(
+      9px,
+      0.76vw,
+      11.5px
+    );
+
+  line-height:
+    1.4;
+
+  font-weight:
+    500;
+
+  letter-spacing:
+    0.18em;
 }
+
+
+/* research subtopics */
 
 .research-card p {
-  font-size: 1rem;
-  line-height: 1.45;
-  color: var(--deep-blue);
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      11px,
+      0.95vw,
+      14px
+    );
+
+  line-height:
+    1.35;
 }
 
-.research-slogan {
-  padding: 0 1.8rem 0 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+
+/* =========================================================
+   SLOGAN
+   ========================================================= */
+
+.slogan {
+  align-self:
+    center;
+
+  padding-left:
+    2.2vw;
 }
 
-.slogan-top {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 1.1rem;
+.slogan-ornament {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    11px;
+
+  margin-bottom:
+    0.7vh;
 }
 
-.slogan-top .line {
-  flex: 1;
-  height: 1px;
-  background: rgba(182, 166, 140, 0.55);
+.slogan-ornament span {
+  width:
+    53px;
+
+  height:
+    1px;
+
+  background:
+    rgba(
+      137,
+      117,
+      84,
+      0.42
+    );
 }
 
-.slogan-icon {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-  flex: 0 0 auto;
+
+/* larger slogan shamsa */
+
+.slogan-ornament img {
+  width:
+    clamp(
+      34px,
+      2.9vw,
+      42px
+    );
+
+  height:
+    clamp(
+      34px,
+      2.9vw,
+      42px
+    );
+
+  object-fit:
+    contain;
 }
 
-.research-slogan p {
-  font-size: 1.05rem;
-  line-height: 1.45;
-  font-style: italic;
-  color: var(--deep-blue);
+.slogan p {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      12px,
+      1vw,
+      15px
+    );
+
+  line-height:
+    1.45;
+
+  font-style:
+    italic;
 }
 
-.slogan-bottom-line {
-  width: 32px;
-  height: 2px;
-  background: var(--blue);
-  margin-top: 1.25rem;
+.slogan i {
+  display:
+    block;
+
+  width:
+    29px;
+
+  height:
+    1px;
+
+  margin-top:
+    1vh;
+
+  background:
+    var(--blue);
 }
 
-/* FEATURED STRIP */
+
+/* =========================================================
+   FEATURED RESEARCH
+
+   IMPORTANT:
+   Image already contains text + lines.
+   Nothing is written over it in CSS.
+   ========================================================= */
+
 .featured-strip {
-  position: relative;
-  z-index: 1;
-  margin-left: var(--rail-width);
-  min-height: 150px;
-  background-image: url("assets/featured-banner.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  grid-row:
+    4;
+
+  margin-left:
+    var(--rail);
+
+  width:
+    calc(
+      100% - var(--rail)
+    );
+
+  height:
+    var(--featured-h);
+
+  overflow:
+    hidden;
+
+  background:
+    #174f7d;
 }
 
-.featured-strip-inner {
-  width: 100%;
-  max-width: 760px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.3rem;
-  padding: 0 1rem;
+.featured-strip img {
+  width:
+    100%;
+
+  height:
+    100%;
+
+  object-fit:
+    cover;
+
+  object-position:
+    center;
 }
 
-.featured-line {
-  flex: 1;
-  max-width: 190px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.82);
-}
 
-.featured-strip h2 {
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: #ffffff;
-  white-space: nowrap;
-}
+/* =========================================================
+   SHORT DESKTOP MONITORS
+   ========================================================= */
 
-/* NEXT SECTIONS PLACEHOLDER */
-.placeholder-content {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 2rem 2.8rem 3rem calc(var(--rail-width) + 3rem);
-}
+@media
+(max-height: 720px)
+and
+(min-width: 901px) {
 
-.placeholder-box {
-  min-height: 92px;
-  border: 1px solid rgba(24, 63, 96, 0.12);
-  background: rgba(255, 255, 255, 0.20);
-  padding: 2rem;
-  display: flex;
-  align-items: center;
-  color: var(--deep-blue);
-  font-size: 1rem;
-}
-
-/* RESPONSIVE */
-@media (max-width: 1180px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-copy {
-    padding-top: 2rem;
-  }
-
-  .hero-visual {
-    margin-top: 0;
-    min-height: auto;
-  }
-
-  .hero-visual img {
-    width: 100%;
-    max-width: 760px;
-  }
-
-  .research-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem 0;
-  }
-
-  .research-card:nth-child(2) {
-    border-right: none;
-  }
-
-  .research-slogan {
-    grid-column: 1 / -1;
-    max-width: 420px;
-    margin: 0 auto;
-    text-align: center;
-    padding-top: 1rem;
-  }
-
-  .slogan-top {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 900px) {
   :root {
-    --rail-width: 34px;
+    --header-h:
+      64px;
+
+    --featured-h:
+      54px;
+
+    --research-h:
+      35vh;
   }
 
-  .site-header {
-    padding: 0 1.2rem 0 calc(var(--rail-width) + 1rem);
+  .brand-mark {
+    width:
+      37px;
+
+    height:
+      37px;
   }
 
-  .brand-name {
-    font-size: 1rem;
-    letter-spacing: 0.12em;
-  }
-
-  .main-nav {
-    display: none;
-  }
-
-  .hero {
-    padding: 1.5rem 1.2rem 2rem calc(var(--rail-width) + 1.2rem);
-  }
-
-  .research-areas {
-    padding: 2rem 1.2rem 2.2rem calc(var(--rail-width) + 1.2rem);
-  }
-
-  .placeholder-content {
-    padding: 1.5rem 1.2rem 2.2rem calc(var(--rail-width) + 1.2rem);
-  }
-
-  .research-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .research-card {
-    border-right: none !important;
-    border-bottom: 1px solid rgba(24, 63, 96, 0.10);
-    padding: 0 0 1.6rem;
-    margin-bottom: 1.6rem;
-  }
-
-  .research-slogan {
-    padding: 0;
-  }
-
-  .featured-strip {
-    margin-left: var(--rail-width);
-    min-height: 120px;
-  }
-
-  .featured-strip-inner {
-    gap: 0.8rem;
-  }
-
-  .featured-line {
-    max-width: 100px;
-  }
-
-  .featured-strip h2 {
-    font-size: 0.78rem;
-    letter-spacing: 0.18em;
-  }
-}
-
-@media (max-width: 640px) {
-  .brand-icon {
-    width: 38px;
-    height: 38px;
-  }
-
-  .header-socials {
-    gap: 0.45rem;
-  }
-
-  .social-circle {
-    width: 28px;
-    height: 28px;
-    font-size: 0.8rem;
+  .brand span {
+    font-size:
+      15px;
   }
 
   .hero h1 {
-    font-size: clamp(2.7rem, 11vw, 4.2rem);
+    font-size:
+      clamp(
+        44px,
+        4.35vw,
+        62px
+      );
   }
 
   .hero-description {
-    font-size: 1rem;
-    max-width: 100%;
+    font-size:
+      clamp(
+        13px,
+        1.1vw,
+        16px
+      );
   }
 
-  .section-ornament .line {
-    width: 72px;
+  .research-icon {
+    width:
+      54px;
+
+    height:
+      54px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+   ========================================================= */
+
+@media
+(max-width: 900px) {
+
+  body {
+    overflow-y:
+      auto;
   }
 
-  .section-heading h2 {
-    font-size: 1.55rem;
+  :root {
+    --rail:
+      36px;
+  }
+
+  .landing-shell {
+    height:
+      auto;
+
+    min-height:
+      100svh;
+
+    display:
+      block;
+
+    overflow:
+      visible;
+  }
+
+  .left-rail {
+    position:
+      fixed;
+
+    width:
+      var(--rail);
+
+    /*
+      same crop logic for mobile
+    */
+
+    background-size:
+      180px auto;
+  }
+
+  .site-header {
+    height:
+      68px;
+
+    display:
+      flex;
+
+    padding:
+      0
+      16px
+      0
+      calc(
+        var(--rail) + 16px
+      );
+  }
+
+  .brand-mark {
+    width:
+      34px;
+
+    height:
+      34px;
+  }
+
+  .brand span {
+    font-size:
+      14px;
+
+    letter-spacing:
+      0.12em;
+  }
+
+  .main-nav {
+    display:
+      none;
+  }
+
+  .socials {
+    margin-left:
+      auto;
+  }
+
+  .hero {
+    display:
+      block;
+
+    padding:
+      42px
+      18px
+      25px
+      calc(
+        var(--rail) + 22px
+      );
+  }
+
+  .hero-copy {
+    padding-bottom:
+      30px;
+  }
+
+  .hero h1 {
+    font-size:
+      clamp(
+        46px,
+        14vw,
+        68px
+      );
+  }
+
+  .hero-visual {
+    height:
+      340px;
+
+    margin-left:
+      calc(
+        -1 *
+        (
+          var(--rail) + 22px
+        )
+      );
+
+    margin-right:
+      -18px;
+  }
+
+  .hero-visual img {
+    width:
+      96%;
+
+    height:
+      96%;
+  }
+
+  .research-areas {
+    padding:
+      28px
+      22px
+      30px
+      calc(
+        var(--rail) + 22px
+      );
+  }
+
+  .research-grid {
+    height:
+      auto;
+
+    display:
+      block;
+  }
+
+  .research-card {
+    height:
+      auto;
+
+    padding:
+      20px
+      0;
+
+    border-right:
+      0;
+
+    border-bottom:
+      1px solid
+      rgba(
+        23,
+        63,
+        96,
+        0.10
+      );
+  }
+
+  .research-icon {
+    width:
+      65px;
+
+    height:
+      65px;
+  }
+
+  .slogan {
+    padding:
+      28px
+      0
+      5px;
+
+    text-align:
+      center;
+  }
+
+  .slogan-ornament {
+    justify-content:
+      center;
+  }
+
+  .slogan i {
+    margin-left:
+      auto;
+
+    margin-right:
+      auto;
+  }
+
+  .featured-strip {
+    width:
+      calc(
+        100% - var(--rail)
+      );
+
+    height:
+      70px;
+
+    margin-left:
+      var(--rail);
   }
 }
