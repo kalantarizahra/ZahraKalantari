@@ -324,16 +324,23 @@ img {
 
 /* ===================== RESEARCH AREAS ===================== */
 
-.research-areas {
-  grid-row: 3;
-  position: relative;
-  z-index: 3;
-  min-height: 0;
-  margin-left: var(--rail-width);
-  width: calc(100% - var(--rail-width));
-  padding: 6px 4.1vw 38px;
-  overflow: hidden;
-  background: var(--page);
+.research-areas > h2 {
+  margin: 0 0 6px;
+  text-align: center;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size:
+    clamp(17px, 1.35vw, 22px);
+
+  font-weight: 500;
+
+  letter-spacing: 0.16em;
+
+  color: var(--deep-blue);
 }
 
 .research-heading {
@@ -375,17 +382,43 @@ img {
   margin-top: -6px;  /* pulls whole block upward */
 }
 
-.research-card {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0 1.25vw;
-  text-align: center;
-  border-right: none;
+.research-card h3 {
+  margin-bottom: 5px;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size:
+    clamp(10px, 0.78vw, 12px);
+
+  line-height: 1.35;
+
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+
+  color: var(--deep-blue);
 }
 
+.research-card p {
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size:
+    clamp(10px, 0.72vw, 11.5px);
+
+  line-height: 1.35;
+
+  font-weight: 400;
+
+  letter-spacing: 0.025em;
+
+  color: rgba(23, 63, 96, 0.78);
+}
 .research-icon-box {
   width: 80px;
   height: 80px;
@@ -595,9 +628,9 @@ img {
   }
 
   .left-rail {
-    position: fixed;
+    position: absolute;
     top: 0;
-    bottom: 0;
+    bottom: var(--featured-height);
     height: auto;
     width: var(--rail-width);
     background-size: cover;
