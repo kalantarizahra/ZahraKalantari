@@ -1,55 +1,23 @@
 /* =========================================================
-   ZAHRA KALANTARI
-   HOMEPAGE — FINAL PROPORTION SYSTEM
-   ========================================================= */
-
-
-/* =========================================================
-   VARIABLES
+   ZAHRA KALANTARI — CLEAN HOMEPAGE CSS
    ========================================================= */
 
 :root {
+  --page: #f7f2e9;
+  --page-light: #faf6ef;
 
-    --page:
-        #f7f2e9;
+  --sand: #D4C8B6;
 
-    --page-light:
-        #faf6ef;
+  --blue: #1385a8;
+  --deep-blue: #173f60;
 
-    --sand:
-        #D4C8B6;
+  --line: rgba(23, 63, 96, 0.11);
 
-    --blue:
-        #1385a8;
+  --rail-width: 72px;
 
-    --deep-blue:
-        #173f60;
-
-    --line:
-        rgba(23, 63, 96, 0.11);
-
-
-    /* left decorative border */
-
-    --rail-width:
-        64px;
-
-
-    /*
-       These four rows together always equal the screen height.
-
-       They scale automatically with monitor height.
-    */
-
-    --header-height:
-        clamp(64px, 7.6vh, 80px);
-
-   --research-height:
-    clamp(185px, 27vh, 250px);
-
---featured-height:
-    clamp(46px, 5.6vh, 58px);
-
+  --header-height: clamp(62px, 7.4vh, 76px);
+  --research-height: clamp(188px, 27vh, 245px);
+  --featured-height: clamp(44px, 5.6vh, 58px);
 }
 
 
@@ -58,140 +26,82 @@
    ========================================================= */
 
 * {
-
-    box-sizing:
-        border-box;
-
-    margin:
-        0;
-
-    padding:
-        0;
-
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
 
 html {
-
-    width:
-        100%;
-
-    height:
-        100%;
-
-    scroll-behavior:
-        smooth;
-
+  scroll-behavior: smooth;
 }
-
 
 body {
+  overflow-x: hidden;
 
-    width:
-        100%;
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
 
-    min-height:
-        100%;
+  color: var(--deep-blue);
 
-    overflow-x:
-        hidden;
-
-
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
-
-
-    color:
-        var(--deep-blue);
-
-
-    background:
-
-        radial-gradient(
-            circle at 82% 6%,
-            rgba(255,255,255,0.40),
-            transparent 28%
-        ),
-
-        linear-gradient(
-            180deg,
-            #f9f5ed 0%,
-            #f5efe6 100%
-        );
-
+  background:
+    radial-gradient(
+      circle at 82% 6%,
+      rgba(255,255,255,0.42),
+      transparent 29%
+    ),
+    linear-gradient(
+      180deg,
+      #f9f5ed 0%,
+      #f5efe6 100%
+    );
 }
-
 
 a {
-
-    color:
-        inherit;
-
-    text-decoration:
-        none;
-
+  color: inherit;
+  text-decoration: none;
 }
 
-
 img {
-
-    display:
-        block;
-
+  display: block;
 }
 
 
 /* =========================================================
-   FIRST SCREEN
+   ONE-SCREEN DESKTOP LAYOUT
    ========================================================= */
 
 .page-shell {
+  position: relative;
 
-    position:
-        relative;
+  width: 100%;
+  height: 100svh;
 
+  min-height: 620px;
 
-    width:
-        100%;
+  display: grid;
 
+  grid-template-rows:
+    var(--header-height)
+    minmax(0, 1fr)
+    var(--research-height)
+    var(--featured-height);
 
-    /*
-       Entire composition stays inside one monitor.
-    */
+  overflow: hidden;
 
-    height:
-        100svh;
-
-
-    display:
-        grid;
-
-
-    grid-template-rows:
-
-        var(--header-height)
-
-        minmax(0, 1fr)
-
-        var(--research-height)
-
-        var(--featured-height);
-
-
-    overflow:
-        hidden;
-
-
-    background:
-
-        linear-gradient(
-            180deg,
-            #f9f5ed 0%,
-            #f5efe6 100%
-        );
-
+  background:
+    linear-gradient(
+      180deg,
+      #f9f5ed 0%,
+      #f5efe6 100%
+    );
 }
 
 
@@ -200,72 +110,40 @@ img {
    ========================================================= */
 
 .left-rail {
+  position: absolute;
 
-    position:
-        absolute;
+  z-index: 40;
 
+  inset: 0 auto 0 0;
 
-    z-index:
-        40;
+  width: var(--rail-width);
 
+  overflow: hidden;
 
-    top:
-        0;
+  background-color: var(--page);
 
-    bottom:
-        0;
+  background-image:
+    url("assets/left-border.png");
 
-    left:
-        0;
+  background-repeat:
+    repeat-y;
 
+  /*
+    Deliberately enlarges the source image so
+    the decorative geometry fills the rail and
+    the blank area on its right side is cropped.
+  */
 
-    width:
-        var(--rail-width);
+  background-size:
+    180px auto;
 
+  background-position:
+    left top;
 
-    overflow:
-        hidden;
+  border-right:
+    1px solid rgba(212, 200, 182, 0.28);
 
-
-    background-color:
-        var(--page);
-
-
-    /*
-       IMPORTANT
-
-       The source PNG contains blank space on its right side.
-
-       The original image is therefore deliberately enlarged.
-
-       This makes ONLY the geometric section fill the entire
-       visible 64px rail.
-    */
-
-    background-image:
-        url("assets/left-border.png");
-
-
-    background-repeat:
-        repeat-y;
-
-
-    background-size:
-        170px auto;
-
-
-    background-position:
-        left top;
-
-
-    border-right:
-        1px solid
-        rgba(212, 200, 182, 0.30);
-
-
-    pointer-events:
-        none;
-
+  pointer-events: none;
 }
 
 
@@ -274,56 +152,32 @@ img {
    ========================================================= */
 
 .site-header {
+  position: relative;
 
-    position:
-        relative;
+  z-index: 20;
 
+  grid-row: 1;
 
-    z-index:
-        20;
+  display: grid;
 
+  grid-template-columns:
+    minmax(270px, 1fr)
+    auto
+    minmax(96px, 0.4fr);
 
-    grid-row:
-        1;
+  align-items: center;
 
+  padding:
+    0
+    4.2vw
+    0
+    calc(var(--rail-width) + 2.2vw);
 
-    display:
-        grid;
+  border-bottom:
+    1px solid var(--line);
 
-
-    grid-template-columns:
-
-        minmax(280px, 1fr)
-
-        auto
-
-        minmax(100px, 0.45fr);
-
-
-    align-items:
-        center;
-
-
-    padding:
-
-        0
-
-        4.5vw
-
-        0
-
-        calc(
-            var(--rail-width) + 2.5vw
-        );
-
-
-    border-bottom:
-        1px solid var(--line);
-
-
-    background:
-        rgba(249,245,237,0.94);
-
+  background:
+    rgba(249,245,237,0.94);
 }
 
 
@@ -332,65 +186,32 @@ img {
    ========================================================= */
 
 .brand {
+  width: max-content;
 
-    display:
-        inline-flex;
+  display: inline-flex;
 
+  align-items: center;
 
-    align-items:
-        center;
-
-
-    gap:
-        14px;
-
-
-    width:
-        max-content;
-
+  gap: 13px;
 }
-
 
 .brand-mark {
+  width: 40px;
+  height: 40px;
 
-    width:
-        40px;
+  flex: 0 0 auto;
 
-    height:
-        40px;
-
-
-    object-fit:
-        contain;
-
-
-    flex:
-        0 0 auto;
-
+  object-fit: contain;
 }
 
-
 .brand span {
+  font-size: 17px;
 
-    font-size:
-        17px;
+  font-weight: 500;
 
+  letter-spacing: 0.19em;
 
-    font-weight:
-        500;
-
-
-    letter-spacing:
-        0.19em;
-
-
-    white-space:
-        nowrap;
-
-
-    color:
-        var(--deep-blue);
-
+  white-space: nowrap;
 }
 
 
@@ -399,111 +220,64 @@ img {
    ========================================================= */
 
 .main-nav {
+  height: 100%;
 
-    height:
-        100%;
+  display: flex;
 
+  align-items: center;
 
-    display:
-        flex;
+  justify-content: center;
 
-
-    align-items:
-        center;
-
-
-    justify-content:
-        center;
-
-
-    gap:
-        clamp(
-            21px,
-            2.45vw,
-            41px
-        );
-
+  gap:
+    clamp(
+      19px,
+      2.25vw,
+      38px
+    );
 }
-
 
 .main-nav a {
+  position: relative;
 
-    position:
-        relative;
+  font-size: 15px;
 
+  font-weight: 500;
 
-    font-size:
-        15px;
+  color: var(--deep-blue);
 
-
-    font-weight:
-        500;
-
-
-    color:
-        var(--deep-blue);
-
-
-    transition:
-        color 0.20s ease;
-
+  transition:
+    color 0.20s ease;
 }
-
 
 .main-nav a:hover {
-
-    color:
-        var(--blue);
-
+  color: var(--blue);
 }
-
 
 .main-nav a::after {
+  content: "";
 
-    content:
-        "";
+  position: absolute;
 
+  left: 50%;
 
-    position:
-        absolute;
+  bottom: -18px;
 
+  width: 0;
+  height: 2px;
 
-    left:
-        50%;
+  transform:
+    translateX(-50%);
 
+  background:
+    var(--blue);
 
-    bottom:
-        -18px;
-
-
-    width:
-        0;
-
-
-    height:
-        2px;
-
-
-    transform:
-        translateX(-50%);
-
-
-    background:
-        var(--blue);
-
-
-    transition:
-        width 0.20s ease;
-
+  transition:
+    width 0.20s ease;
 }
-
 
 .main-nav a:hover::after,
 .main-nav a.active::after {
-
-    width:
-        39px;
-
+  width: 38px;
 }
 
 
@@ -512,113 +286,65 @@ img {
    ========================================================= */
 
 .social-links {
+  display: flex;
 
-    display:
-        flex;
+  align-items: center;
 
+  justify-content: flex-end;
 
-    align-items:
-        center;
-
-
-    justify-content:
-        flex-end;
-
-
-    gap:
-        13px;
-
+  gap: 12px;
 }
-
 
 .social-link {
+  width: 25px;
+  height: 25px;
 
-    width:
-        24px;
+  display: grid;
 
-    height:
-        24px;
+  place-items: center;
 
-
-    display:
-        grid;
-
-
-    place-items:
-        center;
-
-
-    transition:
-        transform 0.20s ease;
-
+  transition:
+    transform 0.20s ease;
 }
 
-
 .social-link:hover {
-
-    transform:
-        translateY(-1px);
-
+  transform:
+    translateY(-1px);
 }
 
 
 /* LinkedIn */
 
 .linkedin svg {
+  width: 22px;
+  height: 22px;
 
-    width:
-        22px;
-
-    height:
-        22px;
-
-
-    fill:
-        #0A66C2;
-
+  fill: #0A66C2;
 }
 
 
 /* ORCID */
 
 .orcid svg {
-
-    width:
-        23px;
-
-    height:
-        23px;
-
+  width: 23px;
+  height: 23px;
 }
-
 
 .orcid circle {
-
-    fill:
-        #A6CE39;
-
+  fill: #A6CE39;
 }
 
-
 .orcid text {
+  fill: #ffffff;
 
-    fill:
-        white;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
+  font-size: 8px;
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-
-    font-size:
-        8px;
-
-
-    font-weight:
-        700;
-
+  font-weight: 700;
 }
 
 
@@ -627,24 +353,25 @@ img {
    ========================================================= */
 
 .hero {
+  grid-row: 2;
 
-    grid-row:
-        2;
+  min-height: 0;
 
-    min-height:
-        0;
+  display: grid;
 
-    display:
-        grid;
+  grid-template-columns:
+    43%
+    57%;
 
-    grid-template-columns:
-        43% 57%;
+  padding-left:
+    calc(
+      var(--rail-width) + 8.8vw
+    );
 
-    padding-left:
-        calc(var(--rail-width) + 9.2vw);
+  border-bottom:
+    1px solid var(--line);
 
-    border-bottom:
-        1px solid var(--line);
+  overflow: hidden;
 }
 
 
@@ -653,72 +380,48 @@ img {
    ========================================================= */
 
 .hero-copy {
+  min-width: 0;
 
-    min-width:
-        0;
+  display: flex;
 
-    display:
-        flex;
+  flex-direction: column;
 
-    flex-direction:
-        column;
+  justify-content: center;
 
-    justify-content:
-        center;
+  align-items: flex-start;
 
-    align-items:
-        flex-start;
-
-    padding-right:
-        2vw;
-
-    padding-top:
-        0.6vh;
-
-    padding-bottom:
-        0.6vh;
+  padding:
+    0.4vh
+    2.4vw
+    0.4vh
+    0;
 }
 
-/* label */
-
 .hero-label {
+  margin-bottom:
+    clamp(
+      10px,
+      1.5vh,
+      17px
+    );
 
-    margin-bottom:
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
 
-        clamp(
-            11px,
-            1.7vh,
-            19px
-        );
+  font-size:
+    clamp(
+      10px,
+      0.76vw,
+      12px
+    );
 
+  font-weight: 600;
 
-    font-family:
+  letter-spacing: 0.29em;
 
-        "Montserrat",
-        Arial,
-        sans-serif;
-
-
-    font-size:
-
-        clamp(
-            10px,
-            0.79vw,
-            12px
-        );
-
-
-    font-weight:
-        600;
-
-
-    letter-spacing:
-        0.29em;
-
-
-    color:
-        var(--blue);
-
+  color: var(--blue);
 }
 
 
@@ -727,293 +430,285 @@ img {
    ========================================================= */
 
 .hero h1 {
+  font-size:
+    clamp(
+      46px,
+      4.05vw,
+      63px
+    );
 
-    /*
-       Deliberately smaller than previous version.
-    */
+  line-height: 0.91;
 
-    font-size:
+  letter-spacing: 0.045em;
 
-        clamp(
-            48px,
-            4.25vw,
-            66px
-        );
+  font-weight: 500;
 
-
-    line-height:
-        0.91;
-
-
-    letter-spacing:
-        0.045em;
-
-
-    font-weight:
-        500;
-
-
-    color:
-        var(--deep-blue);
-
+  color: var(--deep-blue);
 }
 
 
-/* blue divider */
+/* =========================================================
+   HERO RULE
+   ========================================================= */
 
 .hero-rule {
+  display: block;
 
-    display:
-        block;
+  width: 36px;
 
+  height: 2px;
 
-    width:
-        37px;
+  margin:
+    clamp(
+      11px,
+      1.6vh,
+      17px
+    )
+    0;
 
-
-    height:
-        2px;
-
-
-    margin:
-
-        clamp(
-            12px,
-            1.8vh,
-            19px
-        )
-
-        0;
-
-
-    background:
-        var(--blue);
-
+  background:
+    var(--blue);
 }
 
 
-/* description */
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
 
 .hero-description {
+  max-width: 390px;
 
-    max-width:
-        390px;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
+  font-style: italic;
 
-    font-family:
+  font-size:
+    clamp(
+      13.5px,
+      1.13vw,
+      17.5px
+    );
 
-        Georgia,
-        "Times New Roman",
-        serif;
+  line-height: 1.48;
 
-
-    font-style:
-        italic;
-
-
-    font-size:
-
-        clamp(
-            14px,
-            1.18vw,
-            18px
-        );
-
-
-    line-height:
-        1.48;
-
-
-    color:
-        var(--deep-blue);
-
+  color: var(--deep-blue);
 }
 
 
-/* CTA */
+/* =========================================================
+   HERO LINK
+   ========================================================= */
 
 .hero-link {
+  margin-top:
+    clamp(
+      12px,
+      1.8vh,
+      19px
+    );
 
-    margin-top:
+  display: inline-flex;
 
-        clamp(
-            13px,
-            2vh,
-            21px
-        );
+  align-items: center;
 
+  gap: 13px;
 
-    display:
-        inline-flex;
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
 
+  font-size:
+    clamp(
+      9px,
+      0.70vw,
+      11px
+    );
 
-    align-items:
-        center;
+  font-weight: 600;
 
+  letter-spacing: 0.23em;
 
-    gap:
-        13px;
-
-
-    font-family:
-
-        "Montserrat",
-        Arial,
-        sans-serif;
-
-
-    font-size:
-
-        clamp(
-            9px,
-            0.72vw,
-            11px
-        );
-
-
-    font-weight:
-        600;
-
-
-    letter-spacing:
-        0.23em;
-
-
-    color:
-        var(--blue);
-
+  color: var(--blue);
 }
 
 
 /* =========================================================
    HERO VISUAL
+
+   HTML should be:
+
+   <div class="hero-visual" aria-hidden="true"></div>
+
    ========================================================= */
 
 .hero-visual {
-    position: relative;
-    min-height: 430px;
-    overflow: hidden;
+  position: relative;
 
-    background:
-        linear-gradient(
-            to right,
-            rgba(245, 241, 232, 1) 0%,
-            rgba(245, 241, 232, 0.96) 10%,
-            rgba(245, 241, 232, 0.82) 18%,
-            rgba(245, 241, 232, 0.45) 26%,
-            rgba(245, 241, 232, 0.00) 36%
-        ),
-        url("assets/hero-graphic.png");
+  min-width: 0;
 
-    background-repeat: no-repeat, no-repeat;
-    background-size: 100% 100%, cover;
-    background-position: left top, 72% center;
+  height: 100%;
+
+  overflow: hidden;
+
+  background-color:
+    var(--page);
+
+  background-image:
+    url("assets/hero-graphic.png");
+
+  background-repeat:
+    no-repeat;
+
+  background-size:
+    cover;
+
+  background-position:
+    68% center;
 }
+
+
+/*
+  Soft transition between text background and artwork.
+  Removes the ugly straight image-cut line.
+*/
+
+.hero-visual::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: 1;
+
+  inset:
+    0
+    auto
+    0
+    0;
+
+  width:
+    25%;
+
+  background:
+    linear-gradient(
+      to right,
+
+      var(--page)
+      0%,
+
+      rgba(247,242,233,0.97)
+      18%,
+
+      rgba(247,242,233,0.76)
+      47%,
+
+      rgba(247,242,233,0.28)
+      76%,
+
+      rgba(247,242,233,0)
+      100%
+    );
+
+  pointer-events:
+    none;
+}
+
+
+/* subtle top/bottom blending */
 
 .hero-visual::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
+  content: "";
 
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(245, 241, 232, 0.03) 0%,
-            rgba(245, 241, 232, 0.00) 14%,
-            rgba(245, 241, 232, 0.00) 86%,
-            rgba(245, 241, 232, 0.03) 100%
-        );
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  box-shadow:
+
+    inset
+    0
+    16px
+    25px
+    -30px
+    rgba(23,63,96,0.12),
+
+    inset
+    0
+    -16px
+    25px
+    -30px
+    rgba(23,63,96,0.12);
 }
+
+
+/*
+  If an old <img> accidentally remains in the HTML,
+  hide it so it does not interfere.
+*/
+
+.hero-visual > img {
+  display: none;
+}
+
+
 /* =========================================================
    RESEARCH AREAS
    ========================================================= */
 
 .research-areas {
+  grid-row: 3;
 
-    grid-row:
-        3;
+  min-height: 0;
 
+  padding:
+    0.9vh
+    4.8vw
+    1vh
+    calc(
+      var(--rail-width) + 8.8vw
+    );
 
-    min-height:
-        0;
-
-
-    padding:
-
-        1vh
-
-        4.9vw
-
-        1.1vh
-
-        calc(
-            var(--rail-width) + 9.6vw
-        );
-
-
-    background:
-        rgba(249,245,237,0.80);
-
+  background:
+    rgba(249,245,237,0.80);
 }
 
 
 /* =========================================================
-   RESEARCH TITLE ORNAMENT
+   RESEARCH HEADING ORNAMENT
    ========================================================= */
 
 .research-heading {
+  height: 26px;
 
-    height:
-        27px;
+  display: flex;
 
+  align-items: center;
 
-    display:
-        flex;
+  justify-content: center;
 
-
-    align-items:
-        center;
-
-
-    justify-content:
-        center;
-
-
-    gap:
-        15px;
-
+  gap: 15px;
 }
-
 
 .heading-line {
+  width: 82px;
 
-    width:
-        83px;
+  height: 1px;
 
-
-    height:
-        1px;
-
-
-    background:
-        rgba(137,117,84,0.42);
-
+  background:
+    rgba(137,117,84,0.42);
 }
 
-
 .heading-mark {
+  width: 25px;
 
-    width:
-        25px;
+  height: 25px;
 
-    height:
-        25px;
-
-
-    object-fit:
-        contain;
-
+  object-fit: contain;
 }
 
 
@@ -1022,39 +717,25 @@ img {
    ========================================================= */
 
 .research-areas > h2 {
+  margin-top: 1px;
 
-    margin-top:
-        2px;
+  margin-bottom:
+    0.85vh;
 
+  text-align: center;
 
-    margin-bottom:
-        1vh;
+  font-size:
+    clamp(
+      18px,
+      1.58vw,
+      25px
+    );
 
+  font-weight: 500;
 
-    text-align:
-        center;
+  letter-spacing: 0.19em;
 
-
-    font-size:
-
-        clamp(
-            18px,
-            1.65vw,
-            26px
-        );
-
-
-    font-weight:
-        500;
-
-
-    letter-spacing:
-        0.19em;
-
-
-    color:
-        var(--deep-blue);
-
+  color: var(--deep-blue);
 }
 
 
@@ -1063,227 +744,143 @@ img {
    ========================================================= */
 
 .research-grid {
+  height:
+    calc(
+      100% - 53px
+    );
 
-    height:
+  display: grid;
 
-        calc(
-            100% - 56px
-        );
+  grid-template-columns:
+    1fr
+    1fr
+    1fr
+    0.92fr;
 
-
-    display:
-        grid;
-
-
-    grid-template-columns:
-
-        1fr
-
-        1fr
-
-        1fr
-
-        0.92fr;
-
-
-    align-items:
-        center;
-
+  align-items: center;
 }
 
 
 /* =========================================================
-   RESEARCH CARD
+   RESEARCH CARDS
    ========================================================= */
 
 .research-card {
+  height: 82%;
 
-    height:
-        80%;
+  min-width: 0;
 
+  display: flex;
 
-    min-width:
-        0;
+  flex-direction: column;
 
+  align-items: center;
 
-    display:
-        flex;
+  justify-content: flex-start;
 
+  padding:
+    0
+    1.45vw;
 
-    flex-direction:
-        column;
+  text-align: center;
 
-
-    align-items:
-        center;
-
-
-    justify-content:
-        flex-start;
-
-
-    padding:
-
-        0
-
-        1.5vw;
-
-
-    text-align:
-        center;
-
-
-    border-right:
-
-        1px solid
-        rgba(23,63,96,0.10);
-
+  border-right:
+    1px solid
+    rgba(23,63,96,0.10);
 }
 
 
 /* =========================================================
-   ICON CONTAINER
-
-   The outer container is identical for all three icons.
-   The image itself is individually scaled below.
+   RESEARCH ICONS
    ========================================================= */
 
 .research-icon-box {
+  width: 68px;
 
-    width:
-        64px;
+  height: 68px;
 
+  display: flex;
 
-    height:
-        64px;
+  align-items: center;
 
+  justify-content: center;
 
-    display:
-        flex;
+  margin-bottom:
+    0.45vh;
 
-
-    align-items:
-        center;
-
-
-    justify-content:
-        center;
-
-
-    margin-bottom:
-        0.55vh;
-
+  overflow: visible;
 }
-
 
 .research-icon {
+  display: block;
 
-    display:
-        block;
-
-
-    max-width:
-        100%;
-
-
-    max-height:
-        100%;
-
-
-    object-fit:
-        contain;
-
+  object-fit: contain;
 }
 
 
-/* Demographic icon has lots of internal empty area */
+/* demographic */
 
 .icon-demographic {
+  width: 62px;
 
-    width:
-        62px;
+  height: 62px;
 
-    height:
-        62px;
-
-
-    transform:
-        scale(1.14);
-
+  transform:
+    scale(1.12);
 }
 
 
-/* Socio-economic */
+/* socioeconomic */
 
 .icon-socioeconomic {
+  width: 61px;
 
-    width:
-        59px;
+  height: 61px;
 
-    height:
-        59px;
-
-
-    transform:
-        scale(1);
-
+  transform:
+    scale(1.02);
 }
 
 
-/* Leaf has a naturally larger visual silhouette */
+/* sustainability leaf */
 
 .icon-sustainability {
+  width: 64px;
 
-    width:
-        58px;
+  height: 64px;
 
-    height:
-        58px;
-
-    transform:
-        scale(1.08);
+  transform:
+    scale(1.18);
 }
+
+
 /* =========================================================
-   RESEARCH HEADINGS
+   RESEARCH TITLES
    ========================================================= */
 
 .research-card h3 {
+  margin-bottom:
+    0.55vh;
 
-    margin-bottom:
-        0.65vh;
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
 
+  font-size:
+    clamp(
+      9px,
+      0.73vw,
+      11.3px
+    );
 
-    font-family:
+  line-height: 1.42;
 
-        "Montserrat",
-        Arial,
-        sans-serif;
+  font-weight: 500;
 
+  letter-spacing: 0.18em;
 
-    font-size:
-
-        clamp(
-            9px,
-            0.75vw,
-            11.5px
-        );
-
-
-    line-height:
-        1.42;
-
-
-    font-weight:
-        500;
-
-
-    letter-spacing:
-        0.18em;
-
-
-    color:
-        var(--deep-blue);
-
+  color: var(--deep-blue);
 }
 
 
@@ -1292,30 +889,21 @@ img {
    ========================================================= */
 
 .research-card p {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-    font-family:
+  font-size:
+    clamp(
+      11px,
+      0.91vw,
+      14px
+    );
 
-        Georgia,
-        "Times New Roman",
-        serif;
+  line-height: 1.36;
 
-
-    font-size:
-
-        clamp(
-            11px,
-            0.93vw,
-            14px
-        );
-
-
-    line-height:
-        1.38;
-
-
-    color:
-        var(--deep-blue);
-
+  color: var(--deep-blue);
 }
 
 
@@ -1324,198 +912,141 @@ img {
    ========================================================= */
 
 .research-slogan {
+  align-self: center;
 
-    align-self:
-        center;
-
-
-    padding-left:
-        2.2vw;
-
+  padding-left:
+    2.1vw;
 }
-
-
-/* slogan ornament */
 
 .slogan-decoration {
+  display: flex;
 
-    display:
-        flex;
+  align-items: center;
 
+  gap: 11px;
 
-    align-items:
-        center;
-
-
-    gap:
-        11px;
-
-
-    margin-bottom:
-        0.75vh;
-
+  margin-bottom:
+    0.65vh;
 }
-
 
 .slogan-decoration span {
+  flex: 1;
 
-    flex:
-        1;
+  max-width: 55px;
 
+  height: 1px;
 
-    max-width:
-        55px;
-
-
-    height:
-        1px;
-
-
-    background:
-        rgba(137,117,84,0.42);
-
+  background:
+    rgba(137,117,84,0.42);
 }
 
 
-/* Larger sand-colored shamsa */
+/* larger slogan shamsa */
 
 .slogan-decoration img {
+  width:
+    clamp(
+      38px,
+      3vw,
+      46px
+    );
 
-    width:
+  height:
+    clamp(
+      38px,
+      3vw,
+      46px
+    );
 
-        clamp(
-            35px,
-            2.8vw,
-            42px
-        );
-
-
-    height:
-
-        clamp(
-            35px,
-            2.8vw,
-            42px
-        );
-
-
-    object-fit:
-        contain;
-
+  object-fit: contain;
 }
-
-
-/* slogan text */
 
 .research-slogan p {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-    font-family:
+  font-size:
+    clamp(
+      12px,
+      0.96vw,
+      15px
+    );
 
-        Georgia,
-        "Times New Roman",
-        serif;
+  line-height: 1.46;
 
+  font-style: italic;
 
-    font-size:
-
-        clamp(
-            12px,
-            0.98vw,
-            15px
-        );
-
-
-    line-height:
-        1.47;
-
-
-    font-style:
-        italic;
-
-
-    color:
-        var(--deep-blue);
-
+  color: var(--deep-blue);
 }
 
-
-/* small blue line */
-
 .slogan-bottom-line {
+  width: 29px;
 
-    width:
-        29px;
+  height: 1px;
 
+  margin-top:
+    0.9vh;
 
-    height:
-        1px;
-
-
-    margin-top:
-        1vh;
-
-
-    background:
-        var(--blue);
-
+  background:
+    var(--blue);
 }
 
 
 /* =========================================================
-   FEATURED RESEARCH STRIP
+   FEATURED RESEARCH
 
-   There is NO additional text here.
-   The PNG itself contains the title and lines.
+   Works with either filename:
+   featured-banner.png
+   featured_banner.png
    ========================================================= */
 
 .featured-strip {
+  grid-row: 4;
 
-    grid-row:
-        4;
+  width:
+    calc(
+      100% - var(--rail-width)
+    );
 
+  height:
+    var(--featured-height);
 
-    width:
+  margin-left:
+    var(--rail-width);
 
-        calc(
-            100% - var(--rail-width)
-        );
+  overflow: hidden;
 
+  background-color:
+    #174e79;
 
-    height:
-        var(--featured-height);
+  background-image:
+    url("assets/featured-banner.png"),
+    url("assets/featured_banner.png");
 
+  background-repeat:
+    no-repeat,
+    no-repeat;
 
-    margin-left:
-        var(--rail-width);
+  background-position:
+    center,
+    center;
 
-
-    overflow:
-        hidden;
-
-
-    background:
-        #174e79;
-
+  background-size:
+    cover,
+    cover;
 }
 
 
-.featured-strip img {
+/*
+  If an old Featured <img> remains,
+  hide it so we never get duplicate text
+  or a broken-image symbol.
+*/
 
-    width:
-        100%;
-
-
-    height:
-        100%;
-
-
-    object-fit:
-        cover;
-
-
-    object-position:
-        center center;
-
+.featured-strip > img {
+  display: none;
 }
 
 
@@ -1528,108 +1059,83 @@ img {
 and
 (min-width: 901px) {
 
-    :root {
+  :root {
+    --header-height:
+      61px;
 
-        --research-height:
-            195px;
+    --research-height:
+      188px;
 
-        --featured-height:
-            47px;
-
-        --header-height:
-            63px;
-
-    }
+    --featured-height:
+      45px;
+  }
 
 
-    .brand-mark {
+  .brand-mark {
+    width: 35px;
 
-        width:
-            36px;
-
-        height:
-            36px;
-
-    }
+    height: 35px;
+  }
 
 
-    .brand span {
-
-        font-size:
-            15px;
-
-    }
+  .brand span {
+    font-size: 15px;
+  }
 
 
-    .hero h1 {
-
-        font-size:
-
-            clamp(
-                46px,
-                4vw,
-                58px
-            );
-
-    }
+  .hero h1 {
+    font-size:
+      clamp(
+        44px,
+        3.8vw,
+        57px
+      );
+  }
 
 
-    .hero-description {
-
-        font-size:
-
-            clamp(
-                13px,
-                1vw,
-                16px
-            );
-
-    }
+  .hero-description {
+    font-size:
+      clamp(
+        13px,
+        1vw,
+        16px
+      );
+  }
 
 
-    .research-icon-box {
+  .research-icon-box {
+    width: 58px;
 
-        width:
-            55px;
-
-        height:
-            55px;
-
-    }
+    height: 58px;
+  }
 
 
-    .icon-demographic {
+  .icon-demographic {
+    width: 54px;
 
-        width:
-            54px;
-
-        height:
-            54px;
-
-    }
+    height: 54px;
+  }
 
 
-    .icon-socioeconomic {
+  .icon-socioeconomic {
+    width: 53px;
 
-        width:
-            52px;
-
-        height:
-            52px;
-
-    }
+    height: 53px;
+  }
 
 
-    .icon-sustainability {
+  .icon-sustainability {
+    width: 55px;
 
-        width:
-            44px;
+    height: 55px;
+  }
 
-        height:
-            44px;
 
-    }
+  .slogan-decoration img {
+    width: 38px;
 
+    height: 38px;
+  }
 }
 
 
@@ -1640,310 +1146,208 @@ and
 @media
 (max-width: 900px) {
 
+  body {
+    overflow-y: auto;
+  }
 
-    body {
 
-        overflow-y:
-            auto;
+  :root {
+    --rail-width: 34px;
+  }
 
-    }
 
+  .page-shell {
+    height: auto;
 
-    :root {
+    min-height: 100svh;
 
-        --rail-width:
-            34px;
+    display: block;
 
-    }
+    overflow: visible;
+  }
 
 
-    .page-shell {
+  .left-rail {
+    position: fixed;
 
-        height:
-            auto;
+    width:
+      var(--rail-width);
 
+    background-size:
+      88px auto;
+  }
 
-        min-height:
-            100svh;
 
+  .site-header {
+    height: 68px;
 
-        display:
-            block;
+    display: flex;
 
+    padding:
+      0
+      16px
+      0
+      calc(
+        var(--rail-width) + 16px
+      );
+  }
 
-        overflow:
-            visible;
 
-    }
+  .brand-mark {
+    width: 34px;
 
+    height: 34px;
+  }
 
-    .left-rail {
 
-        position:
-            fixed;
+  .brand span {
+    font-size: 14px;
 
+    letter-spacing:
+      0.12em;
+  }
 
-        width:
-            var(--rail-width);
 
+  .main-nav {
+    display: none;
+  }
 
-        /*
-           same crop principle as desktop
-        */
 
-        background-size:
-            91px auto;
+  .social-links {
+    margin-left: auto;
+  }
 
-    }
 
+  .hero {
+    display: block;
 
-    .site-header {
+    padding:
+      40px
+      18px
+      24px
+      calc(
+        var(--rail-width) + 22px
+      );
 
-        height:
-            68px;
+    min-height: auto;
+  }
 
 
-        display:
-            flex;
+  .hero-copy {
+    padding:
+      0
+      0
+      28px;
+  }
 
 
-        padding:
+  .hero h1 {
+    font-size:
+      clamp(
+        46px,
+        14vw,
+        68px
+      );
+  }
 
-            0
 
-            16px
+  .hero-visual {
+    height: 340px;
 
-            0
+    margin-left:
+      calc(
+        -1 *
+        (
+          var(--rail-width) + 22px
+        )
+      );
 
-            calc(
-                var(--rail-width) + 16px
-            );
+    margin-right:
+      -18px;
 
-    }
+    background-size:
+      cover;
 
+    background-position:
+      68% center;
+  }
 
-    .brand-mark {
 
-        width:
-            34px;
+  .hero-visual::before {
+    width: 20%;
+  }
 
-        height:
-            34px;
 
-    }
+  .research-areas {
+    padding:
+      28px
+      22px
+      30px
+      calc(
+        var(--rail-width) + 22px
+      );
+  }
 
 
-    .brand span {
+  .research-grid {
+    height: auto;
 
-        font-size:
-            14px;
+    display: block;
+  }
 
 
-        letter-spacing:
-            0.12em;
+  .research-card {
+    height: auto;
 
-    }
+    padding:
+      20px 0;
 
+    border-right: 0;
 
-    .main-nav {
+    border-bottom:
+      1px solid
+      rgba(23,63,96,0.10);
+  }
 
-        display:
-            none;
 
-    }
+  .research-icon-box {
+    width: 72px;
 
+    height: 72px;
+  }
 
-    .social-links {
 
-        margin-left:
-            auto;
+  .research-slogan {
+    padding:
+      28px
+      0
+      5px;
 
-    }
+    text-align: center;
+  }
 
 
-    .hero {
+  .slogan-decoration {
+    justify-content: center;
+  }
 
-        display:
-            block;
 
+  .slogan-bottom-line {
+    margin-left: auto;
 
-        padding:
+    margin-right: auto;
+  }
 
-            42px
 
-            18px
+  .featured-strip {
+    width:
+      calc(
+        100% - var(--rail-width)
+      );
 
-            25px
+    height: 70px;
 
-            calc(
-                var(--rail-width) + 22px
-            );
-
-    }
-
-
-    .hero-copy {
-
-        padding-bottom:
-            28px;
-
-    }
-
-
-    .hero h1 {
-
-        font-size:
-
-            clamp(
-                46px,
-                14vw,
-                68px
-            );
-
-    }
-
-
-    .hero-visual {
-
-        height:
-            340px;
-
-
-        margin-left:
-
-            calc(
-                -1 *
-                (
-                    var(--rail-width) + 22px
-                )
-            );
-
-
-        margin-right:
-            -18px;
-
-    }
-
-
-    .hero-visual img {
-
-        width:
-            96%;
-
-
-        height:
-            96%;
-
-    }
-
-
-    .research-areas {
-
-        padding:
-
-            28px
-
-            22px
-
-            30px
-
-            calc(
-                var(--rail-width) + 22px
-            );
-
-    }
-
-
-    .research-grid {
-
-        height:
-            auto;
-
-
-        display:
-            block;
-
-    }
-
-
-    .research-card {
-
-        height:
-            auto;
-
-
-        padding:
-            20px 0;
-
-
-        border-right:
-            0;
-
-
-        border-bottom:
-
-            1px solid
-            rgba(23,63,96,0.10);
-
-    }
-
-
-    .research-icon-box {
-
-        width:
-            70px;
-
-        height:
-            70px;
-
-    }
-
-
-    .research-slogan {
-
-        padding:
-            28px 0 5px;
-
-
-        text-align:
-            center;
-
-    }
-
-
-    .slogan-decoration {
-
-        justify-content:
-            center;
-
-    }
-
-
-    .slogan-bottom-line {
-
-        margin-left:
-            auto;
-
-        margin-right:
-            auto;
-
-    }
-
-
-    .featured-strip {
-    grid-row: 4;
-
-    width: calc(100% - var(--rail-width));
-    height: var(--featured-height);
-
-    margin-left: var(--rail-width);
-
-    background-image: url("assets/featured-banner.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-
-    overflow: hidden;
-}
-
+    margin-left:
+      var(--rail-width);
+  }
 }
