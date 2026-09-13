@@ -1,49 +1,25 @@
 /* =========================================================
-   ZAHRA KALANTARI — FINAL HOMEPAGE CSS
-   Replace the entire current style.css with this file.
-   Expected assets:
-   assets/brand-mark.png
-   assets/hero-graphic.png
-   assets/left-border.png
-   assets/feature-banner.png
-   assets/slogan-icon.png
-   assets/icon-demographic.png
-   assets/icon-socioeconomic.png
-   assets/icon-sustainability.png
+   ZAHRA KALANTARI — FINAL HOMEPAGE CSS (REVISED V2)
+   Replace your whole style.css with this file.
    ========================================================= */
 
 :root {
   --page: #f7f2e9;
   --page-light: #faf6ef;
-  --sand: #D4C8B6;
-
+  --sand: #d4c8b6;
   --blue: #1385a8;
   --deep-blue: #173f60;
-
   --line: rgba(23, 63, 96, 0.11);
 
-  /*
-    IMPORTANT:
-    The left rail width is EXACTLY the same as the
-    Featured bar height. This keeps the frame balanced
-    without making the blue bar thicker.
-  */
-  --featured-height: clamp(44px, 5.6vh, 58px);
-  --rail-width: var(--featured-height);
+  /* left rail width = featured banner height */
+  --featured-height: 46px;
+  --rail-width: 46px;
 
-  --header-height: clamp(62px, 7.4vh, 76px);
-
-  /*
-    Slightly more room for Research Areas, so text
-    never falls onto the blue bar.
-  */
-  --research-height: clamp(210px, 31vh, 250px);
+  --header-height: 74px;
+  --research-height: 248px;
 }
 
-
-/* =========================================================
-   RESET
-   ========================================================= */
+/* ===================== RESET ===================== */
 
 * {
   box-sizing: border-box;
@@ -63,25 +39,11 @@ html {
 
 body {
   overflow-x: hidden;
-
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
-
+  font-family: "Cormorant Garamond", Georgia, serif;
   color: var(--deep-blue);
-
   background:
-    radial-gradient(
-      circle at 82% 6%,
-      rgba(255, 255, 255, 0.42),
-      transparent 29%
-    ),
-    linear-gradient(
-      180deg,
-      #f9f5ed 0%,
-      #f5efe6 100%
-    );
+    radial-gradient(circle at 82% 6%, rgba(255, 255, 255, 0.42), transparent 29%),
+    linear-gradient(180deg, #f9f5ed 0%, #f5efe6 100%);
 }
 
 a {
@@ -93,178 +55,95 @@ img {
   display: block;
 }
 
-
-/* =========================================================
-   PAGE — ONE SCREEN ON DESKTOP
-   ========================================================= */
+/* ===================== PAGE ===================== */
 
 .page-shell {
   position: relative;
-
   width: 100%;
   height: 100svh;
-  min-height: 620px;
-
+  min-height: 680px;
+  overflow: hidden;
   display: grid;
-
   grid-template-rows:
     var(--header-height)
     minmax(0, 1fr)
     var(--research-height)
     var(--featured-height);
-
-  overflow: hidden;
-
   background:
-    linear-gradient(
-      180deg,
-      #f9f5ed 0%,
-      #f5efe6 100%
-    );
+    radial-gradient(circle at 82% 6%, rgba(255, 255, 255, 0.40), transparent 29%),
+    linear-gradient(180deg, #f9f5ed 0%, #f5efe6 100%);
 }
 
-
-/* =========================================================
-   LEFT DECORATIVE RAIL
-   ========================================================= */
+/* ===================== LEFT RAIL ===================== */
 
 .left-rail {
   position: absolute;
   z-index: 40;
-
   top: 0;
   left: 0;
-
-  /*
-    Stops EXACTLY at the top edge of the blue Featured bar.
-  */
-  bottom: var(--featured-height);
-
+  height: calc(100% - var(--featured-height));
   width: var(--rail-width);
-
   overflow: hidden;
-
-  background-color: var(--page);
-
-  background-image:
-    url("assets/left-border.png");
-
-  background-repeat:
-    repeat-y;
-
-  /*
-    ZOOMED OUT:
-    100% means the full geometric design fits inside
-    the rail width instead of being cropped horizontally.
-  */
-  background-size:
-    100% auto;
-
-  background-position:
-    center top;
-
-  border-right:
-    1px solid rgba(212, 200, 182, 0.25);
-
+  background-color: #f7f2e9;
+  background-image: url("assets/left-border.png");
+  background-repeat: repeat-y;
+  background-size: cover;
+  background-position: center top;
+  border-right: 1px solid rgba(212, 200, 182, 0.22);
   pointer-events: none;
 }
 
-
-/* =========================================================
-   HEADER
-   ========================================================= */
+/* ===================== HEADER ===================== */
 
 .site-header {
   position: relative;
   z-index: 20;
-
   grid-row: 1;
-
   display: grid;
-
-  grid-template-columns:
-    minmax(270px, 1fr)
-    auto
-    minmax(96px, 0.4fr);
-
+  grid-template-columns: minmax(270px, 1fr) auto minmax(96px, 0.4fr);
   align-items: center;
-
-  padding:
-    0
-    4.2vw
-    0
-    calc(var(--rail-width) + 2.2vw);
-
-  border-bottom:
-    1px solid var(--line);
-
-  background:
-    rgba(249, 245, 237, 0.94);
+  padding: 0 4.2vw 0 calc(var(--rail-width) + 2.3vw);
+  border-bottom: 1px solid var(--line);
+  background: rgba(249, 245, 237, 0.94);
 }
-
-
-/* =========================================================
-   BRAND
-   ========================================================= */
 
 .brand {
   width: max-content;
-
   display: inline-flex;
   align-items: center;
-
   gap: 13px;
 }
 
 .brand-mark {
   width: 40px;
   height: 40px;
-
   flex: 0 0 auto;
-
   object-fit: contain;
 }
 
 .brand span {
   font-size: 17px;
   font-weight: 500;
-
   letter-spacing: 0.19em;
-
   white-space: nowrap;
 }
 
-
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
+/* ===================== NAV ===================== */
 
 .main-nav {
   height: 100%;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
-
-  gap:
-    clamp(
-      19px,
-      2.25vw,
-      38px
-    );
+  gap: clamp(19px, 2.25vw, 38px);
 }
 
 .main-nav a {
   position: relative;
-
   font-size: 15px;
   font-weight: 500;
-
   color: var(--deep-blue);
-
-  transition:
-    color 0.20s ease;
+  transition: color 0.20s ease;
 }
 
 .main-nav a:hover {
@@ -273,23 +152,14 @@ img {
 
 .main-nav a::after {
   content: "";
-
   position: absolute;
-
   left: 50%;
   bottom: -18px;
-
   width: 0;
   height: 2px;
-
-  transform:
-    translateX(-50%);
-
-  background:
-    var(--blue);
-
-  transition:
-    width 0.20s ease;
+  transform: translateX(-50%);
+  background: var(--blue);
+  transition: width 0.20s ease;
 }
 
 .main-nav a:hover::after,
@@ -297,41 +167,30 @@ img {
   width: 38px;
 }
 
-
-/* =========================================================
-   LINKEDIN + ORCID
-   ========================================================= */
+/* ===================== SOCIAL ===================== */
 
 .social-links {
   display: flex;
-
   align-items: center;
   justify-content: flex-end;
-
   gap: 12px;
 }
 
 .social-link {
   width: 25px;
   height: 25px;
-
   display: grid;
-
   place-items: center;
-
-  transition:
-    transform 0.20s ease;
+  transition: transform 0.20s ease;
 }
 
 .social-link:hover {
-  transform:
-    translateY(-1px);
+  transform: translateY(-1px);
 }
 
 .linkedin svg {
   width: 22px;
   height: 22px;
-
   fill: #0A66C2;
 }
 
@@ -346,265 +205,116 @@ img {
 
 .orcid text {
   fill: #ffffff;
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 8px;
   font-weight: 700;
 }
 
-
-/* =========================================================
-   HERO
-   ========================================================= */
+/* ===================== HERO ===================== */
 
 .hero {
   grid-row: 2;
-
   position: relative;
   z-index: 1;
-
   min-height: 0;
   height: 100%;
-
   margin-left: var(--rail-width);
-
-  width:
-    calc(
-      100% - var(--rail-width)
-    );
-
+  width: calc(100% - var(--rail-width));
   overflow: hidden;
-
-  border-bottom:
-    1px solid rgba(36, 55, 70, 0.10);
+  border-bottom: 1px solid rgba(36, 55, 70, 0.10);
 }
-
-
-/* =========================================================
-   HERO COPY
-   ========================================================= */
 
 .hero-copy {
   position: relative;
   z-index: 3;
-
-  width: 43%;
+  width: 42%;
   height: 100%;
-
   min-width: 0;
-
   display: flex;
-
   flex-direction: column;
-
   justify-content: center;
   align-items: flex-start;
-
-  padding:
-    0.4vh
-    2.4vw
-    0.4vh
-    6.8vw;
+  padding: 0.3vh 2.4vw 0.3vh 6.8vw;
 }
 
 .hero-label {
-  margin-bottom:
-    clamp(
-      10px,
-      1.5vh,
-      17px
-    );
-
-  font-family:
-    "Montserrat",
-    Arial,
-    sans-serif;
-
-  font-size:
-    clamp(
-      10px,
-      0.76vw,
-      12px
-    );
-
+  margin-bottom: 14px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
   font-weight: 600;
-
   letter-spacing: 0.29em;
-
   color: var(--blue);
 }
 
 .hero h1 {
-  font-size:
-    clamp(
-      46px,
-      4.05vw,
-      63px
-    );
-
+  font-size: clamp(48px, 4.1vw, 64px);
   line-height: 0.91;
-
   letter-spacing: 0.045em;
-
   font-weight: 500;
-
   color: var(--deep-blue);
 }
 
 .hero-rule {
   display: block;
-
   width: 36px;
   height: 2px;
-
-  margin:
-    clamp(
-      11px,
-      1.6vh,
-      17px
-    )
-    0;
-
-  background:
-    var(--blue);
+  margin: 14px 0;
+  background: var(--blue);
 }
 
 .hero-description {
   max-width: 390px;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
+  font-family: Georgia, "Times New Roman", serif;
   font-style: italic;
-
-  font-size:
-    clamp(
-      13.5px,
-      1.13vw,
-      17.5px
-    );
-
+  font-size: clamp(14px, 1.14vw, 17.5px);
   line-height: 1.48;
-
   color: var(--deep-blue);
 }
 
 .hero-link {
-  margin-top:
-    clamp(
-      12px,
-      1.8vh,
-      19px
-    );
-
+  margin-top: 16px;
   display: inline-flex;
-
   align-items: center;
-
   gap: 13px;
-
-  font-family:
-    "Montserrat",
-    Arial,
-    sans-serif;
-
-  font-size:
-    clamp(
-      9px,
-      0.70vw,
-      11px
-    );
-
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 11px;
   font-weight: 600;
-
   letter-spacing: 0.23em;
-
   color: var(--blue);
 }
 
-
-/* =========================================================
-   HERO ARTWORK
-   ========================================================= */
-
+/* bigger shamsa, more centered, no visible hard edges */
 .hero-visual {
   position: absolute;
   z-index: 1;
-
-  /*
-    The artwork intentionally BLEEDS beyond the visible hero
-    on the top/right/bottom. This hides the rectangular
-    image edges and removes the cut-line effect.
-  */
-
-  top: -12px;
-  right: -20px;
-  bottom: -12px;
-
-  width: 61%;
-
+  top: -18px;
+  right: -34px;
+  bottom: -18px;
+  width: 63%;
   overflow: hidden;
-
-  background-color:
-    var(--page);
-
-  background-image:
-    url("assets/hero-graphic.png");
-
-  background-repeat:
-    no-repeat;
-
-  /*
-    Slight enlargement removes visible top/right/bottom edges.
-  */
-
-  background-size:
-    106% auto;
-
-  /*
-    Keeps the shamsa a little closer to page center.
-    Adjust ONLY this number later if desired:
-    48% = slightly left
-    52% = slightly right
-  */
-
-  background-position:
-    49% center;
+  background-color: var(--page);
+  background-image: url("assets/hero-graphic.png");
+  background-repeat: no-repeat;
+  background-size: 114% auto;
+  background-position: 43% center;
 }
-
-
-/*
-  Soft left blend so the artwork never looks like
-  a rectangular image pasted next to the text.
-*/
 
 .hero-visual::before {
   content: "";
-
   position: absolute;
   z-index: 2;
-
   top: 0;
   bottom: 0;
   left: 0;
-
-  width: 18%;
-
+  width: 17%;
   background:
     linear-gradient(
       to right,
       var(--page) 0%,
-      rgba(247, 242, 233, 0.92) 20%,
-      rgba(247, 242, 233, 0.50) 55%,
+      rgba(247, 242, 233, 0.93) 22%,
+      rgba(247, 242, 233, 0.52) 58%,
       rgba(247, 242, 233, 0) 100%
     );
-
   pointer-events: none;
 }
 
@@ -612,412 +322,199 @@ img {
   display: none;
 }
 
-
-/* =========================================================
-   RESEARCH AREAS
-   ========================================================= */
+/* ===================== RESEARCH AREAS ===================== */
 
 .research-areas {
   grid-row: 3;
-
   position: relative;
   z-index: 3;
-
   min-height: 0;
-
   margin-left: var(--rail-width);
-
-  width:
-    calc(
-      100% - var(--rail-width)
-    );
-
-  /*
-    More compact at the top; generous bottom safety
-    so no research text can touch the blue bar.
-  */
-
-  padding:
-    11px
-    4.2vw
-    20px;
-
+  width: calc(100% - var(--rail-width));
+  padding: 6px 4.1vw 38px;
   overflow: hidden;
-
-  background:
-    var(--page);
+  background: var(--page);
 }
-
-
-/* =========================================================
-   RESEARCH HEADING
-   ========================================================= */
 
 .research-heading {
   height: 24px;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   gap: 15px;
-
-  margin-bottom: 2px;
+  margin-bottom: 1px;
 }
 
 .heading-line {
   width: 82px;
   height: 1px;
-
-  background:
-    rgba(137, 117, 84, 0.42);
+  background: rgba(137, 117, 84, 0.42);
 }
 
 .heading-mark {
   width: 25px;
   height: 25px;
-
   object-fit: contain;
 }
 
 .research-areas > h2 {
-  margin:
-    0
-    0
-    8px;
-
+  margin: 0 0 6px;
   text-align: center;
-
-  font-size:
-    clamp(
-      18px,
-      1.58vw,
-      25px
-    );
-
+  font-size: clamp(18px, 1.58vw, 25px);
   font-weight: 500;
-
   letter-spacing: 0.19em;
-
   color: var(--deep-blue);
 }
 
-
-/* =========================================================
-   RESEARCH GRID
-   ========================================================= */
-
 .research-grid {
-  height:
-    calc(
-      100% - 48px
-    );
-
+  height: calc(100% - 44px);
   display: grid;
-
-  grid-template-columns:
-    1fr
-    1fr
-    1fr
-    0.92fr;
-
+  grid-template-columns: 1fr 1fr 1fr 0.92fr;
   align-items: start;
-
   gap: 0;
+  margin-top: -6px;  /* pulls whole block upward */
 }
-
-
-/* =========================================================
-   RESEARCH CARDS
-   ========================================================= */
 
 .research-card {
   min-width: 0;
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   justify-content: flex-start;
-
-  padding:
-    0
-    1.25vw;
-
+  padding: 0 1.25vw;
   text-align: center;
-
-  border-right:
-    1px solid
-    rgba(23, 63, 96, 0.10);
+  border-right: 1px solid rgba(23, 63, 96, 0.10);
 }
 
-
-/* =========================================================
-   RESEARCH ICONS — 10–15% LARGER
-   ========================================================= */
-
 .research-icon-box {
-  width: 72px;
-  height: 72px;
-
+  width: 80px;
+  height: 80px;
   display: flex;
-
   align-items: center;
   justify-content: center;
-
-  margin-bottom: 3px;
-
+  margin-bottom: 1px;
   overflow: visible;
 }
 
 .research-icon {
   display: block;
-
   object-fit: contain;
 }
 
 .icon-demographic {
-  width: 68px;
-  height: 68px;
-
-  transform:
-    scale(1.05);
+  width: 74px;
+  height: 74px;
+  transform: scale(1.08);
 }
 
 .icon-socioeconomic {
-  width: 66px;
-  height: 66px;
-
-  transform:
-    scale(1.03);
+  width: 72px;
+  height: 72px;
+  transform: scale(1.08);
 }
 
 .icon-sustainability {
-  width: 64px;
-  height: 64px;
-
-  /*
-    Leaf artwork has more internal empty space,
-    so it gets a slightly larger visual scale.
-  */
-
-  transform:
-    scale(1.12);
+  width: 70px;
+  height: 70px;
+  transform: scale(1.18);
 }
 
-
-/* =========================================================
-   RESEARCH TEXT
-   ========================================================= */
-
 .research-card h3 {
-  margin-bottom:
-    4px;
-
-  font-family:
-    "Montserrat",
-    Arial,
-    sans-serif;
-
-  font-size:
-    clamp(
-      9px,
-      0.73vw,
-      11.3px
-    );
-
-  line-height: 1.35;
-
+  margin-bottom: 2px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(9px, 0.73vw, 11.3px);
+  line-height: 1.34;
   font-weight: 500;
-
   letter-spacing: 0.18em;
-
   color: var(--deep-blue);
 }
 
 .research-card p {
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(
-      11px,
-      0.89vw,
-      13.5px
-    );
-
-  line-height: 1.30;
-
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(11px, 0.88vw, 13.4px);
+  line-height: 1.24;
   color: var(--deep-blue);
 }
 
-
-/* =========================================================
-   SLOGAN
-   ========================================================= */
-
 .research-slogan {
   align-self: start;
-
-  padding:
-    0
-    0
-    0
-    2vw;
+  padding: 0 0 0 2vw;
+  margin-top: -1px;
 }
 
 .slogan-decoration {
   display: flex;
-
   align-items: center;
-
   gap: 11px;
-
-  margin-bottom:
-    5px;
+  margin-bottom: 4px;
 }
 
 .slogan-decoration span {
   flex: 1;
-
   max-width: 55px;
-
   height: 1px;
-
-  background:
-    rgba(137, 117, 84, 0.42);
+  background: rgba(137, 117, 84, 0.42);
 }
 
 .slogan-decoration img {
-  width:
-    clamp(
-      38px,
-      3vw,
-      46px
-    );
-
-  height:
-    clamp(
-      38px,
-      3vw,
-      46px
-    );
-
+  width: clamp(38px, 3vw, 46px);
+  height: clamp(38px, 3vw, 46px);
   object-fit: contain;
 }
 
 .research-slogan p {
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(
-      12px,
-      0.96vw,
-      15px
-    );
-
-  line-height: 1.42;
-
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(12px, 0.96vw, 15px);
+  line-height: 1.40;
   font-style: italic;
-
   color: var(--deep-blue);
 }
 
 .slogan-bottom-line {
   width: 29px;
   height: 1px;
-
-  margin-top:
-    7px;
-
-  background:
-    var(--blue);
+  margin-top: 6px;
+  background: var(--blue);
 }
 
-
-/* =========================================================
-   FEATURED BAR — SIMPLE, NO EXTRA HTML TEXT
-   ========================================================= */
+/* ===================== FEATURED BAR ===================== */
 
 .featured-strip {
   grid-row: 4;
-
   width: 100%;
   height: var(--featured-height);
-
   margin: 0;
-
   overflow: hidden;
-
-  background-color:
-    #174e79;
-
-  /*
-    IMPORTANT:
-    Use the new SIMPLE blue banner image without text.
-  */
-
-  background-image:
-    url("assets/feature-banner.png");
-
-  background-repeat:
-    no-repeat;
-
-  background-position:
-    center;
-
-  background-size:
-    cover;
-
+  background-color: #174e79;
+  background-image: url("assets/feature-banner.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   position: relative;
   z-index: 50;
 }
-
-
-/*
-  If an old <img> still exists inside the Featured section,
-  hide it so there is never duplicate text or a broken image.
-*/
 
 .featured-strip > img {
   display: none;
 }
 
+/* ===================== SHORT DESKTOP ===================== */
 
-/* =========================================================
-   SHORT DESKTOP SCREENS
-   ========================================================= */
-
-@media
-(max-height: 700px)
-and
-(min-width: 901px) {
-
+@media (max-height: 760px) and (min-width: 901px) {
   :root {
-    --header-height:
-      61px;
+    --featured-height: 44px;
+    --rail-width: 44px;
+    --header-height: 70px;
+    --research-height: 236px;
+  }
 
-    --research-height:
-      205px;
-
-    --featured-height:
-      45px;
-
-    --rail-width:
-      var(--featured-height);
+  .page-shell {
+    min-height: 640px;
   }
 
   .brand-mark {
-    width: 35px;
-    height: 35px;
+    width: 36px;
+    height: 36px;
   }
 
   .brand span {
@@ -1025,126 +522,98 @@ and
   }
 
   .hero-copy {
-    padding-left:
-      6.4vw;
+    padding-left: 6.2vw;
   }
 
   .hero h1 {
-    font-size:
-      clamp(
-        44px,
-        3.8vw,
-        57px
-      );
+    font-size: clamp(44px, 3.85vw, 58px);
   }
 
   .hero-description {
-    font-size:
-      clamp(
-        13px,
-        1vw,
-        16px
-      );
+    font-size: clamp(13px, 1vw, 16px);
   }
 
   .hero-visual {
-    width: 61%;
-    top: -10px;
-    right: -16px;
-    bottom: -10px;
-
-    background-size:
-      106% auto;
+    top: -14px;
+    right: -28px;
+    bottom: -14px;
+    width: 63%;
+    background-size: 114% auto;
+    background-position: 44% center;
   }
 
   .research-areas {
-    padding-top:
-      8px;
+    padding-top: 2px;
+    padding-bottom: 36px;
+  }
 
-    padding-bottom:
-      15px;
+  .research-grid {
+    margin-top: -10px;
   }
 
   .research-icon-box {
+    width: 72px;
+    height: 72px;
+  }
+
+  .icon-demographic {
+    width: 67px;
+    height: 67px;
+  }
+
+  .icon-socioeconomic {
+    width: 65px;
+    height: 65px;
+  }
+
+  .icon-sustainability {
     width: 63px;
     height: 63px;
   }
 
-  .icon-demographic {
-    width: 59px;
-    height: 59px;
-  }
-
-  .icon-socioeconomic {
-    width: 58px;
-    height: 58px;
-  }
-
-  .icon-sustainability {
-    width: 56px;
-    height: 56px;
+  .research-card p {
+    font-size: 12.6px;
+    line-height: 1.2;
   }
 
   .slogan-decoration img {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
   }
 }
 
+/* ===================== TABLET / MOBILE ===================== */
 
-/* =========================================================
-   TABLET / MOBILE
-   ========================================================= */
-
-@media
-(max-width: 900px) {
-
+@media (max-width: 900px) {
   body {
     overflow-y: auto;
   }
 
   :root {
-    --featured-height:
-      52px;
-
-    --rail-width:
-      var(--featured-height);
+    --featured-height: 52px;
+    --rail-width: 52px;
   }
 
   .page-shell {
     height: auto;
-
     min-height: 100svh;
-
     display: block;
-
     overflow: visible;
   }
 
   .left-rail {
     position: fixed;
-
+    top: 0;
     bottom: 0;
-
-    width:
-      var(--rail-width);
-
-    background-size:
-      100% auto;
+    height: auto;
+    width: var(--rail-width);
+    background-size: cover;
   }
 
   .site-header {
     height: 68px;
-
     display: flex;
-
-    padding:
-      0
-      16px
-      0
-      calc(
-        var(--rail-width) + 16px
-      );
+    padding: 0 16px 0 calc(var(--rail-width) + 16px);
   }
 
   .brand-mark {
@@ -1154,9 +623,7 @@ and
 
   .brand span {
     font-size: 14px;
-
-    letter-spacing:
-      0.12em;
+    letter-spacing: 0.12em;
   }
 
   .main-nav {
@@ -1169,125 +636,68 @@ and
 
   .hero {
     position: relative;
-
-    width:
-      calc(
-        100% - var(--rail-width)
-      );
-
+    width: calc(100% - var(--rail-width));
     height: auto;
-
     min-height: 0;
-
-    margin-left:
-      var(--rail-width);
-
-    padding:
-      38px
-      18px
-      0;
-
+    margin-left: var(--rail-width);
+    padding: 38px 18px 0;
     overflow: hidden;
   }
 
   .hero-copy {
     width: 100%;
     height: auto;
-
-    padding:
-      0
-      8px
-      26px;
+    padding: 0 8px 26px;
   }
 
   .hero h1 {
-    font-size:
-      clamp(
-        46px,
-        14vw,
-        68px
-      );
+    font-size: clamp(46px, 14vw, 68px);
   }
 
   .hero-visual {
     position: relative;
-
     top: auto;
     right: auto;
     bottom: auto;
-
-    width:
-      calc(
-        100% + 36px
-      );
-
-    height:
-      330px;
-
-    margin-left:
-      -18px;
-
-    background-size:
-      cover;
-
-    background-position:
-      52% center;
+    width: calc(100% + 36px);
+    height: 330px;
+    margin-left: -18px;
+    background-size: cover;
+    background-position: 48% center;
   }
 
   .hero-visual::before {
-    width:
-      16%;
+    width: 16%;
   }
 
   .research-areas {
-    width:
-      calc(
-        100% - var(--rail-width)
-      );
-
+    width: calc(100% - var(--rail-width));
     height: auto;
-
-    margin-left:
-      var(--rail-width);
-
-    padding:
-      24px
-      22px
-      28px;
-
+    margin-left: var(--rail-width);
+    padding: 24px 22px 28px;
     overflow: visible;
   }
 
   .research-grid {
     height: auto;
-
     display: block;
+    margin-top: 0;
   }
 
   .research-card {
     height: auto;
-
-    padding:
-      18px 0;
-
+    padding: 18px 0;
     border-right: 0;
-
-    border-bottom:
-      1px solid
-      rgba(23, 63, 96, 0.10);
+    border-bottom: 1px solid rgba(23, 63, 96, 0.10);
   }
 
   .research-icon-box {
-    width: 76px;
-    height: 76px;
+    width: 82px;
+    height: 82px;
   }
 
   .research-slogan {
-    padding:
-      26px
-      0
-      5px;
-
+    padding: 26px 0 5px;
     text-align: center;
   }
 
@@ -1303,7 +713,6 @@ and
   .featured-strip {
     width: 100%;
     height: var(--featured-height);
-
     margin: 0;
   }
 }
