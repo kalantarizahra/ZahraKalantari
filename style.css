@@ -194,20 +194,18 @@ img {
   fill: #0A66C2;
 }
 
-.orcid svg {
-  width: 23px;
-  height: 23px;
+.scholar svg {
+  width: 24px;
+  height: 24px;
 }
 
-.orcid circle {
-  fill: #A6CE39;
+.scholar-circle {
+  fill: #4285f4;
 }
 
-.orcid text {
+.scholar-cap,
+.scholar-base {
   fill: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 8px;
-  font-weight: 700;
 }
 
 /* ===================== HERO ===================== */
