@@ -1023,8 +1023,7 @@ img {
 
   background-image:
     url("assets/featured-banner.png"),
-    url("assets/featured_banner.png");
-
+  
   background-repeat:
     no-repeat,
     no-repeat;
