@@ -200,7 +200,7 @@ img {
 }
 
 .scholar-circle {
-  fill: #4285f4;
+  fill: var(--blue);
 }
 
 .scholar-cap,
