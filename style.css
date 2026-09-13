@@ -1,23 +1,55 @@
+/* =========================================================
+   ZAHRA KALANTARI
+   HOMEPAGE — FINAL PROPORTION SYSTEM
+   ========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
 :root {
-  --page: #f6f1e8;
-  --page-soft: #f8f4ec;
 
-  --sand: #D4C8B6;
+    --page:
+        #f7f2e9;
 
-  --blue: #1486aa;
-  --deep-blue: #173f60;
+    --page-light:
+        #faf6ef;
 
-  --line: rgba(23, 63, 96, 0.12);
+    --sand:
+        #D4C8B6;
 
-  /* wider left ornament */
-  --rail: 78px;
+    --blue:
+        #1385a8;
 
-  --header-h: 68px;
-  --featured-h: 58px;
+    --deep-blue:
+        #173f60;
 
-  /* gives Research Areas enough space so Featured Research
-     can never overlap it */
-  --research-h: 34vh;
+    --line:
+        rgba(23, 63, 96, 0.11);
+
+
+    /* left decorative border */
+
+    --rail-width:
+        64px;
+
+
+    /*
+       These four rows together always equal the screen height.
+
+       They scale automatically with monitor height.
+    */
+
+    --header-height:
+        clamp(64px, 7.6vh, 80px);
+
+    --research-height:
+        clamp(198px, 30.5vh, 300px);
+
+    --featured-height:
+        clamp(48px, 6vh, 64px);
+
 }
 
 
@@ -26,118 +58,214 @@
    ========================================================= */
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
+    box-sizing:
+        border-box;
+
+    margin:
+        0;
+
+    padding:
+        0;
+
 }
 
-html,
-body {
-  width: 100%;
-  height: 100%;
-}
 
 html {
-  scroll-behavior: smooth;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    scroll-behavior:
+        smooth;
+
 }
+
 
 body {
-  overflow-x: hidden;
 
-  font-family: "Cormorant Garamond", Georgia, serif;
+    width:
+        100%;
 
-  color: var(--deep-blue);
+    min-height:
+        100%;
 
-  background:
-    radial-gradient(
-      circle at 75% 5%,
-      rgba(255,255,255,0.40),
-      transparent 30%
-    ),
-    linear-gradient(
-      180deg,
-      #f8f4ec 0%,
-      #f5f0e7 100%
-    );
+    overflow-x:
+        hidden;
+
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+
+    color:
+        var(--deep-blue);
+
+
+    background:
+
+        radial-gradient(
+            circle at 82% 6%,
+            rgba(255,255,255,0.40),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            180deg,
+            #f9f5ed 0%,
+            #f5efe6 100%
+        );
+
 }
+
 
 a {
-  color: inherit;
-  text-decoration: none;
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
+
 }
 
+
 img {
-  display: block;
+
+    display:
+        block;
+
 }
 
 
 /* =========================================================
    FIRST SCREEN
-   Everything fits inside one monitor
    ========================================================= */
 
-.landing-shell {
-  position: relative;
+.page-shell {
 
-  width: 100%;
-  height: 100svh;
+    position:
+        relative;
 
-  display: grid;
 
-  grid-template-rows:
-    var(--header-h)
-    minmax(0, 1fr)
-    var(--research-h)
-    var(--featured-h);
+    width:
+        100%;
 
-  overflow: hidden;
 
-  background:
-    linear-gradient(
-      180deg,
-      #f8f4ec 0%,
-      #f5f0e7 100%
-    );
+    /*
+       Entire composition stays inside one monitor.
+    */
+
+    height:
+        100svh;
+
+
+    display:
+        grid;
+
+
+    grid-template-rows:
+
+        var(--header-height)
+
+        minmax(0, 1fr)
+
+        var(--research-height)
+
+        var(--featured-height);
+
+
+    overflow:
+        hidden;
+
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #f9f5ed 0%,
+            #f5efe6 100%
+        );
+
 }
 
 
 /* =========================================================
-   LEFT CREAM ORNAMENT
+   LEFT DECORATIVE BORDER
    ========================================================= */
 
 .left-rail {
-  position: absolute;
 
-  z-index: 30;
+    position:
+        absolute;
 
-  top: 0;
-  bottom: 0;
-  left: 0;
 
-  width: var(--rail);
+    z-index:
+        40;
 
-  overflow: hidden;
 
-  /*
-    IMPORTANT:
-    Original border image contains unused blank area.
-    We enlarge the image so only the geometric portion
-    occupies the visible rail.
-  */
+    top:
+        0;
 
-  background-image: url("assets/left-border.png");
+    bottom:
+        0;
 
-  background-repeat: repeat-y;
+    left:
+        0;
 
-  background-size: 345px auto;
 
-  background-position:
-    left top;
+    width:
+        var(--rail-width);
 
-  border-right:
-    1px solid rgba(212, 200, 182, 0.28);
 
-  pointer-events: none;
+    overflow:
+        hidden;
+
+
+    background-color:
+        var(--page);
+
+
+    /*
+       IMPORTANT
+
+       The source PNG contains blank space on its right side.
+
+       The original image is therefore deliberately enlarged.
+
+       This makes ONLY the geometric section fill the entire
+       visible 64px rail.
+    */
+
+    background-image:
+        url("assets/left-border.png");
+
+
+    background-repeat:
+        repeat-y;
+
+
+    background-size:
+        170px auto;
+
+
+    background-position:
+        left top;
+
+
+    border-right:
+        1px solid
+        rgba(212, 200, 182, 0.30);
+
+
+    pointer-events:
+        none;
+
 }
 
 
@@ -146,115 +274,236 @@ img {
    ========================================================= */
 
 .site-header {
-  position: relative;
 
-  z-index: 10;
+    position:
+        relative;
 
-  grid-row: 1;
 
-  display: grid;
+    z-index:
+        20;
 
-  grid-template-columns:
-    minmax(280px, 1fr)
-    auto
-    minmax(110px, 0.45fr);
 
-  align-items: center;
+    grid-row:
+        1;
 
-  padding:
-    0
-    4vw
-    0
-    calc(var(--rail) + 2.4vw);
 
-  border-bottom:
-    1px solid var(--line);
+    display:
+        grid;
 
-  background:
-    rgba(248, 244, 236, 0.93);
+
+    grid-template-columns:
+
+        minmax(280px, 1fr)
+
+        auto
+
+        minmax(100px, 0.45fr);
+
+
+    align-items:
+        center;
+
+
+    padding:
+
+        0
+
+        4.5vw
+
+        0
+
+        calc(
+            var(--rail-width) + 2.5vw
+        );
+
+
+    border-bottom:
+        1px solid var(--line);
+
+
+    background:
+        rgba(249,245,237,0.94);
+
 }
 
 
-/* BRAND */
+/* =========================================================
+   BRAND
+   ========================================================= */
 
 .brand {
-  width: max-content;
 
-  display: inline-flex;
+    display:
+        inline-flex;
 
-  align-items: center;
 
-  gap: 14px;
+    align-items:
+        center;
+
+
+    gap:
+        14px;
+
+
+    width:
+        max-content;
+
 }
+
 
 .brand-mark {
-  width: 42px;
-  height: 42px;
 
-  object-fit: contain;
+    width:
+        40px;
+
+    height:
+        40px;
+
+
+    object-fit:
+        contain;
+
+
+    flex:
+        0 0 auto;
+
 }
+
 
 .brand span {
-  font-size: 17px;
 
-  font-weight: 500;
+    font-size:
+        17px;
 
-  letter-spacing: 0.19em;
 
-  white-space: nowrap;
+    font-weight:
+        500;
+
+
+    letter-spacing:
+        0.19em;
+
+
+    white-space:
+        nowrap;
+
+
+    color:
+        var(--deep-blue);
+
 }
 
 
-/* NAV */
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
 
 .main-nav {
-  height: 100%;
 
-  display: flex;
+    height:
+        100%;
 
-  align-items: center;
 
-  justify-content: center;
+    display:
+        flex;
 
-  gap: clamp(
-    20px,
-    2.4vw,
-    40px
-  );
+
+    align-items:
+        center;
+
+
+    justify-content:
+        center;
+
+
+    gap:
+        clamp(
+            21px,
+            2.45vw,
+            41px
+        );
+
 }
+
 
 .main-nav a {
-  position: relative;
 
-  font-size: 15px;
+    position:
+        relative;
 
-  font-weight: 500;
+
+    font-size:
+        15px;
+
+
+    font-weight:
+        500;
+
+
+    color:
+        var(--deep-blue);
+
+
+    transition:
+        color 0.20s ease;
+
 }
+
+
+.main-nav a:hover {
+
+    color:
+        var(--blue);
+
+}
+
 
 .main-nav a::after {
-  content: "";
 
-  position: absolute;
+    content:
+        "";
 
-  left: 50%;
-  bottom: -18px;
 
-  width: 0;
-  height: 2px;
+    position:
+        absolute;
 
-  transform:
-    translateX(-50%);
 
-  background:
-    var(--blue);
+    left:
+        50%;
 
-  transition:
-    width 0.20s ease;
+
+    bottom:
+        -18px;
+
+
+    width:
+        0;
+
+
+    height:
+        2px;
+
+
+    transform:
+        translateX(-50%);
+
+
+    background:
+        var(--blue);
+
+
+    transition:
+        width 0.20s ease;
+
 }
 
-.main-nav a.active::after,
-.main-nav a:hover::after {
-  width: 38px;
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+
+    width:
+        39px;
+
 }
 
 
@@ -262,91 +511,114 @@ img {
    LINKEDIN + ORCID
    ========================================================= */
 
-.socials {
-  display: flex;
+.social-links {
 
-  justify-content: flex-end;
+    display:
+        flex;
 
-  align-items: center;
 
-  gap: 11px;
+    align-items:
+        center;
+
+
+    justify-content:
+        flex-end;
+
+
+    gap:
+        13px;
+
 }
+
 
 .social-link {
-  width: 26px;
-  height: 26px;
 
-  display: grid;
+    width:
+        24px;
 
-  place-items: center;
+    height:
+        24px;
 
-  transition:
-    transform 0.20s ease;
+
+    display:
+        grid;
+
+
+    place-items:
+        center;
+
+
+    transition:
+        transform 0.20s ease;
+
 }
+
 
 .social-link:hover {
-  transform:
-    translateY(-1px);
+
+    transform:
+        translateY(-1px);
+
 }
 
 
-/* LinkedIn standard blue square */
+/* LinkedIn */
 
-.linkedin-mark {
-  width: 22px;
-  height: 22px;
+.linkedin svg {
 
-  display: grid;
+    width:
+        22px;
 
-  place-items: center;
+    height:
+        22px;
 
-  border-radius: 2px;
 
-  background:
-    #0A66C2;
+    fill:
+        #0A66C2;
 
-  color:
-    white;
-
-  font-family:
-    Arial,
-    sans-serif;
-
-  font-size: 14px;
-
-  line-height: 1;
-
-  font-weight: 700;
 }
 
 
-/* ORCID standard green circle */
+/* ORCID */
 
-.orcid-mark {
-  width: 23px;
-  height: 23px;
+.orcid svg {
 
-  display: grid;
+    width:
+        23px;
 
-  place-items: center;
+    height:
+        23px;
 
-  border-radius: 50%;
+}
 
-  background:
-    #A6CE39;
 
-  color:
-    white;
+.orcid circle {
 
-  font-family:
-    Arial,
-    sans-serif;
+    fill:
+        #A6CE39;
 
-  font-size: 9px;
+}
 
-  font-weight: 700;
 
-  letter-spacing: -0.05em;
+.orcid text {
+
+    fill:
+        white;
+
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+
+    font-size:
+        8px;
+
+
+    font-weight:
+        700;
+
 }
 
 
@@ -355,209 +627,346 @@ img {
    ========================================================= */
 
 .hero {
-  grid-row: 2;
 
-  min-height: 0;
+    grid-row:
+        2;
 
-  display: grid;
 
-  grid-template-columns:
-    45%
-    55%;
+    min-height:
+        0;
 
-  padding-left:
-    calc(var(--rail) + 9vw);
 
-  border-bottom:
-    1px solid var(--line);
+    display:
+        grid;
+
+
+    grid-template-columns:
+
+        44%
+
+        56%;
+
+
+    padding-left:
+
+        calc(
+            var(--rail-width) + 9.6vw
+        );
+
+
+    border-bottom:
+        1px solid var(--line);
+
 }
 
 
-/* HERO COPY */
+/* =========================================================
+   HERO COPY
+   ========================================================= */
 
 .hero-copy {
-  min-width: 0;
 
-  display: flex;
+    min-width:
+        0;
 
-  flex-direction: column;
 
-  justify-content: center;
+    display:
+        flex;
 
-  align-items: flex-start;
 
-  padding-right: 3vw;
+    flex-direction:
+        column;
+
+
+    justify-content:
+        center;
+
+
+    align-items:
+        flex-start;
+
+
+    padding-right:
+        3vw;
+
 }
 
 
 /* label */
 
 .hero-label {
-  margin-bottom:
-    clamp(10px, 1.6vh, 18px);
 
-  font-family:
-    "Montserrat",
-    Arial,
-    sans-serif;
+    margin-bottom:
 
-  font-size:
-    clamp(10px, 0.78vw, 12px);
+        clamp(
+            11px,
+            1.7vh,
+            19px
+        );
 
-  font-weight: 600;
 
-  letter-spacing:
-    0.28em;
+    font-family:
 
-  color:
-    var(--blue);
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+
+    font-size:
+
+        clamp(
+            10px,
+            0.79vw,
+            12px
+        );
+
+
+    font-weight:
+        600;
+
+
+    letter-spacing:
+        0.29em;
+
+
+    color:
+        var(--blue);
+
 }
 
 
-/* NAME — intentionally smaller */
+/* =========================================================
+   NAME
+   ========================================================= */
 
 .hero h1 {
-  font-size:
-    clamp(
-      46px,
-      4.65vw,
-      70px
-    );
 
-  line-height:
-    0.90;
+    /*
+       Deliberately smaller than previous version.
+    */
 
-  letter-spacing:
-    0.045em;
+    font-size:
 
-  font-weight:
-    500;
+        clamp(
+            48px,
+            4.25vw,
+            66px
+        );
 
-  color:
-    var(--deep-blue);
+
+    line-height:
+        0.91;
+
+
+    letter-spacing:
+        0.045em;
+
+
+    font-weight:
+        500;
+
+
+    color:
+        var(--deep-blue);
+
 }
 
 
-/* blue rule */
+/* blue divider */
 
 .hero-rule {
-  width: 36px;
-  height: 2px;
 
-  margin:
-    clamp(11px, 1.7vh, 18px)
-    0;
+    display:
+        block;
 
-  background:
-    var(--blue);
+
+    width:
+        37px;
+
+
+    height:
+        2px;
+
+
+    margin:
+
+        clamp(
+            12px,
+            1.8vh,
+            19px
+        )
+
+        0;
+
+
+    background:
+        var(--blue);
+
 }
 
 
 /* description */
 
 .hero-description {
-  max-width: 390px;
 
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+    max-width:
+        390px;
 
-  font-size:
-    clamp(
-      14px,
-      1.23vw,
-      18px
-    );
 
-  line-height:
-    1.48;
+    font-family:
 
-  font-style:
-    italic;
+        Georgia,
+        "Times New Roman",
+        serif;
 
-  color:
-    var(--deep-blue);
+
+    font-style:
+        italic;
+
+
+    font-size:
+
+        clamp(
+            14px,
+            1.18vw,
+            18px
+        );
+
+
+    line-height:
+        1.48;
+
+
+    color:
+        var(--deep-blue);
+
 }
 
 
-/* link */
+/* CTA */
 
 .hero-link {
-  margin-top:
-    clamp(
-      12px,
-      1.9vh,
-      20px
-    );
 
-  display:
-    inline-flex;
+    margin-top:
 
-  align-items:
-    center;
+        clamp(
+            13px,
+            2vh,
+            21px
+        );
 
-  gap:
-    13px;
 
-  font-family:
-    "Montserrat",
-    Arial,
-    sans-serif;
+    display:
+        inline-flex;
 
-  font-size:
-    clamp(
-      9px,
-      0.72vw,
-      11px
-    );
 
-  font-weight:
-    600;
+    align-items:
+        center;
 
-  letter-spacing:
-    0.23em;
 
-  color:
-    var(--blue);
+    gap:
+        13px;
+
+
+    font-family:
+
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+
+    font-size:
+
+        clamp(
+            9px,
+            0.72vw,
+            11px
+        );
+
+
+    font-weight:
+        600;
+
+
+    letter-spacing:
+        0.23em;
+
+
+    color:
+        var(--blue);
+
 }
 
 
 /* =========================================================
-   HERO IMAGE
-   smaller + breathing room
+   HERO VISUAL
    ========================================================= */
 
 .hero-visual {
-  min-width: 0;
 
-  height: 100%;
+    min-width:
+        0;
 
-  display: flex;
 
-  align-items: center;
+    height:
+        100%;
 
-  justify-content: center;
 
-  overflow: hidden;
+    display:
+        flex;
 
-  padding:
-    8px
-    14px
-    8px
-    0;
+
+    align-items:
+        center;
+
+
+    justify-content:
+        center;
+
+
+    overflow:
+        hidden;
+
+
+    /*
+       gives the artwork breathing space
+       without clipping it
+    */
+
+    padding:
+
+        7px
+
+        12px
+
+        7px
+
+        0;
+
+
+    background:
+        var(--page);
+
 }
 
+
 .hero-visual img {
-  width: 94%;
-  height: 94%;
 
-  max-width: none;
+    width:
+        96%;
 
-  object-fit: contain;
 
-  object-position:
-    center;
+    height:
+        96%;
+
+
+    object-fit:
+        contain;
+
+
+    object-position:
+        center center;
+
 }
 
 
@@ -566,239 +975,396 @@ img {
    ========================================================= */
 
 .research-areas {
-  grid-row: 3;
 
-  min-height: 0;
+    grid-row:
+        3;
 
-  padding:
-    1vh
-    4.8vw
-    1.2vh
-    calc(var(--rail) + 9vw);
 
-  background:
-    rgba(
-      248,
-      244,
-      236,
-      0.78
-    );
+    min-height:
+        0;
+
+
+    padding:
+
+        1vh
+
+        4.9vw
+
+        1.1vh
+
+        calc(
+            var(--rail-width) + 9.6vw
+        );
+
+
+    background:
+        rgba(249,245,237,0.80);
+
 }
 
 
-/* title ornament */
+/* =========================================================
+   RESEARCH TITLE ORNAMENT
+   ========================================================= */
 
 .research-heading {
-  height: 27px;
 
-  display: flex;
+    height:
+        27px;
 
-  align-items: center;
 
-  justify-content: center;
+    display:
+        flex;
 
-  gap: 15px;
+
+    align-items:
+        center;
+
+
+    justify-content:
+        center;
+
+
+    gap:
+        15px;
+
 }
+
 
 .heading-line {
-  width: 82px;
-  height: 1px;
 
-  background:
-    rgba(
-      137,
-      117,
-      84,
-      0.42
-    );
+    width:
+        83px;
+
+
+    height:
+        1px;
+
+
+    background:
+        rgba(137,117,84,0.42);
+
 }
+
 
 .heading-mark {
-  width: 25px;
-  height: 25px;
 
-  object-fit: contain;
+    width:
+        25px;
+
+    height:
+        25px;
+
+
+    object-fit:
+        contain;
+
 }
 
 
-/* Research Areas */
+/* =========================================================
+   RESEARCH TITLE
+   ========================================================= */
 
 .research-areas > h2 {
-  margin-top:
-    1px;
 
-  margin-bottom:
-    1vh;
+    margin-top:
+        2px;
 
-  text-align:
-    center;
 
-  font-size:
-    clamp(
-      18px,
-      1.65vw,
-      25px
-    );
+    margin-bottom:
+        1vh;
 
-  font-weight:
-    500;
 
-  letter-spacing:
-    0.19em;
+    text-align:
+        center;
+
+
+    font-size:
+
+        clamp(
+            18px,
+            1.65vw,
+            26px
+        );
+
+
+    font-weight:
+        500;
+
+
+    letter-spacing:
+        0.19em;
+
+
+    color:
+        var(--deep-blue);
+
 }
 
 
-/* grid */
+/* =========================================================
+   RESEARCH GRID
+   ========================================================= */
 
 .research-grid {
-  height:
-    calc(
-      100% - 55px
-    );
 
-  display:
-    grid;
+    height:
 
-  grid-template-columns:
-    1fr
-    1fr
-    1fr
-    0.92fr;
+        calc(
+            100% - 56px
+        );
 
-  align-items:
-    center;
+
+    display:
+        grid;
+
+
+    grid-template-columns:
+
+        1fr
+
+        1fr
+
+        1fr
+
+        0.92fr;
+
+
+    align-items:
+        center;
+
 }
 
 
-/* cards */
+/* =========================================================
+   RESEARCH CARD
+   ========================================================= */
 
 .research-card {
-  height:
-    82%;
 
-  min-width:
-    0;
+    height:
+        80%;
 
-  display:
-    flex;
 
-  flex-direction:
-    column;
+    min-width:
+        0;
 
-  align-items:
-    center;
 
-  justify-content:
-    flex-start;
+    display:
+        flex;
 
-  text-align:
-    center;
 
-  padding:
-    0
-    1.5vw;
+    flex-direction:
+        column;
 
-  border-right:
-    1px solid
-    rgba(
-      23,
-      63,
-      96,
-      0.10
-    );
+
+    align-items:
+        center;
+
+
+    justify-content:
+        flex-start;
+
+
+    padding:
+
+        0
+
+        1.5vw;
+
+
+    text-align:
+        center;
+
+
+    border-right:
+
+        1px solid
+        rgba(23,63,96,0.10);
+
 }
 
 
-/*
-  IMPORTANT:
-  equal visual size, not equal file size.
-*/
+/* =========================================================
+   ICON CONTAINER
+
+   The outer container is identical for all three icons.
+   The image itself is individually scaled below.
+   ========================================================= */
+
+.research-icon-box {
+
+    width:
+        64px;
+
+
+    height:
+        64px;
+
+
+    display:
+        flex;
+
+
+    align-items:
+        center;
+
+
+    justify-content:
+        center;
+
+
+    margin-bottom:
+        0.55vh;
+
+}
+
 
 .research-icon {
-  width: 62px;
-  height: 62px;
 
-  object-fit:
-    contain;
+    display:
+        block;
 
-  margin-bottom:
-    0.6vh;
+
+    max-width:
+        100%;
+
+
+    max-height:
+        100%;
+
+
+    object-fit:
+        contain;
+
 }
 
 
-/* Demography has more internal whitespace */
+/* Demographic icon has lots of internal empty area */
 
-.research-card:nth-child(1)
-.research-icon {
-  transform:
-    scale(1.22);
+.icon-demographic {
+
+    width:
+        62px;
+
+    height:
+        62px;
+
+
+    transform:
+        scale(1.14);
+
 }
 
 
-/* socioeconomic */
+/* Socio-economic */
 
-.research-card:nth-child(2)
-.research-icon {
-  transform:
-    scale(1.04);
+.icon-socioeconomic {
+
+    width:
+        59px;
+
+    height:
+        59px;
+
+
+    transform:
+        scale(1);
+
 }
 
 
-/* leaf looks naturally larger */
+/* Leaf has a naturally larger visual silhouette */
 
-.research-card:nth-child(3)
-.research-icon {
-  transform:
-    scale(0.83);
+.icon-sustainability {
+
+    width:
+        49px;
+
+    height:
+        49px;
+
+
+    transform:
+        scale(0.96);
+
 }
 
 
-/* research headings */
+/* =========================================================
+   RESEARCH HEADINGS
+   ========================================================= */
 
 .research-card h3 {
-  margin-bottom:
-    0.65vh;
 
-  font-family:
-    "Montserrat",
-    Arial,
-    sans-serif;
+    margin-bottom:
+        0.65vh;
 
-  font-size:
-    clamp(
-      9px,
-      0.76vw,
-      11.5px
-    );
 
-  line-height:
-    1.4;
+    font-family:
 
-  font-weight:
-    500;
+        "Montserrat",
+        Arial,
+        sans-serif;
 
-  letter-spacing:
-    0.18em;
+
+    font-size:
+
+        clamp(
+            9px,
+            0.75vw,
+            11.5px
+        );
+
+
+    line-height:
+        1.42;
+
+
+    font-weight:
+        500;
+
+
+    letter-spacing:
+        0.18em;
+
+
+    color:
+        var(--deep-blue);
+
 }
 
 
-/* research subtopics */
+/* =========================================================
+   RESEARCH TOPICS
+   ========================================================= */
 
 .research-card p {
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
 
-  font-size:
-    clamp(
-      11px,
-      0.95vw,
-      14px
-    );
+    font-family:
 
-  line-height:
-    1.35;
+        Georgia,
+        "Times New Roman",
+        serif;
+
+
+    font-size:
+
+        clamp(
+            11px,
+            0.93vw,
+            14px
+        );
+
+
+    line-height:
+        1.38;
+
+
+    color:
+        var(--deep-blue);
+
 }
 
 
@@ -806,429 +1372,629 @@ img {
    SLOGAN
    ========================================================= */
 
-.slogan {
-  align-self:
-    center;
+.research-slogan {
 
-  padding-left:
-    2.2vw;
-}
+    align-self:
+        center;
 
-.slogan-ornament {
-  display:
-    flex;
 
-  align-items:
-    center;
+    padding-left:
+        2.2vw;
 
-  gap:
-    11px;
-
-  margin-bottom:
-    0.7vh;
-}
-
-.slogan-ornament span {
-  width:
-    53px;
-
-  height:
-    1px;
-
-  background:
-    rgba(
-      137,
-      117,
-      84,
-      0.42
-    );
 }
 
 
-/* larger slogan shamsa */
+/* slogan ornament */
 
-.slogan-ornament img {
-  width:
-    clamp(
-      34px,
-      2.9vw,
-      42px
-    );
+.slogan-decoration {
 
-  height:
-    clamp(
-      34px,
-      2.9vw,
-      42px
-    );
+    display:
+        flex;
 
-  object-fit:
-    contain;
+
+    align-items:
+        center;
+
+
+    gap:
+        11px;
+
+
+    margin-bottom:
+        0.75vh;
+
 }
 
-.slogan p {
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
 
-  font-size:
-    clamp(
-      12px,
-      1vw,
-      15px
-    );
+.slogan-decoration span {
 
-  line-height:
-    1.45;
+    flex:
+        1;
 
-  font-style:
-    italic;
+
+    max-width:
+        55px;
+
+
+    height:
+        1px;
+
+
+    background:
+        rgba(137,117,84,0.42);
+
 }
 
-.slogan i {
-  display:
-    block;
 
-  width:
-    29px;
+/* Larger sand-colored shamsa */
 
-  height:
-    1px;
+.slogan-decoration img {
 
-  margin-top:
-    1vh;
+    width:
 
-  background:
-    var(--blue);
+        clamp(
+            35px,
+            2.8vw,
+            42px
+        );
+
+
+    height:
+
+        clamp(
+            35px,
+            2.8vw,
+            42px
+        );
+
+
+    object-fit:
+        contain;
+
+}
+
+
+/* slogan text */
+
+.research-slogan p {
+
+    font-family:
+
+        Georgia,
+        "Times New Roman",
+        serif;
+
+
+    font-size:
+
+        clamp(
+            12px,
+            0.98vw,
+            15px
+        );
+
+
+    line-height:
+        1.47;
+
+
+    font-style:
+        italic;
+
+
+    color:
+        var(--deep-blue);
+
+}
+
+
+/* small blue line */
+
+.slogan-bottom-line {
+
+    width:
+        29px;
+
+
+    height:
+        1px;
+
+
+    margin-top:
+        1vh;
+
+
+    background:
+        var(--blue);
+
 }
 
 
 /* =========================================================
-   FEATURED RESEARCH
+   FEATURED RESEARCH STRIP
 
-   IMPORTANT:
-   Image already contains text + lines.
-   Nothing is written over it in CSS.
+   There is NO additional text here.
+   The PNG itself contains the title and lines.
    ========================================================= */
 
 .featured-strip {
-  grid-row:
-    4;
 
-  margin-left:
-    var(--rail);
+    grid-row:
+        4;
 
-  width:
-    calc(
-      100% - var(--rail)
-    );
 
-  height:
-    var(--featured-h);
+    width:
 
-  overflow:
-    hidden;
+        calc(
+            100% - var(--rail-width)
+        );
 
-  background:
-    #174f7d;
+
+    height:
+        var(--featured-height);
+
+
+    margin-left:
+        var(--rail-width);
+
+
+    overflow:
+        hidden;
+
+
+    background:
+        #174e79;
+
 }
 
+
 .featured-strip img {
-  width:
-    100%;
 
-  height:
-    100%;
+    width:
+        100%;
 
-  object-fit:
-    cover;
 
-  object-position:
-    center;
+    height:
+        100%;
+
+
+    object-fit:
+        cover;
+
+
+    object-position:
+        center center;
+
 }
 
 
 /* =========================================================
-   SHORT DESKTOP MONITORS
+   SHORT DESKTOP SCREENS
    ========================================================= */
 
 @media
-(max-height: 720px)
+(max-height: 700px)
 and
 (min-width: 901px) {
 
-  :root {
-    --header-h:
-      64px;
+    :root {
 
-    --featured-h:
-      54px;
+        --research-height:
+            195px;
 
-    --research-h:
-      35vh;
-  }
+        --featured-height:
+            47px;
 
-  .brand-mark {
-    width:
-      37px;
+        --header-height:
+            63px;
 
-    height:
-      37px;
-  }
+    }
 
-  .brand span {
-    font-size:
-      15px;
-  }
 
-  .hero h1 {
-    font-size:
-      clamp(
-        44px,
-        4.35vw,
-        62px
-      );
-  }
+    .brand-mark {
 
-  .hero-description {
-    font-size:
-      clamp(
-        13px,
-        1.1vw,
-        16px
-      );
-  }
+        width:
+            36px;
 
-  .research-icon {
-    width:
-      54px;
+        height:
+            36px;
 
-    height:
-      54px;
-  }
+    }
+
+
+    .brand span {
+
+        font-size:
+            15px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+
+            clamp(
+                46px,
+                4vw,
+                58px
+            );
+
+    }
+
+
+    .hero-description {
+
+        font-size:
+
+            clamp(
+                13px,
+                1vw,
+                16px
+            );
+
+    }
+
+
+    .research-icon-box {
+
+        width:
+            55px;
+
+        height:
+            55px;
+
+    }
+
+
+    .icon-demographic {
+
+        width:
+            54px;
+
+        height:
+            54px;
+
+    }
+
+
+    .icon-socioeconomic {
+
+        width:
+            52px;
+
+        height:
+            52px;
+
+    }
+
+
+    .icon-sustainability {
+
+        width:
+            44px;
+
+        height:
+            44px;
+
+    }
+
 }
 
 
 /* =========================================================
-   MOBILE / TABLET
+   TABLET / MOBILE
    ========================================================= */
 
 @media
 (max-width: 900px) {
 
-  body {
-    overflow-y:
-      auto;
-  }
 
-  :root {
-    --rail:
-      36px;
-  }
+    body {
 
-  .landing-shell {
-    height:
-      auto;
+        overflow-y:
+            auto;
 
-    min-height:
-      100svh;
+    }
 
-    display:
-      block;
 
-    overflow:
-      visible;
-  }
+    :root {
 
-  .left-rail {
-    position:
-      fixed;
+        --rail-width:
+            34px;
 
-    width:
-      var(--rail);
+    }
 
-    /*
-      same crop logic for mobile
-    */
 
-    background-size:
-      180px auto;
-  }
+    .page-shell {
 
-  .site-header {
-    height:
-      68px;
+        height:
+            auto;
 
-    display:
-      flex;
 
-    padding:
-      0
-      16px
-      0
-      calc(
-        var(--rail) + 16px
-      );
-  }
+        min-height:
+            100svh;
 
-  .brand-mark {
-    width:
-      34px;
 
-    height:
-      34px;
-  }
+        display:
+            block;
 
-  .brand span {
-    font-size:
-      14px;
 
-    letter-spacing:
-      0.12em;
-  }
+        overflow:
+            visible;
 
-  .main-nav {
-    display:
-      none;
-  }
+    }
 
-  .socials {
-    margin-left:
-      auto;
-  }
 
-  .hero {
-    display:
-      block;
+    .left-rail {
 
-    padding:
-      42px
-      18px
-      25px
-      calc(
-        var(--rail) + 22px
-      );
-  }
+        position:
+            fixed;
 
-  .hero-copy {
-    padding-bottom:
-      30px;
-  }
 
-  .hero h1 {
-    font-size:
-      clamp(
-        46px,
-        14vw,
-        68px
-      );
-  }
+        width:
+            var(--rail-width);
 
-  .hero-visual {
-    height:
-      340px;
 
-    margin-left:
-      calc(
-        -1 *
-        (
-          var(--rail) + 22px
-        )
-      );
+        /*
+           same crop principle as desktop
+        */
 
-    margin-right:
-      -18px;
-  }
+        background-size:
+            91px auto;
 
-  .hero-visual img {
-    width:
-      96%;
+    }
 
-    height:
-      96%;
-  }
 
-  .research-areas {
-    padding:
-      28px
-      22px
-      30px
-      calc(
-        var(--rail) + 22px
-      );
-  }
+    .site-header {
 
-  .research-grid {
-    height:
-      auto;
+        height:
+            68px;
 
-    display:
-      block;
-  }
 
-  .research-card {
-    height:
-      auto;
+        display:
+            flex;
 
-    padding:
-      20px
-      0;
 
-    border-right:
-      0;
+        padding:
 
-    border-bottom:
-      1px solid
-      rgba(
-        23,
-        63,
-        96,
-        0.10
-      );
-  }
+            0
 
-  .research-icon {
-    width:
-      65px;
+            16px
 
-    height:
-      65px;
-  }
+            0
 
-  .slogan {
-    padding:
-      28px
-      0
-      5px;
+            calc(
+                var(--rail-width) + 16px
+            );
 
-    text-align:
-      center;
-  }
+    }
 
-  .slogan-ornament {
-    justify-content:
-      center;
-  }
 
-  .slogan i {
-    margin-left:
-      auto;
+    .brand-mark {
 
-    margin-right:
-      auto;
-  }
+        width:
+            34px;
 
-  .featured-strip {
-    width:
-      calc(
-        100% - var(--rail)
-      );
+        height:
+            34px;
 
-    height:
-      70px;
+    }
 
-    margin-left:
-      var(--rail);
-  }
+
+    .brand span {
+
+        font-size:
+            14px;
+
+
+        letter-spacing:
+            0.12em;
+
+    }
+
+
+    .main-nav {
+
+        display:
+            none;
+
+    }
+
+
+    .social-links {
+
+        margin-left:
+            auto;
+
+    }
+
+
+    .hero {
+
+        display:
+            block;
+
+
+        padding:
+
+            42px
+
+            18px
+
+            25px
+
+            calc(
+                var(--rail-width) + 22px
+            );
+
+    }
+
+
+    .hero-copy {
+
+        padding-bottom:
+            28px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+
+            clamp(
+                46px,
+                14vw,
+                68px
+            );
+
+    }
+
+
+    .hero-visual {
+
+        height:
+            340px;
+
+
+        margin-left:
+
+            calc(
+                -1 *
+                (
+                    var(--rail-width) + 22px
+                )
+            );
+
+
+        margin-right:
+            -18px;
+
+    }
+
+
+    .hero-visual img {
+
+        width:
+            96%;
+
+
+        height:
+            96%;
+
+    }
+
+
+    .research-areas {
+
+        padding:
+
+            28px
+
+            22px
+
+            30px
+
+            calc(
+                var(--rail-width) + 22px
+            );
+
+    }
+
+
+    .research-grid {
+
+        height:
+            auto;
+
+
+        display:
+            block;
+
+    }
+
+
+    .research-card {
+
+        height:
+            auto;
+
+
+        padding:
+            20px 0;
+
+
+        border-right:
+            0;
+
+
+        border-bottom:
+
+            1px solid
+            rgba(23,63,96,0.10);
+
+    }
+
+
+    .research-icon-box {
+
+        width:
+            70px;
+
+        height:
+            70px;
+
+    }
+
+
+    .research-slogan {
+
+        padding:
+            28px 0 5px;
+
+
+        text-align:
+            center;
+
+    }
+
+
+    .slogan-decoration {
+
+        justify-content:
+            center;
+
+    }
+
+
+    .slogan-bottom-line {
+
+        margin-left:
+            auto;
+
+        margin-right:
+            auto;
+
+    }
+
+
+    .featured-strip {
+
+        width:
+
+            calc(
+                100% - var(--rail-width)
+            );
+
+
+        height:
+            70px;
+
+
+        margin-left:
+            var(--rail-width);
+
+    }
+
 }
