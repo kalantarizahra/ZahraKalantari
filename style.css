@@ -577,6 +577,7 @@ img {
 /* ===================== TABLET / MOBILE ===================== */
 
 @media (max-width: 900px) {
+
   body {
     overflow-y: auto;
   }
@@ -645,9 +646,9 @@ img {
   .hero h1 {
     font-size: clamp(46px, 14vw, 68px);
   }
+
   .hero-visual {
     position: relative;
-
     top: auto;
     right: auto;
     bottom: auto;
@@ -659,8 +660,11 @@ img {
 
     background-size: cover;
     background-position: 72% center;
-}
+  }
 
+  .hero-visual::before {
+    width: 16%;
+  }
 
   .research-areas {
     width: calc(100% - var(--rail-width));
@@ -680,7 +684,7 @@ img {
     height: auto;
     padding: 18px 0;
     border-right: 0;
-    border-bottom: 1px solid rgba(23, 63, 96, 0.10);
+    border-bottom: none;
   }
 
   .research-icon-box {
@@ -706,5 +710,20 @@ img {
     width: 100%;
     height: var(--featured-height);
     margin: 0;
+  }
+}
+
+
+/* MOBILE ONLY — MUST COME AFTER THE 900px BLOCK */
+
+@media (max-width: 600px) {
+
+  .hero-visual {
+    height: 280px;
+    background-position: 76% center;
+  }
+
+  .hero-visual::before {
+    width: 12%;
   }
 }
