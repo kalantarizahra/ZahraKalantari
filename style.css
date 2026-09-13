@@ -140,7 +140,7 @@ img {
 
 .main-nav a {
   position: relative;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--deep-blue);
   transition: color 0.20s ease;
@@ -367,20 +367,13 @@ img {
 
 .research-areas > h2 {
   margin: 0 0 6px;
-
   text-align: center;
 
-  font-family:
-    "Montserrat",
-    Arial,
-    sans-serif;
+  font-family: "Cormorant Garamond", Georgia, serif;
 
-  font-size:
-    clamp(17px, 1.35vw, 22px);
-
+  font-size: clamp(18px, 1.58vw, 25px);
   font-weight: 500;
-
-  letter-spacing: 0.16em;
+  letter-spacing: 0.19em;
 
   color: var(--deep-blue);
 }
