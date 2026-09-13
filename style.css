@@ -296,7 +296,7 @@ img {
   background-image: url("assets/hero-graphic.png");
   background-repeat: no-repeat;
   background-size: 116% auto;
-  background-position: 42% center;
+  background-position: 48% center;
 }
 
 .hero-visual::before {
