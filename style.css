@@ -290,13 +290,13 @@ img {
   top: -8px;
   right: -10px;
   bottom: -8px;
-  width: 65%;
+  width: 74%;
   overflow: hidden;
   background-color: var(--page);
   background-image: url("assets/hero-graphic.png");
   background-repeat: no-repeat;
   background-size: 116% auto;
-  background-position: 50% center;
+  background-position: 70% center;
 }
 
 .hero-visual::before {
@@ -533,15 +533,7 @@ img {
     font-size: clamp(13px, 1vw, 16px);
   }
 
-  .hero-visual {
-    top: -14px;
-    right: -28px;
-    bottom: -14px;
-    width: 63%;
-    background-size: 114% auto;
-    background-position:50% center;
-  }
-
+  
   .research-areas {
     padding-top: 2px;
     padding-bottom: 36px;
@@ -654,21 +646,7 @@ img {
     font-size: clamp(46px, 14vw, 68px);
   }
 
-  .hero-visual {
-    position: relative;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    width: calc(100% + 36px);
-    height: 330px;
-    margin-left: -18px;
-    background-size: cover;
-    background-position: 48% center;
-  }
 
-  .hero-visual::before {
-    width: 16%;
-  }
 
   .research-areas {
     width: calc(100% - var(--rail-width));
