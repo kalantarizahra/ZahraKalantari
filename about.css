@@ -1,5 +1,6 @@
 /* =========================================================
    ZAHRA KALANTARI — ABOUT PAGE
+   FINAL REVISED VERSION
    Load AFTER style.css
    ========================================================= */
 
@@ -13,7 +14,7 @@
     linear-gradient(180deg, #f9f5ed 0%, #f5efe6 100%);
 }
 
-/* Left rail: starts at top and stops at top edge of blue bar */
+/* Left rail starts at top and stops at the top edge of the blue strip */
 .about-shell > .left-rail {
   top: 0;
   bottom: var(--featured-height);
@@ -34,7 +35,6 @@
   backdrop-filter: blur(10px);
 }
 
-/* Google Scholar in site palette */
 .scholar svg {
   width: 24px;
   height: 24px;
@@ -71,8 +71,8 @@
 
   display: grid;
   grid-template-columns:
-    minmax(0, 0.88fr)
-    minmax(420px, 1.12fr);
+    minmax(0, 0.92fr)
+    minmax(420px, 1.08fr);
 
   align-items: center;
   gap: clamp(44px, 6vw, 86px);
@@ -89,10 +89,12 @@
 
 .about-hero h1 {
   margin-top: 12px;
+
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(43px, 4.6vw, 68px);
-  line-height: 0.98;
+  font-size: clamp(40px, 4vw, 61px);
+  line-height: 1.01;
   font-weight: 500;
+
   color: var(--deep-blue);
 }
 
@@ -204,46 +206,47 @@
 
 /* ===================== CURRENT ROLES ===================== */
 
-.roles-grid {
+.roles-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.role-row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  grid-template-columns: 165px minmax(0, 1fr);
+  gap: 34px;
+
+  padding: 26px 0;
+
+  border-bottom:
+    1px solid
+    rgba(23,63,96,0.08);
 }
 
-.role-card {
-  min-height: 250px;
-  padding: 28px;
+.role-date {
+  padding-top: 3px;
 
-  background: rgba(255,255,255,0.23);
-  border: 1px solid rgba(23,63,96,0.08);
-}
-
-.role-date,
-.journey-year {
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 25px;
-  line-height: 1;
+  font-size: 22px;
+  line-height: 1.05;
   font-weight: 600;
 
   color: var(--blue);
 }
 
-.role-card h3,
-.journey-item h3,
-.personal-note h3 {
+.role-body h3 {
+  margin-bottom: 6px;
+
   font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(23px, 2vw, 29px);
+  line-height: 1.15;
   font-weight: 600;
+
   color: var(--deep-blue);
 }
 
-.role-card h3 {
-  margin: 20px 0 8px;
-  font-size: clamp(24px, 2vw, 30px);
-  line-height: 1.15;
-}
-
 .role-place {
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 10px;
@@ -253,7 +256,9 @@
   color: rgba(23,63,96,0.62);
 }
 
-.role-card > p:last-child {
+.role-body > p:last-child {
+  max-width: 780px;
+
   font-family: Georgia, "Times New Roman", serif;
   font-size: 14px;
   line-height: 1.62;
@@ -280,10 +285,24 @@
     rgba(23,63,96,0.08);
 }
 
+.journey-year {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 22px;
+  line-height: 1.05;
+  font-weight: 600;
+
+  color: var(--blue);
+}
+
 .journey-item h3 {
   margin-bottom: 5px;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(20px, 1.7vw, 25px);
   line-height: 1.2;
+  font-weight: 600;
+
+  color: var(--deep-blue);
 }
 
 .journey-item p {
@@ -312,6 +331,7 @@
 
   color: var(--deep-blue);
   background: rgba(255,255,255,0.25);
+
   border: 1px solid rgba(23,63,96,0.10);
 }
 
@@ -326,34 +346,64 @@
   color: rgba(23,63,96,0.76);
 }
 
-/* ===================== PERSONAL ===================== */
+/* ===================== BEYOND THE RESEARCH ===================== */
 
-.personal-grid {
+.personal-section {
+  padding-top: 8px;
+}
+
+.personal-layout {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  grid-template-columns:
+    minmax(0, 0.95fr)
+    minmax(420px, 1.05fr);
+
+  align-items: center;
+  gap: clamp(44px, 6vw, 82px);
 }
 
-.personal-note {
-  min-height: 240px;
-  padding: 30px;
+.personal-kicker {
+  margin-bottom: 7px;
 
-  background: rgba(19,133,168,0.035);
-  border: 1px solid rgba(23,63,96,0.08);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.20em;
+
+  color: rgba(23,63,96,0.52);
 }
 
-.personal-note h3 {
-  margin-bottom: 16px;
-  font-size: clamp(25px, 2vw, 31px);
-  line-height: 1.15;
+.personal-copy h2 {
+  margin-bottom: 24px;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(31px, 3vw, 44px);
+  line-height: 1.06;
+  font-weight: 500;
+
+  color: var(--deep-blue);
 }
 
-.personal-note p {
+.personal-copy p {
+  max-width: 720px;
+  margin-bottom: 18px;
+
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 14px;
-  line-height: 1.67;
+  font-size: 14.5px;
+  line-height: 1.70;
 
-  color: rgba(23,63,96,0.78);
+  color: rgba(23,63,96,0.80);
+}
+
+.journey-map {
+  margin: 0;
+}
+
+.journey-map img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 /* ===================== CONTACT ===================== */
@@ -395,6 +445,7 @@
   font-size: 9.5px;
   font-weight: 600;
   letter-spacing: 0.13em;
+
   color: var(--blue);
 }
 
@@ -408,19 +459,6 @@
 /* ===================== HOVER ===================== */
 
 @media (hover: hover) {
-  .role-card,
-  .personal-note {
-    transition:
-      transform 0.20s ease,
-      background 0.20s ease;
-  }
-
-  .role-card:hover,
-  .personal-note:hover {
-    transform: translateY(-3px);
-    background: rgba(255,255,255,0.39);
-  }
-
   .profile-links a:hover {
     color: var(--deep-blue);
   }
@@ -476,14 +514,12 @@
     grid-row: 2;
 
     width: 100%;
-
     display: flex;
     justify-content: flex-start;
 
     gap: 22px;
 
     overflow-x: auto;
-
     padding: 0 0 14px;
 
     scrollbar-width: none;
@@ -501,12 +537,17 @@
     bottom: -7px;
   }
 
-  .about-hero {
+  .about-hero,
+  .personal-layout {
     grid-template-columns: 1fr;
+  }
+
+  .about-hero {
     padding: 46px 24px 52px;
   }
 
-  .about-family-figure {
+  .about-family-figure,
+  .journey-map {
     max-width: 720px;
   }
 
@@ -537,7 +578,7 @@
   }
 
   .about-hero h1 {
-    font-size: clamp(40px, 13vw, 58px);
+    font-size: clamp(38px, 12vw, 54px);
   }
 
   .about-family-figure img {
@@ -553,24 +594,19 @@
     margin-top: 62px;
   }
 
-  .roles-grid,
-  .personal-grid {
+  .role-row {
     grid-template-columns: 1fr;
-  }
-
-  .role-card,
-  .personal-note {
-    min-height: auto;
+    gap: 10px;
   }
 
   .journey-item {
-    grid-template-columns: 74px minmax(0, 1fr);
+    grid-template-columns: 86px minmax(0, 1fr);
     gap: 15px;
     padding: 21px 0;
   }
 
   .journey-year {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .methods-grid {
@@ -581,5 +617,8 @@
     padding: 10px 12px;
     font-size: 9.5px;
   }
-}
 
+  .personal-copy h2 {
+    font-size: clamp(29px, 10vw, 40px);
+  }
+}
