@@ -15,11 +15,13 @@
 
 .teaching-shell > .left-rail {
   top: 0;
-  bottom: 0;
+  bottom: var(--featured-height);
   height: auto;
+
   background-repeat: repeat-y;
-  background-size: 170px auto;
-  background-position: left top;
+  background-size: auto calc(100svh - var(--featured-height));
+  background-position: center top;
+
   z-index: 40;
 }
 
@@ -335,8 +337,8 @@
 }
 
 .teaching-bottom-strip {
-  width: calc(100% - var(--rail-width));
-  margin-left: var(--rail-width);
+  width: 100%;
+  margin-left: 0;
 }
 
 @media (hover: hover) {
@@ -354,10 +356,18 @@
 
 @media (max-width: 900px) {
   .teaching-shell > .left-rail {
-    position: fixed;
-    width: var(--rail-width);
-    background-size: 91px auto;
-  }
+  position: absolute;
+
+  top: 0;
+  bottom: var(--featured-height);
+
+  height: auto;
+  width: var(--rail-width);
+
+  background-repeat: repeat-y;
+  background-size: auto calc(100svh - var(--featured-height));
+  background-position: center top;
+}
 
   .teaching-header {
     position: sticky;
