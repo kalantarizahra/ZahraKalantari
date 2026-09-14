@@ -51,15 +51,27 @@
   position: relative;
   z-index: 2;
   margin-left: var(--rail-width);
+
   padding:
-    clamp(52px, 7vw, 92px)
+    0
     clamp(46px, 7vw, 108px)
     clamp(76px, 9vw, 118px);
 }
 
 .teaching-intro {
-  width: min(100%, 980px);
+  width: min(100%, 1040px);
+
+  min-height: calc(100svh - var(--header-height));
+
   margin: 0 auto;
+
+  padding: 30px 0 46px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   text-align: center;
 }
 
@@ -87,39 +99,48 @@
 .section-kicker,
 .activity-type {
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.23em;
   color: var(--blue);
 }
 
 .teaching-intro h1 {
-  margin-top: 9px;
+  margin-top: 11px;
+
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(48px, 5.4vw, 78px);
-  line-height: 0.95;
+
+  font-size: clamp(62px, 6.6vw, 94px);
+  line-height: 0.94;
   font-weight: 500;
-  letter-spacing: 0.045em;
+  letter-spacing: 0.035em;
+
   color: var(--deep-blue);
 }
 
 .teaching-lead {
-  max-width: 760px;
-  margin: 22px auto 0;
+  max-width: 900px;
+
+  margin: 28px auto 0;
+
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(17px, 1.4vw, 20px);
-  line-height: 1.65;
+  font-size: clamp(20px, 1.65vw, 24px);
+  line-height: 1.62;
   font-style: italic;
-  color: rgba(23,63,96,0.84);
+
+  color: rgba(23,63,96,0.86);
 }
 
 .teaching-intro-copy {
-  max-width: 720px;
-  margin: 16px auto 0;
+  max-width: 840px;
+
+  margin: 18px auto 0;
+
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: 11.5px;
+  font-size: 14px;
   line-height: 1.75;
-  color: rgba(23,63,96,0.70);
+
+  color: rgba(23,63,96,0.76);
 }
 
 .teaching-section {
@@ -137,7 +158,7 @@
 .teaching-closing h2 {
   margin-top: 6px;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(30px, 3vw, 43px);
+  font-size: clamp(32px, 3.1vw, 45px);
   line-height: 1.05;
   font-weight: 500;
   color: var(--deep-blue);
@@ -150,8 +171,8 @@
 }
 
 .course-card {
-  min-height: 250px;
-  padding: 26px 24px;
+  min-height: 265px;
+  padding: 29px 25px;
   background: rgba(255,255,255,0.23);
   border: 1px solid rgba(23,63,96,0.08);
 }
@@ -159,7 +180,7 @@
 .course-number {
   margin-bottom: 20px;
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.16em;
   color: var(--blue);
@@ -177,7 +198,7 @@
 .course-card h3 {
   min-height: 58px;
   margin-bottom: 17px;
-  font-size: clamp(21px, 1.7vw, 26px);
+  font-size: clamp(23px, 1.85vw, 28px);
   line-height: 1.15;
 }
 
@@ -187,18 +208,20 @@
 
 .course-card li {
   position: relative;
-  padding: 7px 0 7px 15px;
+  padding: 8px 0 8px 16px;
+
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: 10.5px;
-  line-height: 1.45;
-  color: rgba(23,63,96,0.73);
+  font-size: 13.5px;
+  line-height: 1.5;
+
+  color: rgba(23,63,96,0.80);
 }
 
 .course-card li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 14px;
+  top: 17px;
   width: 5px;
   height: 1px;
   background: var(--blue);
@@ -241,17 +264,18 @@
   max-width: 760px;
   margin-top: 16px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 14px;
-  line-height: 1.65;
-  color: rgba(23,63,96,0.77);
+  font-size: 16px;
+  line-height: 1.68;
+  color: rgba(23,63,96,0.80);
 }
 
 .activity-place {
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: 10px;
-  line-height: 1.55;
-  letter-spacing: 0.06em;
-  color: rgba(23,63,96,0.62);
+  font-size: 12.5px;
+  line-height: 1.6;
+  letter-spacing: 0.035em;
+
+  color: rgba(23,63,96,0.72);
 }
 
 .mentoring-grid {
@@ -275,13 +299,14 @@
 
 .mentoring-card > p:not(.activity-year):not(.activity-type):not(.activity-place) {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 14px;
-  line-height: 1.62;
-  color: rgba(23,63,96,0.76);
+  font-size: 16px;
+  line-height: 1.68;
+  color: rgba(23,63,96,0.80);
 }
 
 .mentoring-card .activity-place {
-  margin-top: 15px;
+  margin-top: 8px;
+  margin-bottom: 13px;
 }
 
 .knowledge-list {
@@ -315,9 +340,9 @@
 .knowledge-item p {
   max-width: 800px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 14px;
-  line-height: 1.6;
-  color: rgba(23,63,96,0.76);
+  font-size: 16px;
+  line-height: 1.68;
+  color: rgba(23,63,96,0.80);
 }
 
 .teaching-closing {
@@ -356,18 +381,18 @@
 
 @media (max-width: 900px) {
   .teaching-shell > .left-rail {
-  position: absolute;
+    position: absolute;
 
-  top: 0;
-  bottom: var(--featured-height);
+    top: 0;
+    bottom: var(--featured-height);
 
-  height: auto;
-  width: var(--rail-width);
+    height: auto;
+    width: var(--rail-width);
 
-  background-repeat: repeat-y;
-  background-size: auto calc(100svh - var(--featured-height));
-  background-position: center top;
-}
+    background-repeat: repeat-y;
+    background-size: auto calc(100svh - var(--featured-height));
+    background-position: center top;
+  }
 
   .teaching-header {
     position: sticky;
@@ -415,7 +440,12 @@
 
   .teaching-main {
     margin-left: var(--rail-width);
-    padding: 46px 24px 80px;
+    padding: 0 24px 80px;
+  }
+
+  .teaching-intro {
+    min-height: calc(100svh - 108px);
+    padding: 26px 0 40px;
   }
 
   .course-grid {
@@ -437,7 +467,12 @@
 
 @media (max-width: 600px) {
   .teaching-main {
-    padding: 38px 18px 70px;
+    padding: 0 18px 70px;
+  }
+
+  .teaching-intro {
+    min-height: calc(100svh - 108px);
+    padding: 24px 0 36px;
   }
 
   .page-ornament span {
@@ -445,7 +480,15 @@
   }
 
   .teaching-intro h1 {
-    font-size: clamp(43px, 15vw, 61px);
+    font-size: clamp(52px, 16vw, 72px);
+  }
+
+  .teaching-lead {
+    font-size: 18px;
+  }
+
+  .teaching-intro-copy {
+    font-size: 14px;
   }
 
   .teaching-section {
@@ -480,4 +523,3 @@
     margin-top: 72px;
   }
 }
-
