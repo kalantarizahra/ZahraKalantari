@@ -1,1 +1,473 @@
+/* =========================================================
+   ZAHRA KALANTARI — TEACHING PAGE
+   Load AFTER style.css
+   ========================================================= */
+
+.teaching-shell {
+  min-height: 100svh;
+  height: auto;
+  display: block;
+  overflow: visible;
+  background:
+    radial-gradient(circle at 84% 4%, rgba(255,255,255,0.42), transparent 26%),
+    linear-gradient(180deg, #f9f5ed 0%, #f5efe6 100%);
+}
+
+.teaching-shell > .left-rail {
+  top: 0;
+  bottom: 0;
+  height: auto;
+  background-repeat: repeat-y;
+  background-size: 170px auto;
+  background-position: left top;
+  z-index: 40;
+}
+
+.teaching-header {
+  position: sticky;
+  top: 0;
+  min-height: var(--header-height);
+  z-index: 20;
+  backdrop-filter: blur(10px);
+}
+
+.scholar svg {
+  width: 24px;
+  height: 24px;
+}
+
+.scholar-circle {
+  fill: var(--blue);
+}
+
+.scholar-cap,
+.scholar-base {
+  fill: #ffffff;
+}
+
+.teaching-main {
+  position: relative;
+  z-index: 2;
+  margin-left: var(--rail-width);
+  padding:
+    clamp(52px, 7vw, 92px)
+    clamp(46px, 7vw, 108px)
+    clamp(76px, 9vw, 118px);
+}
+
+.teaching-intro {
+  width: min(100%, 980px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.page-ornament span {
+  width: 86px;
+  height: 1px;
+  background: rgba(137,117,84,0.42);
+}
+
+.page-ornament img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.page-kicker,
+.section-kicker,
+.activity-type {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.23em;
+  color: var(--blue);
+}
+
+.teaching-intro h1 {
+  margin-top: 9px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(48px, 5.4vw, 78px);
+  line-height: 0.95;
+  font-weight: 500;
+  letter-spacing: 0.045em;
+  color: var(--deep-blue);
+}
+
+.teaching-lead {
+  max-width: 760px;
+  margin: 22px auto 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.65;
+  font-style: italic;
+  color: rgba(23,63,96,0.84);
+}
+
+.teaching-intro-copy {
+  max-width: 720px;
+  margin: 16px auto 0;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 11.5px;
+  line-height: 1.75;
+  color: rgba(23,63,96,0.70);
+}
+
+.teaching-section {
+  width: min(100%, 1120px);
+  margin: clamp(72px, 8vw, 110px) auto 0;
+}
+
+.section-heading-row {
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(23,63,96,0.10);
+}
+
+.section-heading-row h2,
+.teaching-closing h2 {
+  margin-top: 6px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(30px, 3vw, 43px);
+  line-height: 1.05;
+  font-weight: 500;
+  color: var(--deep-blue);
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.course-card {
+  min-height: 250px;
+  padding: 26px 24px;
+  background: rgba(255,255,255,0.23);
+  border: 1px solid rgba(23,63,96,0.08);
+}
+
+.course-number {
+  margin-bottom: 20px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--blue);
+}
+
+.course-card h3,
+.activity-content h3,
+.mentoring-card h3,
+.knowledge-item h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  color: var(--deep-blue);
+}
+
+.course-card h3 {
+  min-height: 58px;
+  margin-bottom: 17px;
+  font-size: clamp(21px, 1.7vw, 26px);
+  line-height: 1.15;
+}
+
+.course-card ul {
+  list-style: none;
+}
+
+.course-card li {
+  position: relative;
+  padding: 7px 0 7px 15px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 10.5px;
+  line-height: 1.45;
+  color: rgba(23,63,96,0.73);
+}
+
+.course-card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 5px;
+  height: 1px;
+  background: var(--blue);
+}
+
+.feature-activity {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 42px;
+  padding: 34px;
+  background: rgba(19,133,168,0.045);
+  border: 1px solid rgba(23,63,96,0.08);
+}
+
+.activity-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding-right: 22px;
+  border-right: 1px solid rgba(23,63,96,0.10);
+}
+
+.activity-year {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.activity-content h3 {
+  max-width: 760px;
+  margin-bottom: 10px;
+  font-size: clamp(24px, 2.2vw, 32px);
+  line-height: 1.15;
+}
+
+.activity-content > p:not(.activity-place) {
+  max-width: 760px;
+  margin-top: 16px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(23,63,96,0.77);
+}
+
+.activity-place {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 10px;
+  line-height: 1.55;
+  letter-spacing: 0.06em;
+  color: rgba(23,63,96,0.62);
+}
+
+.mentoring-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.mentoring-card {
+  min-height: 265px;
+  padding: 28px;
+  background: rgba(255,255,255,0.23);
+  border: 1px solid rgba(23,63,96,0.08);
+}
+
+.mentoring-card h3 {
+  margin: 18px 0 14px;
+  font-size: clamp(23px, 2vw, 29px);
+  line-height: 1.16;
+}
+
+.mentoring-card > p:not(.activity-year):not(.activity-type):not(.activity-place) {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  line-height: 1.62;
+  color: rgba(23,63,96,0.76);
+}
+
+.mentoring-card .activity-place {
+  margin-top: 15px;
+}
+
+.knowledge-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.knowledge-item {
+  display: grid;
+  grid-template-columns: 105px minmax(0, 1fr);
+  gap: 26px;
+  padding: 27px 0;
+  border-bottom: 1px solid rgba(23,63,96,0.08);
+}
+
+.knowledge-date {
+  padding-top: 3px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 23px;
+  line-height: 1;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.knowledge-item h3 {
+  margin-bottom: 8px;
+  font-size: clamp(21px, 1.8vw, 27px);
+  line-height: 1.2;
+}
+
+.knowledge-item p {
+  max-width: 800px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(23,63,96,0.76);
+}
+
+.teaching-closing {
+  width: min(100%, 1120px);
+  margin: clamp(76px, 9vw, 120px) auto 0;
+  padding-top: 30px;
+  border-top: 1px solid rgba(23,63,96,0.10);
+}
+
+.teaching-closing p:not(.section-kicker) {
+  max-width: 720px;
+  margin-top: 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  line-height: 1.62;
+  color: rgba(23,63,96,0.76);
+}
+
+.teaching-bottom-strip {
+  width: calc(100% - var(--rail-width));
+  margin-left: var(--rail-width);
+}
+
+@media (hover: hover) {
+  .course-card,
+  .mentoring-card {
+    transition: transform 0.20s ease, background 0.20s ease;
+  }
+
+  .course-card:hover,
+  .mentoring-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.40);
+  }
+}
+
+@media (max-width: 900px) {
+  .teaching-shell > .left-rail {
+    position: fixed;
+    width: var(--rail-width);
+    background-size: 91px auto;
+  }
+
+  .teaching-header {
+    position: sticky;
+    height: auto;
+    min-height: 68px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 68px auto;
+    padding: 0 18px 0 calc(var(--rail-width) + 16px);
+  }
+
+  .teaching-header .brand {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .teaching-header .social-links {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .teaching-header .main-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 22px;
+    overflow-x: auto;
+    padding: 0 0 14px;
+    scrollbar-width: none;
+  }
+
+  .teaching-header .main-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .teaching-header .main-nav a {
+    flex: 0 0 auto;
+  }
+
+  .teaching-header .main-nav a::after {
+    bottom: -7px;
+  }
+
+  .teaching-main {
+    margin-left: var(--rail-width);
+    padding: 46px 24px 80px;
+  }
+
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .feature-activity {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .activity-meta {
+    padding-right: 0;
+    padding-bottom: 20px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(23,63,96,0.10);
+  }
+}
+
+@media (max-width: 600px) {
+  .teaching-main {
+    padding: 38px 18px 70px;
+  }
+
+  .page-ornament span {
+    width: 54px;
+  }
+
+  .teaching-intro h1 {
+    font-size: clamp(43px, 15vw, 61px);
+  }
+
+  .teaching-section {
+    margin-top: 62px;
+  }
+
+  .course-grid,
+  .mentoring-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-card,
+  .mentoring-card {
+    min-height: auto;
+  }
+
+  .feature-activity {
+    padding: 27px 23px;
+  }
+
+  .knowledge-item {
+    grid-template-columns: 66px minmax(0, 1fr);
+    gap: 16px;
+    padding: 23px 0;
+  }
+
+  .knowledge-date {
+    font-size: 20px;
+  }
+
+  .teaching-closing {
+    margin-top: 72px;
+  }
+}
 
